@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ASTableViewCell.h
 //  EES
 //
 //  Created by Albus on 18/11/2019.
@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
+@interface ASTableViewCell : UITableViewCell
+
+- (void)initSubviews;
 
 @end
 
+NS_ASSUME_NONNULL_END

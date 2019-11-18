@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.h
+//  AppDelegate.h
 //  EES
 //
 //  Created by Albus on 18/11/2019.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow * window;
+@property (strong, nonatomic) UIWindow *window;
 
 @end
 

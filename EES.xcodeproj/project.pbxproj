@@ -3,32 +3,60 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9DFC2382F32F0093BF86 /* BaseVC.m */; };
+		4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E032382F4830093BF86 /* UIColor+HexString.m */; };
+		4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E062382F5200093BF86 /* BaseTableVC.m */; };
+		4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E0B2382F57B0093BF86 /* ASView.m */; };
+		4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E0E2382F5A60093BF86 /* ASTableView.m */; };
+		4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E112382F5CB0093BF86 /* ASTableViewCell.m */; };
+		4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E142382F5F10093BF86 /* FadeInFadeOutView.m */; };
+		4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E172382F6A50093BF86 /* BaseNavigationController.m */; };
+		4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */; };
+		4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E212382FA770093BF86 /* HomeVC.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
-		4E9100A723829E6800DD195A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A623829E6800DD195A /* SceneDelegate.m */; };
-		4E9100AA23829E6800DD195A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A923829E6800DD195A /* ViewController.m */; };
-		4E9100AD23829E6800DD195A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AB23829E6800DD195A /* Main.storyboard */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
+		F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0F9DFB2382F32F0093BF86 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		4E0F9DFC2382F32F0093BF86 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		4E0F9DFE2382F3810093BF86 /* EES.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EES.pch; sourceTree = "<group>"; };
+		4E0F9E002382F4450093BF86 /* MacroOfTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroOfTool.h; sourceTree = "<group>"; };
+		4E0F9E022382F4830093BF86 /* UIColor+HexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		4E0F9E032382F4830093BF86 /* UIColor+HexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		4E0F9E052382F5200093BF86 /* BaseTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableVC.h; sourceTree = "<group>"; };
+		4E0F9E062382F5200093BF86 /* BaseTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableVC.m; sourceTree = "<group>"; };
+		4E0F9E0A2382F57B0093BF86 /* ASView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASView.h; sourceTree = "<group>"; };
+		4E0F9E0B2382F57B0093BF86 /* ASView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASView.m; sourceTree = "<group>"; };
+		4E0F9E0D2382F5A60093BF86 /* ASTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTableView.h; sourceTree = "<group>"; };
+		4E0F9E0E2382F5A60093BF86 /* ASTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableView.m; sourceTree = "<group>"; };
+		4E0F9E102382F5CB0093BF86 /* ASTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTableViewCell.h; sourceTree = "<group>"; };
+		4E0F9E112382F5CB0093BF86 /* ASTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTableViewCell.m; sourceTree = "<group>"; };
+		4E0F9E132382F5F10093BF86 /* FadeInFadeOutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FadeInFadeOutView.h; sourceTree = "<group>"; };
+		4E0F9E142382F5F10093BF86 /* FadeInFadeOutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FadeInFadeOutView.m; sourceTree = "<group>"; };
+		4E0F9E162382F6A50093BF86 /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		4E0F9E172382F6A50093BF86 /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		4E0F9E192382F7790093BF86 /* BaseNavigationController+SVProgressHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseNavigationController+SVProgressHud.h"; sourceTree = "<group>"; };
+		4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseNavigationController+SVProgressHud.m"; sourceTree = "<group>"; };
+		4E0F9E202382FA770093BF86 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		4E0F9E212382FA770093BF86 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4E9100A523829E6800DD195A /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		4E9100A623829E6800DD195A /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		4E9100A823829E6800DD195A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4E9100A923829E6800DD195A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4E9100AC23829E6800DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E9100AE23829E6900DD195A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E9100B123829E6900DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E9100B323829E6900DD195A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BD0FBF5C6C7432BCD728E97 /* Pods-EES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EES.release.xcconfig"; path = "Target Support Files/Pods-EES/Pods-EES.release.xcconfig"; sourceTree = "<group>"; };
+		96617527CF7E0E0F4067AF24 /* Pods-EES.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EES.debug.xcconfig"; path = "Target Support Files/Pods-EES/Pods-EES.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +64,141 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		283F94EB95E4C6C3A61C1D8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E0F9DF82382F22A0093BF86 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4E9100A223829E6800DD195A /* AppDelegate.h */,
+				4E9100A323829E6800DD195A /* AppDelegate.m */,
+				4E9100AE23829E6900DD195A /* Assets.xcassets */,
+				4E9100B023829E6900DD195A /* LaunchScreen.storyboard */,
+				4E9100B323829E6900DD195A /* Info.plist */,
+				4E9100B423829E6900DD195A /* main.m */,
+				4E0F9DFE2382F3810093BF86 /* EES.pch */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4E0F9DF92382F2380093BF86 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E012382F4630093BF86 /* Category */,
+				4E0F9DFF2382F4220093BF86 /* Macro */,
+				4E0F9DFA2382F2530093BF86 /* Base */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		4E0F9DFA2382F2530093BF86 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E092382F5460093BF86 /* View */,
+				4E0F9E082382F53E0093BF86 /* VC */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4E0F9DFF2382F4220093BF86 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E002382F4450093BF86 /* MacroOfTool.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		4E0F9E012382F4630093BF86 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E022382F4830093BF86 /* UIColor+HexString.h */,
+				4E0F9E032382F4830093BF86 /* UIColor+HexString.m */,
+				4E0F9E192382F7790093BF86 /* BaseNavigationController+SVProgressHud.h */,
+				4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		4E0F9E082382F53E0093BF86 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9DFB2382F32F0093BF86 /* BaseVC.h */,
+				4E0F9DFC2382F32F0093BF86 /* BaseVC.m */,
+				4E0F9E052382F5200093BF86 /* BaseTableVC.h */,
+				4E0F9E062382F5200093BF86 /* BaseTableVC.m */,
+				4E0F9E162382F6A50093BF86 /* BaseNavigationController.h */,
+				4E0F9E172382F6A50093BF86 /* BaseNavigationController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4E0F9E092382F5460093BF86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E0A2382F57B0093BF86 /* ASView.h */,
+				4E0F9E0B2382F57B0093BF86 /* ASView.m */,
+				4E0F9E0D2382F5A60093BF86 /* ASTableView.h */,
+				4E0F9E0E2382F5A60093BF86 /* ASTableView.m */,
+				4E0F9E102382F5CB0093BF86 /* ASTableViewCell.h */,
+				4E0F9E112382F5CB0093BF86 /* ASTableViewCell.m */,
+				4E0F9E132382F5F10093BF86 /* FadeInFadeOutView.h */,
+				4E0F9E142382F5F10093BF86 /* FadeInFadeOutView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E0F9E1C2382FA4F0093BF86 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E1D2382FA530093BF86 /* VC */,
+				4E0F9E1E2382FA570093BF86 /* View */,
+				4E0F9E1F2382FA5B0093BF86 /* Model */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4E0F9E1D2382FA530093BF86 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F9E202382FA770093BF86 /* HomeVC.h */,
+				4E0F9E212382FA770093BF86 /* HomeVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4E0F9E1E2382FA570093BF86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E0F9E1F2382FA5B0093BF86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4E91009623829E6800DD195A = {
 			isa = PBXGroup;
 			children = (
 				4E9100A123829E6800DD195A /* EES */,
 				4E9100A023829E6800DD195A /* Products */,
+				72AF3C0C6220384690193FF6 /* Pods */,
+				283F94EB95E4C6C3A61C1D8E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,19 +213,20 @@
 		4E9100A123829E6800DD195A /* EES */ = {
 			isa = PBXGroup;
 			children = (
-				4E9100A223829E6800DD195A /* AppDelegate.h */,
-				4E9100A323829E6800DD195A /* AppDelegate.m */,
-				4E9100A523829E6800DD195A /* SceneDelegate.h */,
-				4E9100A623829E6800DD195A /* SceneDelegate.m */,
-				4E9100A823829E6800DD195A /* ViewController.h */,
-				4E9100A923829E6800DD195A /* ViewController.m */,
-				4E9100AB23829E6800DD195A /* Main.storyboard */,
-				4E9100AE23829E6900DD195A /* Assets.xcassets */,
-				4E9100B023829E6900DD195A /* LaunchScreen.storyboard */,
-				4E9100B323829E6900DD195A /* Info.plist */,
-				4E9100B423829E6900DD195A /* main.m */,
+				4E0F9E1C2382FA4F0093BF86 /* Home */,
+				4E0F9DF92382F2380093BF86 /* Others */,
+				4E0F9DF82382F22A0093BF86 /* SupportingFiles */,
 			);
 			path = EES;
+			sourceTree = "<group>";
+		};
+		72AF3C0C6220384690193FF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96617527CF7E0E0F4067AF24 /* Pods-EES.debug.xcconfig */,
+				6BD0FBF5C6C7432BCD728E97 /* Pods-EES.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E9100B823829E6900DD195A /* Build configuration list for PBXNativeTarget "EES" */;
 			buildPhases = (
+				3FF1BE6C6F9B51335DFD66DF /* [CP] Check Pods Manifest.lock */,
 				4E91009B23829E6800DD195A /* Sources */,
 				4E91009C23829E6800DD195A /* Frameworks */,
 				4E91009D23829E6800DD195A /* Resources */,
+				1A0F7E40B9D3166DFE37077F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,35 +290,76 @@
 			files = (
 				4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */,
 				4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */,
-				4E9100AD23829E6800DD195A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A0F7E40B9D3166DFE37077F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EES/Pods-EES-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EES/Pods-EES-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EES/Pods-EES-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FF1BE6C6F9B51335DFD66DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EES-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E91009B23829E6800DD195A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E9100AA23829E6800DD195A /* ViewController.m in Sources */,
+				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
+				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
+				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
+				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
+				4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */,
+				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,
-				4E9100A723829E6800DD195A /* SceneDelegate.m in Sources */,
+				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
+				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
+				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,
+				4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4E9100AB23829E6800DD195A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E9100AC23829E6800DD195A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4E9100B023829E6900DD195A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -225,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -277,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,35 +483,39 @@
 		};
 		4E9100B923829E6900DD195A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96617527CF7E0E0F4067AF24 /* Pods-EES.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y3HHHZ63R;
-				INFOPLIST_FILE = EES/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EES/SupportingFiles/EES.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/EES/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.mes.EES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.mes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4E9100BA23829E6900DD195A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BD0FBF5C6C7432BCD728E97 /* Pods-EES.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y3HHHZ63R;
-				INFOPLIST_FILE = EES/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EES/SupportingFiles/EES.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/EES/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.mes.EES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.mes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
