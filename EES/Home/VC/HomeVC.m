@@ -42,6 +42,18 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [[HttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":@"zq", @"Password":@"123456"} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+        NSLog(@"LOGIN responseJson: %@", responseJson);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"LOGIN error: %@", error);
+    }];
 }
 
 #pragma mark actions

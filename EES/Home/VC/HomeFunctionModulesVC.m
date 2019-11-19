@@ -44,6 +44,17 @@
     [self.clv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsZero);
     }];
+    
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [[HttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:nil success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+        NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
+    }];
 }
 
 #pragma mark UICollectionViewDelegate, UICollectionViewDataSource

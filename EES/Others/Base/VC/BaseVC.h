@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 初始化一些东西
 - (void)initSubviews;
 
+- (void)loadData;
+- (void)getDataFromServer;
+
 - (void)setNavigationBottomLineColor:(UIColor *)color;
 - (void)showNavigationBottomLine:(BOOL)shouldShow;
 

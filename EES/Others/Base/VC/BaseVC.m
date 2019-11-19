@@ -111,6 +111,12 @@
     }
 }
 
-#pragma mark StatusBar
+- (void)loadData {
+    // implement this function in the son classes
+}
+
+- (void)getDataFromServer {
+    // implement this function in the son classes
+}
 
 @end

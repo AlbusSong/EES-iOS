@@ -12,5 +12,6 @@ target 'EES' do
   pod 'SDWebImage'
   pod 'SVProgressHUD'
   pod 'IQKeyboardManager'
+  pod 'YYCache'
 
 end
