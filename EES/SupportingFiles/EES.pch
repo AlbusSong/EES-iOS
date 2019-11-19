@@ -48,4 +48,9 @@
 
 #import "MacroOfTool.h"
 
+
+#pragma mark Tool
+
+#import "GlobalTool.h"
+
 #endif /* EES_pch */

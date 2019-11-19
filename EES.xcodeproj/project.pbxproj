@@ -28,6 +28,8 @@
 		4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75172383DE3900A0BC84 /* UILabel+QuickLabel.m */; };
 		4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */; };
 		4EDB751E2383E4F500A0BC84 /* HomeFunctionModulesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB751D2383E4F500A0BC84 /* HomeFunctionModulesVC.m */; };
+		4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75202383E8F500A0BC84 /* HomeFunctionModuleCell.m */; };
+		4EDB75252383ED5F00A0BC84 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75242383ED5F00A0BC84 /* GlobalTool.m */; };
 		4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */; };
 		F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,10 @@
 		4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SetImage.m"; sourceTree = "<group>"; };
 		4EDB751C2383E4F500A0BC84 /* HomeFunctionModulesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModulesVC.h; sourceTree = "<group>"; };
 		4EDB751D2383E4F500A0BC84 /* HomeFunctionModulesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFunctionModulesVC.m; sourceTree = "<group>"; };
+		4EDB751F2383E8F500A0BC84 /* HomeFunctionModuleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModuleCell.h; sourceTree = "<group>"; };
+		4EDB75202383E8F500A0BC84 /* HomeFunctionModuleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFunctionModuleCell.m; sourceTree = "<group>"; };
+		4EDB75232383ED5F00A0BC84 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
+		4EDB75242383ED5F00A0BC84 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
 		4EE8A06C23831EB8000BC409 /* HomeMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuVC.h; sourceTree = "<group>"; };
 		4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuVC.m; sourceTree = "<group>"; };
 		5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +126,7 @@
 		4E0F9DF92382F2380093BF86 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4EDB75222383ED4E00A0BC84 /* Tool */,
 				4E0F9E012382F4630093BF86 /* Category */,
 				4E0F9DFF2382F4220093BF86 /* Macro */,
 				4E0F9DFA2382F2530093BF86 /* Base */,
@@ -221,6 +228,8 @@
 				4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */,
 				4EDB75132383DCD900A0BC84 /* HomeMenuFunctionCell.h */,
 				4EDB75142383DCD900A0BC84 /* HomeMenuFunctionCell.m */,
+				4EDB751F2383E8F500A0BC84 /* HomeFunctionModuleCell.h */,
+				4EDB75202383E8F500A0BC84 /* HomeFunctionModuleCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +267,15 @@
 				4E0F9DF82382F22A0093BF86 /* SupportingFiles */,
 			);
 			path = EES;
+			sourceTree = "<group>";
+		};
+		4EDB75222383ED4E00A0BC84 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB75232383ED5F00A0BC84 /* GlobalTool.h */,
+				4EDB75242383ED5F00A0BC84 /* GlobalTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		72AF3C0C6220384690193FF6 /* Pods */ = {
@@ -386,6 +404,7 @@
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
 				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
+				4EDB75252383ED5F00A0BC84 /* GlobalTool.m in Sources */,
 				4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */,
 				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
 				4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */,
@@ -394,6 +413,7 @@
 				4E9100B523829E6900DD195A /* main.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
+				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,
 				4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */,
 				4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,

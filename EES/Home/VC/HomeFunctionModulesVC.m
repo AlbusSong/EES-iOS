@@ -7,8 +7,11 @@
 //
 
 #import "HomeFunctionModulesVC.h"
+#import "HomeFunctionModuleCell.h"
 
-@interface HomeFunctionModulesVC ()
+@interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) UICollectionView *clv;
 
 @end
 
@@ -25,16 +28,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self.clv = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    self.clv.clipsToBounds = YES;
+    self.clv.backgroundColor = [UIColor clearColor];
+    self.clv.delaysContentTouches = NO;
+    self.clv.alwaysBounceVertical = YES;
+    self.clv.showsHorizontalScrollIndicator = NO;
+    self.clv.delegate = self;
+    self.clv.dataSource = self;
+    [self.clv registerClass:[HomeFunctionModuleCell class] forCellWithReuseIdentifier:HomeFunctionModuleCell.cellIdentifier];
+    [self.view addSubview:self.clv];
+    [self.clv mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.insets(UIEdgeInsetsZero);
+    }];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark UICollectionViewDelegate, UICollectionViewDataSource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
-*/
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 9;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat width = floorf((ScreenW - 10*2 - 10*2)/3.0);
+    return CGSizeMake(width, 100);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeZero;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeZero;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    
+    return UIEdgeInsetsMake(20, 10, 20, 10);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 20;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HomeFunctionModuleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HomeFunctionModuleCell.cellIdentifier forIndexPath:indexPath];
+    
+    
+    return cell;
+}
 
 @end
