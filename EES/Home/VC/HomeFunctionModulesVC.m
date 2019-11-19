@@ -9,6 +9,8 @@
 #import "HomeFunctionModulesVC.h"
 #import "HomeFunctionModuleCell.h"
 
+#import "ProblemNewReportVC.h"
+
 @interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *clv;
@@ -60,7 +62,10 @@
 #pragma mark UICollectionViewDelegate, UICollectionViewDataSource
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.item == 0) {
+        ProblemNewReportVC * vc = [[ProblemNewReportVC alloc] init];
+        [self pushVC:vc];
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

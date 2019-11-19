@@ -33,6 +33,10 @@
 		4EDB752A2383F42C00A0BC84 /* HttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75292383F42C00A0BC84 /* HttpDigger.m */; };
 		4EDB75312383F86A00A0BC84 /* MeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75302383F86A00A0BC84 /* MeInfo.m */; };
 		4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75392383FB8900A0BC84 /* LYLUnicode.m */; };
+		4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */; };
+		4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */; };
+		4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */; };
+		4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */; };
 		4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */; };
 		F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +99,14 @@
 		4EDB75322383F91200A0BC84 /* MacroOfNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroOfNotification.h; sourceTree = "<group>"; };
 		4EDB75382383FB8900A0BC84 /* LYLUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYLUnicode.h; sourceTree = "<group>"; };
 		4EDB75392383FB8900A0BC84 /* LYLUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYLUnicode.m; sourceTree = "<group>"; };
+		4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemNewReportVC.h; sourceTree = "<group>"; };
+		4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemNewReportVC.m; sourceTree = "<group>"; };
+		4EDB75412384415200A0BC84 /* ProblemNewReportSelectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemNewReportSelectionCell.h; sourceTree = "<group>"; };
+		4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemNewReportSelectionCell.m; sourceTree = "<group>"; };
+		4EDB75442384417E00A0BC84 /* ProblemNewReportContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemNewReportContentCell.h; sourceTree = "<group>"; };
+		4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemNewReportContentCell.m; sourceTree = "<group>"; };
+		4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemAnswerSelectionVC.h; sourceTree = "<group>"; };
+		4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemAnswerSelectionVC.m; sourceTree = "<group>"; };
 		4EE8A06C23831EB8000BC409 /* HomeMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuVC.h; sourceTree = "<group>"; };
 		4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuVC.m; sourceTree = "<group>"; };
 		5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +294,7 @@
 		4E9100A123829E6800DD195A /* EES */ = {
 			isa = PBXGroup;
 			children = (
+				4EDB753B23843FD100A0BC84 /* Problem */,
 				4E0F9E1C2382FA4F0093BF86 /* Home */,
 				4E0F9DF92382F2380093BF86 /* Others */,
 				4E0F9DF82382F22A0093BF86 /* SupportingFiles */,
@@ -331,6 +344,37 @@
 				4EDB75392383FB8900A0BC84 /* LYLUnicode.m */,
 			);
 			path = LYLUnicode;
+			sourceTree = "<group>";
+		};
+		4EDB753B23843FD100A0BC84 /* Problem */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB753C23843FD900A0BC84 /* VC */,
+				4EDB753D23843FDD00A0BC84 /* View */,
+			);
+			path = Problem;
+			sourceTree = "<group>";
+		};
+		4EDB753C23843FD900A0BC84 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */,
+				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
+				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
+				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4EDB753D23843FDD00A0BC84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB75412384415200A0BC84 /* ProblemNewReportSelectionCell.h */,
+				4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */,
+				4EDB75442384417E00A0BC84 /* ProblemNewReportContentCell.h */,
+				4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		72AF3C0C6220384690193FF6 /* Pods */ = {
@@ -457,6 +501,7 @@
 			files = (
 				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
+				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
 				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
 				4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */,
@@ -466,8 +511,11 @@
 				4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */,
 				4EDB752A2383F42C00A0BC84 /* HttpDigger.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
+				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
+				4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,
+				4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
 				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,
