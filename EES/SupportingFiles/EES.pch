@@ -38,6 +38,10 @@
 #pragma mark Category
 
 #import "UIColor+HexString.h"
+#import "UICollectionViewCell+CellIdentifier.h"
+#import "UITableViewCell+CellIdentifier.h"
+#import "UILabel+QuickLabel.h"
+#import "UIImageView+SetImage.h"
 
 
 #pragma mark Macro

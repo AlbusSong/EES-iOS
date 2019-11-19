@@ -7,6 +7,8 @@
 //
 
 #import "HomeVC.h"
+#import "HomeMenuVC.h"
+#import "HomeFunctionModulesVC.h"
 
 @interface HomeVC ()
 
@@ -18,6 +20,9 @@
     self = [super init];
     if (self) {
         self.title = @"智无形云MES";
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"M" style:UIBarButtonItemStyleDone target:self action:@selector(gotoMenu)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"S" style:UIBarButtonItemStyleDone target:self action:@selector(gotoSearch)];
     }
     return self;
 }
@@ -36,17 +41,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = RANDOM_COLOR;
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark actions
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)gotoMenu {
+    HomeMenuVC *vcOfMenu = [[HomeMenuVC alloc] init];
+    WS(weakSelf)
+    vcOfMenu.blockOfGoingToFunctions = ^{
+        HomeFunctionModulesVC *vc = [[HomeFunctionModulesVC alloc] init];
+        [weakSelf pushVC:vc];
+    };
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vcOfMenu];
+    nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    nav.navigationBar.hidden = YES;
+    nav.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    [self presentViewController:nav animated:NO completion:nil];
 }
-*/
+
+- (void)gotoSearch {
+    
+}
 
 @end

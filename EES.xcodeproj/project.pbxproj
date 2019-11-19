@@ -21,6 +21,14 @@
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
+		4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */; };
+		4EDB750F2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB750E2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m */; };
+		4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75112383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m */; };
+		4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75142383DCD900A0BC84 /* HomeMenuFunctionCell.m */; };
+		4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75172383DE3900A0BC84 /* UILabel+QuickLabel.m */; };
+		4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */; };
+		4EDB751E2383E4F500A0BC84 /* HomeFunctionModulesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB751D2383E4F500A0BC84 /* HomeFunctionModulesVC.m */; };
+		4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */; };
 		F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +62,22 @@
 		4E9100B123829E6900DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E9100B323829E6900DD195A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EDB750A2383DB0600A0BC84 /* HomeMenuUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuUserCell.h; sourceTree = "<group>"; };
+		4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuUserCell.m; sourceTree = "<group>"; };
+		4EDB750D2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CellIdentifier.h"; sourceTree = "<group>"; };
+		4EDB750E2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+CellIdentifier.m"; sourceTree = "<group>"; };
+		4EDB75102383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+CellIdentifier.h"; sourceTree = "<group>"; };
+		4EDB75112383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+CellIdentifier.m"; sourceTree = "<group>"; };
+		4EDB75132383DCD900A0BC84 /* HomeMenuFunctionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuFunctionCell.h; sourceTree = "<group>"; };
+		4EDB75142383DCD900A0BC84 /* HomeMenuFunctionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuFunctionCell.m; sourceTree = "<group>"; };
+		4EDB75162383DE3900A0BC84 /* UILabel+QuickLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+QuickLabel.h"; sourceTree = "<group>"; };
+		4EDB75172383DE3900A0BC84 /* UILabel+QuickLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QuickLabel.m"; sourceTree = "<group>"; };
+		4EDB75192383DFD700A0BC84 /* UIImageView+SetImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SetImage.h"; sourceTree = "<group>"; };
+		4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SetImage.m"; sourceTree = "<group>"; };
+		4EDB751C2383E4F500A0BC84 /* HomeFunctionModulesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModulesVC.h; sourceTree = "<group>"; };
+		4EDB751D2383E4F500A0BC84 /* HomeFunctionModulesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFunctionModulesVC.m; sourceTree = "<group>"; };
+		4EE8A06C23831EB8000BC409 /* HomeMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuVC.h; sourceTree = "<group>"; };
+		4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuVC.m; sourceTree = "<group>"; };
 		5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD0FBF5C6C7432BCD728E97 /* Pods-EES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EES.release.xcconfig"; path = "Target Support Files/Pods-EES/Pods-EES.release.xcconfig"; sourceTree = "<group>"; };
 		96617527CF7E0E0F4067AF24 /* Pods-EES.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EES.debug.xcconfig"; path = "Target Support Files/Pods-EES/Pods-EES.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,9 +110,9 @@
 				4E9100A323829E6800DD195A /* AppDelegate.m */,
 				4E9100AE23829E6900DD195A /* Assets.xcassets */,
 				4E9100B023829E6900DD195A /* LaunchScreen.storyboard */,
+				4E0F9DFE2382F3810093BF86 /* EES.pch */,
 				4E9100B323829E6900DD195A /* Info.plist */,
 				4E9100B423829E6900DD195A /* main.m */,
-				4E0F9DFE2382F3810093BF86 /* EES.pch */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -127,6 +151,14 @@
 				4E0F9E032382F4830093BF86 /* UIColor+HexString.m */,
 				4E0F9E192382F7790093BF86 /* BaseNavigationController+SVProgressHud.h */,
 				4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */,
+				4EDB750D2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.h */,
+				4EDB750E2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m */,
+				4EDB75102383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.h */,
+				4EDB75112383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m */,
+				4EDB75162383DE3900A0BC84 /* UILabel+QuickLabel.h */,
+				4EDB75172383DE3900A0BC84 /* UILabel+QuickLabel.m */,
+				4EDB75192383DFD700A0BC84 /* UIImageView+SetImage.h */,
+				4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -174,6 +206,10 @@
 			children = (
 				4E0F9E202382FA770093BF86 /* HomeVC.h */,
 				4E0F9E212382FA770093BF86 /* HomeVC.m */,
+				4EE8A06C23831EB8000BC409 /* HomeMenuVC.h */,
+				4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */,
+				4EDB751C2383E4F500A0BC84 /* HomeFunctionModulesVC.h */,
+				4EDB751D2383E4F500A0BC84 /* HomeFunctionModulesVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -181,6 +217,10 @@
 		4E0F9E1E2382FA570093BF86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4EDB750A2383DB0600A0BC84 /* HomeMenuUserCell.h */,
+				4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */,
+				4EDB75132383DCD900A0BC84 /* HomeMenuFunctionCell.h */,
+				4EDB75142383DCD900A0BC84 /* HomeMenuFunctionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,16 +384,24 @@
 			files = (
 				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
+				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
 				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
+				4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */,
 				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
 				4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,
+				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
+				4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */,
+				4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
 				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,
+				4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */,
 				4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */,
+				4EDB750F2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m in Sources */,
+				4EDB751E2383E4F500A0BC84 /* HomeFunctionModulesVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
