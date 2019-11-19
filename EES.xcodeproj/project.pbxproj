@@ -37,6 +37,8 @@
 		4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */; };
 		4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */; };
 		4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */; };
+		4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */; };
+		4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */; };
 		4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */; };
 		F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +109,10 @@
 		4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemNewReportContentCell.m; sourceTree = "<group>"; };
 		4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemAnswerSelectionVC.h; sourceTree = "<group>"; };
 		4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemAnswerSelectionVC.m; sourceTree = "<group>"; };
+		4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemReportListVC.h; sourceTree = "<group>"; };
+		4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemReportListVC.m; sourceTree = "<group>"; };
+		4EE72F9E23849ECD00A569E4 /* ProblemReportItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemReportItemCell.h; sourceTree = "<group>"; };
+		4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemReportItemCell.m; sourceTree = "<group>"; };
 		4EE8A06C23831EB8000BC409 /* HomeMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuVC.h; sourceTree = "<group>"; };
 		4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuVC.m; sourceTree = "<group>"; };
 		5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -362,6 +368,8 @@
 				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
 				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
 				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
+				4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */,
+				4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -373,6 +381,8 @@
 				4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */,
 				4EDB75442384417E00A0BC84 /* ProblemNewReportContentCell.h */,
 				4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */,
+				4EE72F9E23849ECD00A569E4 /* ProblemReportItemCell.h */,
+				4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,11 +517,13 @@
 				4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */,
 				4EDB75252383ED5F00A0BC84 /* GlobalTool.m in Sources */,
 				4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */,
+				4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */,
 				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
 				4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */,
 				4EDB752A2383F42C00A0BC84 /* HttpDigger.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
+				4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
 				4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,

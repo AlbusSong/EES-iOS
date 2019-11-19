@@ -63,5 +63,6 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define DEFAULT_VIEW_BACKGROUND_COLOR [UIColor colorWithHexString:@"F4F3F8"]
 #define MAIN_COLOR @"4897ed"
 #define MAIN_COLOR_BLACK @"333333"
+#define MAIN_COLOR_GRAY @"dddddd"
 
 #endif /* MacroOfTool_h */

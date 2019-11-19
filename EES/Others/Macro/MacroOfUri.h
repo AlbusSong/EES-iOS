@@ -18,4 +18,7 @@
 // 首页各功能条数
 #define HOME_FUNCTION_MODULES @"MainPage/LoadCount"
 
+// 加载报修呼叫列表
+#define PROBLEM_REPORT_LIST @"BMRequestStateList/LoadList"
+
 #endif /* MacroOfUri_h */
