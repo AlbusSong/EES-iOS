@@ -42,7 +42,36 @@
         make.edges.insets(UIEdgeInsetsMake(0, 0, 50, 0));
     }];
     
+    NSArray *arrOfFunction = @[@"开始维修", @"等级修改", @"角色变更", @"委外申请", @"维修报工"];
+    CGFloat btnWidth = floorf((ScreenW - 4*1)/5.0);
+    for (int i = 0; i < arrOfFunction.count; i++) {
+        UIButton *btnFunction = [UIButton buttonWithType:UIButtonTypeCustom];
+        btnFunction.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        [btnFunction setTitle:arrOfFunction[i] forState:UIControlStateNormal];
+        [btnFunction setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [btnFunction setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal
+         ];
+        btnFunction.tag = 10000 + i;
+        [btnFunction addTarget:self action:@selector(btnFunctionClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btnFunction];
+        [btnFunction mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view);
+            make.height.mas_equalTo(50);
+            make.width.mas_equalTo(btnWidth);
+            make.left.offset(i*(btnWidth+1));
+            if (i == 4) {
+                make.right.equalTo(self.view);
+            }
+        }];
+    }
+}
+
+#pragma mark gestures
+
+- (void)btnFunctionClicked:(UIButton *)sender {
+    NSInteger index = sender.tag % 10;
     
+    NSLog(@"btnFunctionClicked: %li", index);
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
