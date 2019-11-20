@@ -23,6 +23,8 @@
 		4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */; };
 		4E5A35FD2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35FC2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m */; };
 		4E5A36002385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */; };
+		4E5A36032385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36022385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m */; };
+		4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36052385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -86,6 +88,10 @@
 		4E5A35FC2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceDetailReportInfoCell.m; sourceTree = "<group>"; };
 		4E5A35FE2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailInfoCell.h; sourceTree = "<group>"; };
 		4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceDetailInfoCell.m; sourceTree = "<group>"; };
+		4E5A36012385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceConfirmationListVC.h; sourceTree = "<group>"; };
+		4E5A36022385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceConfirmationListVC.m; sourceTree = "<group>"; };
+		4E5A36042385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceConfirmationItemCell.h; sourceTree = "<group>"; };
+		4E5A36052385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceConfirmationItemCell.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -422,6 +428,8 @@
 				4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */,
 				4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */,
 				4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */,
+				4E5A36012385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.h */,
+				4E5A36022385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -439,6 +447,8 @@
 				4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */,
 				4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */,
 				4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */,
+				4E5A36042385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.h */,
+				4E5A36052385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,6 +594,7 @@
 				4E5A36002385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
+				4E5A36032385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m in Sources */,
 				4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
 				4E5A35FD2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m in Sources */,
@@ -599,6 +610,7 @@
 				4EDB75312383F86A00A0BC84 /* MeInfo.m in Sources */,
 				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
+				4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */,
 				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,
 				4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */,
 				4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */,
