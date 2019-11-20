@@ -17,10 +17,18 @@
 		4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E172382F6A50093BF86 /* BaseNavigationController.m */; };
 		4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */; };
 		4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E212382FA770093BF86 /* HomeVC.m */; };
+		4E3082802385530100AF28D2 /* ProblemMaintenanceListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */; };
+		4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */; };
+		4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */; };
+		4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */; };
+		4E5A35FD2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35FC2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m */; };
+		4E5A36002385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
+		4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */; };
+		4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */; };
 		4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */; };
 		4EDB750F2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB750E2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m */; };
 		4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75112383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m */; };
@@ -66,6 +74,18 @@
 		4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseNavigationController+SVProgressHud.m"; sourceTree = "<group>"; };
 		4E0F9E202382FA770093BF86 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		4E0F9E212382FA770093BF86 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		4E30827E2385530100AF28D2 /* ProblemMaintenanceListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceListVC.h; sourceTree = "<group>"; };
+		4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceListVC.m; sourceTree = "<group>"; };
+		4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceItemCell.h; sourceTree = "<group>"; };
+		4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceItemCell.m; sourceTree = "<group>"; };
+		4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailVC.h; sourceTree = "<group>"; };
+		4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceDetailVC.m; sourceTree = "<group>"; };
+		4E5A35F82385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailTitleCell.h; sourceTree = "<group>"; };
+		4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceDetailTitleCell.m; sourceTree = "<group>"; };
+		4E5A35FB2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailReportInfoCell.h; sourceTree = "<group>"; };
+		4E5A35FC2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceDetailReportInfoCell.m; sourceTree = "<group>"; };
+		4E5A35FE2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailInfoCell.h; sourceTree = "<group>"; };
+		4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceDetailInfoCell.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +93,10 @@
 		4E9100B123829E6900DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E9100B323829E6900DD195A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4ECDAACD23852F030063FFF9 /* ProblemSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemSearchBar.h; sourceTree = "<group>"; };
+		4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemSearchBar.m; sourceTree = "<group>"; };
+		4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QuickTextField.h"; sourceTree = "<group>"; };
+		4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+QuickTextField.m"; sourceTree = "<group>"; };
 		4EDB750A2383DB0600A0BC84 /* HomeMenuUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuUserCell.h; sourceTree = "<group>"; };
 		4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuUserCell.m; sourceTree = "<group>"; };
 		4EDB750D2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CellIdentifier.h"; sourceTree = "<group>"; };
@@ -204,6 +228,8 @@
 				4EDB75172383DE3900A0BC84 /* UILabel+QuickLabel.m */,
 				4EDB75192383DFD700A0BC84 /* UIImageView+SetImage.h */,
 				4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */,
+				4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */,
+				4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -279,6 +305,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4E5A35F72385E41600ECB3B6 /* MaintenanceDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				4E5A35F82385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.h */,
+				4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */,
+				4E5A35FB2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.h */,
+				4E5A35FC2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m */,
+				4E5A35FE2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.h */,
+				4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */,
+			);
+			path = MaintenanceDetailCell;
+			sourceTree = "<group>";
+		};
 		4E91009623829E6800DD195A = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +345,15 @@
 				4E0F9DF82382F22A0093BF86 /* SupportingFiles */,
 			);
 			path = EES;
+			sourceTree = "<group>";
+		};
+		4ECDAACC23852EE40063FFF9 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				4ECDAACD23852F030063FFF9 /* ProblemSearchBar.h */,
+				4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		4EDB75222383ED4E00A0BC84 /* Tool */ = {
@@ -370,6 +418,10 @@
 				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
 				4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */,
 				4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */,
+				4E30827E2385530100AF28D2 /* ProblemMaintenanceListVC.h */,
+				4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */,
+				4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */,
+				4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -377,12 +429,16 @@
 		4EDB753D23843FDD00A0BC84 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E5A35F72385E41600ECB3B6 /* MaintenanceDetailCell */,
+				4ECDAACC23852EE40063FFF9 /* Global */,
 				4EDB75412384415200A0BC84 /* ProblemNewReportSelectionCell.h */,
 				4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */,
 				4EDB75442384417E00A0BC84 /* ProblemNewReportContentCell.h */,
 				4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */,
 				4EE72F9E23849ECD00A569E4 /* ProblemReportItemCell.h */,
 				4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */,
+				4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */,
+				4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -514,26 +570,34 @@
 				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
 				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
+				4E3082802385530100AF28D2 /* ProblemMaintenanceListVC.m in Sources */,
 				4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */,
 				4EDB75252383ED5F00A0BC84 /* GlobalTool.m in Sources */,
 				4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */,
+				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
+				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
 				4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */,
+				4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */,
 				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
 				4E0F9E152382F5F10093BF86 /* FadeInFadeOutView.m in Sources */,
 				4EDB752A2383F42C00A0BC84 /* HttpDigger.m in Sources */,
+				4E5A36002385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
 				4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
+				4E5A35FD2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m in Sources */,
 				4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,
 				4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
+				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
 				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,
 				4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */,
 				4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */,
 				4EDB75312383F86A00A0BC84 /* MeInfo.m in Sources */,
+				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
 				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,
 				4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */,

@@ -11,6 +11,7 @@
 
 #import "ProblemNewReportVC.h"
 #import "ProblemReportListVC.h"
+#import "ProblemMaintenanceListVC.h"
 
 @interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -68,6 +69,9 @@
         [self pushVC:vc];
     } else if (indexPath.item == 1) {
         ProblemReportListVC *vc = [[ProblemReportListVC alloc] init];
+        [self pushVC:vc];
+    } else if (indexPath.item == 2) {
+        ProblemMaintenanceListVC *vc = [[ProblemMaintenanceListVC alloc] init];
         [self pushVC:vc];
     }
 }

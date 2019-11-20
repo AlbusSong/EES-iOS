@@ -9,7 +9,11 @@
 #import "ProblemReportListVC.h"
 #import "ProblemReportItemCell.h"
 
-@interface ProblemReportListVC ()
+#import "ProblemSearchBar.h"
+
+@interface ProblemReportListVC () <ProblemSearchBarDelegate>
+
+@property (nonatomic, copy) NSString *searchContent;
 
 @end
 
@@ -27,9 +31,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    ProblemSearchBar *searchBar = [[ProblemSearchBar alloc] init];
+    searchBar.backgroundColor = UIColor.whiteColor;
+    searchBar.delegate = self;
+    [searchBar setSearchHint:@"设备名称"];
+    [self.view addSubview:searchBar];
+    [searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(0);
+        make.left.right.equalTo(self.view);
+        make.height.mas_equalTo(45);
+    }];
+    
     [self.tableView registerClass:[ProblemReportItemCell class] forCellReuseIdentifier:ProblemReportItemCell.cellIdentifier];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.insets(UIEdgeInsetsMake(0, 0, 50, 0));
+        make.edges.insets(UIEdgeInsetsMake(45, 0, 50, 0));
     }];
     
     UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -67,6 +82,20 @@
     }];
 }
 
+#pragma mark ProblemSearchBarDelegate
+
+- (void)searchContentChangedTo:(NSString *)newSearchContent {
+    self.searchContent = newSearchContent;
+}
+
+- (void)tryToSearch {
+    if (self.searchContent.length == 0) {
+        return;
+    }
+    
+    [self.view endEditing:YES];
+}
+
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,7 +116,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 15;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

@@ -47,6 +47,7 @@
 #import "UITableViewCell+CellIdentifier.h"
 #import "UILabel+QuickLabel.h"
 #import "UIImageView+SetImage.h"
+#import "UITextField+QuickTextField.h"
 
 
 #pragma mark Macro

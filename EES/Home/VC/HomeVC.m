@@ -43,7 +43,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self getDataFromServer];
+//    [self getDataFromServer];
 }
 
 #pragma mark network
