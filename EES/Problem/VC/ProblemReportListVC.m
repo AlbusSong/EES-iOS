@@ -62,7 +62,7 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[HttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode":@"GDWY4H09201"} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[HttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode":@""} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
         NSLog(@"PROBLEM_REPORT_LIST: %@", responseJson);
     }];
 }
@@ -82,7 +82,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    return UITableViewAutomaticDimension;
+//    return 150;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
