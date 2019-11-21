@@ -14,6 +14,7 @@
 #import "ProblemMaintenanceListVC.h"
 #import "ProblemMaintenanceConfirmationListVC.h"
 #import "ProblemPeriodicalMaintenanceListVC.h"
+#import "ProblemMaintenancePlanListVC.h"
 
 @interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -80,6 +81,9 @@
         [self pushVC:vc];
     } else if (indexPath.item == 4) {
         ProblemPeriodicalMaintenanceListVC *vc = [[ProblemPeriodicalMaintenanceListVC alloc] init];
+        [self pushVC:vc];
+    } else if (indexPath.item == 5) {
+        ProblemMaintenancePlanListVC *vc = [[ProblemMaintenancePlanListVC alloc] init];
         [self pushVC:vc];
     }
 }

@@ -1,14 +1,14 @@
 //
-//  ProblemPeriodicalMaintenanceItemCell.m
+//  ProblemMaintenancePlanItemCell.m
 //  EES
 //
 //  Created by Albus on 2019-11-21.
 //  Copyright © 2019 Zivos. All rights reserved.
 //
 
-#import "ProblemPeriodicalMaintenanceItemCell.h"
+#import "ProblemMaintenancePlanItemCell.h"
 
-@interface ProblemPeriodicalMaintenanceItemCell ()
+@interface ProblemMaintenancePlanItemCell ()
 
 @property (nonatomic, strong) UILabel *txtOfTitle;
 
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation ProblemPeriodicalMaintenanceItemCell
+@implementation ProblemMaintenancePlanItemCell
 
 - (void)initSubviews {
     self.selectionStyle = UITableViewCellSelectionStyleDefault;

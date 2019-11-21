@@ -37,7 +37,7 @@
 //    self.tableView.placeholderEnable = YES;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.insets(UIEdgeInsetsMake(NAVIGATIONBAR_HEIGHT, 0, 0, 0));
+        make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
 
