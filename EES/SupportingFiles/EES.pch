@@ -33,6 +33,7 @@
 #import "BaseNavigationController.h"
 #import "BaseVC.h"
 #import "BaseTableVC.h"
+#import "BasePageVC.h"
 
 
 #pragma mark Model

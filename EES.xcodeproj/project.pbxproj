@@ -18,6 +18,9 @@
 		4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */; };
 		4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E212382FA770093BF86 /* HomeVC.m */; };
 		4E3082802385530100AF28D2 /* ProblemMaintenanceListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */; };
+		4E552F8F2387038500FC198B /* ProblemGroupCheckDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */; };
+		4E552F922387042A00FC198B /* BasePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F912387042A00FC198B /* BasePageVC.m */; };
+		4E552F952387065C00FC198B /* ProblemGroupCheckDetailItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */; };
 		4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */; };
 		4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */; };
 		4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */; };
@@ -94,6 +97,12 @@
 		4E0F9E212382FA770093BF86 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		4E30827E2385530100AF28D2 /* ProblemMaintenanceListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceListVC.h; sourceTree = "<group>"; };
 		4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceListVC.m; sourceTree = "<group>"; };
+		4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemGroupCheckDetailVC.h; sourceTree = "<group>"; };
+		4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemGroupCheckDetailVC.m; sourceTree = "<group>"; };
+		4E552F902387042A00FC198B /* BasePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePageVC.h; sourceTree = "<group>"; };
+		4E552F912387042A00FC198B /* BasePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePageVC.m; sourceTree = "<group>"; };
+		4E552F932387065C00FC198B /* ProblemGroupCheckDetailItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemGroupCheckDetailItemCell.h; sourceTree = "<group>"; };
+		4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemGroupCheckDetailItemCell.m; sourceTree = "<group>"; };
 		4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceItemCell.h; sourceTree = "<group>"; };
 		4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceItemCell.m; sourceTree = "<group>"; };
 		4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailVC.h; sourceTree = "<group>"; };
@@ -297,6 +306,8 @@
 				4E0F9E062382F5200093BF86 /* BaseTableVC.m */,
 				4E0F9E162382F6A50093BF86 /* BaseNavigationController.h */,
 				4E0F9E172382F6A50093BF86 /* BaseNavigationController.m */,
+				4E552F902387042A00FC198B /* BasePageVC.h */,
+				4E552F912387042A00FC198B /* BasePageVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -411,6 +422,8 @@
 				4E5A36352386B2EC00ECB3B6 /* SegmentTitlesView.m */,
 				4E5A36372386B64700ECB3B6 /* ProblemCheckTitleView.h */,
 				4E5A36382386B64700ECB3B6 /* ProblemCheckTitleView.m */,
+				4E552F932387065C00FC198B /* ProblemGroupCheckDetailItemCell.h */,
+				4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */,
 			);
 			path = GroupCheck;
 			sourceTree = "<group>";
@@ -533,6 +546,8 @@
 				4E5A362B2386A02700ECB3B6 /* ProblemGroupCheckListVC.m */,
 				4E5A36312386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.h */,
 				4E5A36322386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m */,
+				4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */,
+				4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -705,6 +720,7 @@
 				4EDB752A2383F42C00A0BC84 /* HttpDigger.m in Sources */,
 				4E5A3620238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.m in Sources */,
 				4E5A36002385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m in Sources */,
+				4E552F8F2387038500FC198B /* ProblemGroupCheckDetailVC.m in Sources */,
 				4E5A360F238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
@@ -713,8 +729,10 @@
 				4E5A360C2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m in Sources */,
 				4E5A362C2386A02700ECB3B6 /* ProblemGroupCheckListVC.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
+				4E552F922387042A00FC198B /* BasePageVC.m in Sources */,
 				4E5A36362386B2EC00ECB3B6 /* SegmentTitlesView.m in Sources */,
 				4E5A35FD2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m in Sources */,
+				4E552F952387065C00FC198B /* ProblemGroupCheckDetailItemCell.m in Sources */,
 				4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */,
 				4E5A36092385FB3500ECB3B6 /* ProblemPeriodicalMaintenanceListVC.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,
