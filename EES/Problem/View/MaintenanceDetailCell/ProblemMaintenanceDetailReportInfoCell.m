@@ -64,29 +64,29 @@
     }];
     self.txtOfType.text = @"类型：机械";
     
-    self.txtOfType = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
-    [self.txtOfType mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.txtOfBaoxiu = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    [self.txtOfBaoxiu mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfChanxian);
         make.top.equalTo(self.txtOfChanxian.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfType.text = @"报修：11/11 08:33";
+    self.txtOfBaoxiu.text = @"报修：11/11 08:33";
     
     self.txtOfBaoxiuren = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfBaoxiuren.textAlignment = NSTextAlignmentRight;
     self.txtOfBaoxiuren.adjustsFontSizeToFitWidth = YES;
     [self.txtOfBaoxiuren mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.txtOfType);
+        make.top.equalTo(self.txtOfBaoxiu);
         make.height.mas_equalTo(21);
-        make.right.equalTo(self.txtOfType);
-        make.left.equalTo(self.txtOfType.mas_right).offset(3);
+        make.right.equalTo(self.contentView).offset(-10);
+        make.left.equalTo(self.txtOfBaoxiu.mas_right).offset(3);
     }];
     self.txtOfBaoxiuren.text = @"报修人：彭金华";
     
     self.txtOfXianxiang = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfXianxiang mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.txtOfType);
-        make.top.equalTo(self.txtOfType.mas_bottom).offset(0);
+        make.left.equalTo(self.txtOfBaoxiu);
+        make.top.equalTo(self.txtOfBaoxiu.mas_bottom).offset(0);
         make.right.offset(-10);
         make.height.mas_greaterThanOrEqualTo(21);
         make.bottom.offset(-10);
