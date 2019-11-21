@@ -9,6 +9,8 @@
 #import "ProblemMaintenancePlanListVC.h"
 #import "ProblemMaintenancePlanItemCell.h"
 
+#import "ProblemMaintenancePlanDetailVC.h"
+
 @interface ProblemMaintenancePlanListVC ()
 
 @end
@@ -28,6 +30,9 @@
     // Do any additional setup after loading the view.
     
     [self.tableView registerClass:[ProblemMaintenancePlanItemCell class] forCellReuseIdentifier:ProblemMaintenancePlanItemCell.cellIdentifier];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -35,8 +40,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-//    ProblemPeriodicalMaintenanceDetailVC *vc = [[ProblemPeriodicalMaintenanceDetailVC alloc] init];
-//    [self pushVC:vc];
+    ProblemMaintenancePlanDetailVC *vc = [[ProblemMaintenancePlanDetailVC alloc] init];
+    [self pushVC:vc];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

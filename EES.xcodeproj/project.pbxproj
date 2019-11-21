@@ -33,6 +33,9 @@
 		4E5A361923867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A361823867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m */; };
 		4E5A361C2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A361B2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m */; };
 		4E5A3620238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A361F238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.m */; };
+		4E5A3623238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A3622238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m */; };
+		4E5A36262386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36252386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.m */; };
+		4E5A36292386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36282386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -116,6 +119,12 @@
 		4E5A361B2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenancePlanListVC.m; sourceTree = "<group>"; };
 		4E5A361E238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenancePlanItemCell.h; sourceTree = "<group>"; };
 		4E5A361F238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenancePlanItemCell.m; sourceTree = "<group>"; };
+		4E5A3621238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenancePlanDetailVC.h; sourceTree = "<group>"; };
+		4E5A3622238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenancePlanDetailVC.m; sourceTree = "<group>"; };
+		4E5A36242386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenancePlanDetailTitleCell.h; sourceTree = "<group>"; };
+		4E5A36252386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenancePlanDetailTitleCell.m; sourceTree = "<group>"; };
+		4E5A36272386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenancePlanDetailInfoCell.h; sourceTree = "<group>"; };
+		4E5A36282386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenancePlanDetailInfoCell.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -335,9 +344,11 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4E5A35F72385E41600ECB3B6 /* MaintenanceDetailCell */ = {
+		4E5A35F72385E41600ECB3B6 /* Maintenance */ = {
 			isa = PBXGroup;
 			children = (
+				4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */,
+				4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */,
 				4E5A35F82385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.h */,
 				4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */,
 				4E5A35FB2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.h */,
@@ -345,12 +356,14 @@
 				4E5A35FE2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.h */,
 				4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */,
 			);
-			path = MaintenanceDetailCell;
+			path = Maintenance;
 			sourceTree = "<group>";
 		};
-		4E5A361023867B6800ECB3B6 /* PeriodicalMaintenanceDetailCell */ = {
+		4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */ = {
 			isa = PBXGroup;
 			children = (
+				4E5A360A2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.h */,
+				4E5A360B2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m */,
 				4E5A361123867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.h */,
 				4E5A361223867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.m */,
 				4E5A361423867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.h */,
@@ -358,7 +371,7 @@
 				4E5A361723867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.h */,
 				4E5A361823867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m */,
 			);
-			path = PeriodicalMaintenanceDetailCell;
+			path = PeriodicalMaintenance;
 			sourceTree = "<group>";
 		};
 		4E5A361D238696D000ECB3B6 /* MaintenancePlan */ = {
@@ -366,6 +379,10 @@
 			children = (
 				4E5A361E238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.h */,
 				4E5A361F238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.m */,
+				4E5A36242386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.h */,
+				4E5A36252386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.m */,
+				4E5A36272386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.h */,
+				4E5A36282386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m */,
 			);
 			path = MaintenancePlan;
 			sourceTree = "<group>";
@@ -482,6 +499,8 @@
 				4E5A360E238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.m */,
 				4E5A361A2386962600ECB3B6 /* ProblemMaintenancePlanListVC.h */,
 				4E5A361B2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m */,
+				4E5A3621238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.h */,
+				4E5A3622238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -490,8 +509,8 @@
 			isa = PBXGroup;
 			children = (
 				4E5A361D238696D000ECB3B6 /* MaintenancePlan */,
-				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenanceDetailCell */,
-				4E5A35F72385E41600ECB3B6 /* MaintenanceDetailCell */,
+				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
+				4E5A35F72385E41600ECB3B6 /* Maintenance */,
 				4ECDAACC23852EE40063FFF9 /* Global */,
 				4EDB75412384415200A0BC84 /* ProblemNewReportSelectionCell.h */,
 				4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */,
@@ -499,12 +518,8 @@
 				4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */,
 				4EE72F9E23849ECD00A569E4 /* ProblemReportItemCell.h */,
 				4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */,
-				4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */,
-				4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */,
 				4E5A36042385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.h */,
 				4E5A36052385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m */,
-				4E5A360A2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.h */,
-				4E5A360B2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,6 +656,8 @@
 				4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */,
 				4EDB75252383ED5F00A0BC84 /* GlobalTool.m in Sources */,
 				4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */,
+				4E5A3623238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m in Sources */,
+				4E5A36292386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m in Sources */,
 				4E5A361323867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
@@ -680,6 +697,7 @@
 				4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */,
 				4EDB750F2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m in Sources */,
 				4EDB751E2383E4F500A0BC84 /* HomeFunctionModulesVC.m in Sources */,
+				4E5A36262386992100ECB3B6 /* ProblemMaintenancePlanDetailTitleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
