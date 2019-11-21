@@ -78,4 +78,8 @@
     }];
 }
 
+- (void)resetSubviewsWithTitle:(NSString *)title {
+    self.txtOfTitle.text = title;
+}
+
 @end

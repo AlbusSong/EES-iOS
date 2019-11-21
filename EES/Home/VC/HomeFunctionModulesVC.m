@@ -15,10 +15,13 @@
 #import "ProblemMaintenanceConfirmationListVC.h"
 #import "ProblemPeriodicalMaintenanceListVC.h"
 #import "ProblemMaintenancePlanListVC.h"
+#import "ProblemGroupCheckListVC.h"
 
 @interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *clv;
+
+@property (nonatomic, copy) NSArray *arrOfTitle;
 
 @end
 
@@ -28,6 +31,7 @@
     self = [super init];
     if (self) {
         self.title = @"设备管理(EES)";
+        self.arrOfTitle = @[@"故障报修", @"报修清单", @"维修工单", @"维修确认", @"定期保养", @"计划维修", @"班组点检", @"保全点检", @"辅料管理"];
     }
     return self;
 }
@@ -85,6 +89,9 @@
     } else if (indexPath.item == 5) {
         ProblemMaintenancePlanListVC *vc = [[ProblemMaintenancePlanListVC alloc] init];
         [self pushVC:vc];
+    } else if (indexPath.item == 6) {
+        ProblemGroupCheckListVC *vc = [[ProblemGroupCheckListVC alloc] init];
+        [self pushVC:vc];
     }
 }
 
@@ -125,6 +132,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomeFunctionModuleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HomeFunctionModuleCell.cellIdentifier forIndexPath:indexPath];
     
+    [cell resetSubviewsWithTitle:[self.arrOfTitle objectAtIndex:indexPath.item]];
     
     return cell;
 }
