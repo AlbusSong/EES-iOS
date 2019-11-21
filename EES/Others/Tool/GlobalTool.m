@@ -32,6 +32,89 @@ static UILabel *txtForSizeFitting = nil;
     return [txtForSizeFitting sizeThatFits:size];
 }
 
+#pragma mark Alert Pop
+
++ (void)popSheetAlertWithTitle:(nullable NSString *)title message:(nullable NSString *)message optionsStrings:(NSArray <NSString *> *)optionStrings yesActionBlocks:(NSArray <AlertActionBlock> *)actionBlocks {
+    [self popSheetAlertOnVC:[UIApplication sharedApplication].delegate.window.rootViewController title:title message:message cancelStr:@"Cancel" optionsStrings:optionStrings yesActionBlocks:actionBlocks];
+}
+
++ (void)popSheetAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message optionsStrings:(NSArray <NSString *> *)optionStrings yesActionBlocks:(NSArray <AlertActionBlock> *)actionBlocks {
+    [self popSheetAlertOnVC:vc title:title message:message cancelStr:@"Cancel" optionsStrings:optionStrings yesActionBlocks:actionBlocks];
+}
+
++ (void)popSheetAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message cancelStr:(NSString *)cancelStr optionsStrings:(NSArray <NSString *> *)optionStrings yesActionBlocks:(NSArray <AlertActionBlock> *)actionBlocks {
+    if (optionStrings.count == 0 || actionBlocks.count == 0) {
+        return;
+    }
+    
+    UIAlertController *sheetAlertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *sheetAlertActionOfNo = [UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:nil];
+    [sheetAlertController addAction:sheetAlertActionOfNo];
+    
+    NSInteger length = (optionStrings.count >= actionBlocks.count ? optionStrings.count : actionBlocks.count);
+    for (int i = 0; i < length; i++) {
+        NSString *optionString = optionStrings[i];
+        AlertActionBlock actionBlock = actionBlocks[i];
+        UIAlertAction *sheetAlertAction = [UIAlertAction actionWithTitle:optionString style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (actionBlock) {
+                actionBlock();
+            }
+        }];
+        [sheetAlertController addAction:sheetAlertAction];
+    }
+    
+    [vc presentViewController:sheetAlertController animated:YES completion:nil];
+}
+
++ (void)popAlertWithTitle:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock {
+    [self popAlertOnVC:[UIApplication sharedApplication].delegate.window.rootViewController title:title message:message yesStr:yesStr noStr:@"Cancel" yesActionBlock:yesActionBlock];
+}
+
++ (void)popAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock {
+    [self popAlertOnVC:vc title:title message:message yesStr:yesStr noStr:@"Cancel" yesActionBlock:yesActionBlock];
+}
+
++ (void)popAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr noStr:(NSString *)noStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock {
+    [self popAlertOnVC:vc title:title message:message yesStr:yesStr noStr:noStr yesActionBlock:yesActionBlock noActionBlock:nil];
+}
+
++ (void)popAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr noStr:(NSString *)noStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock noActionBlock:(nonnull AlertActionBlock)noActionBlock {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertActionOfNo = [UIAlertAction actionWithTitle:noStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        if (noActionBlock) {
+            noActionBlock();
+        }
+    }];
+    
+    UIAlertAction *alertActionOfYes = [UIAlertAction actionWithTitle:yesStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (yesActionBlock) {
+            yesActionBlock();
+        }
+    }];
+    
+    [alertController addAction:alertActionOfNo];
+    [alertController addAction:alertActionOfYes];
+    
+    [vc presentViewController:alertController animated:YES completion:nil];
+}
+
++ (void)popSingleActionAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr yesActionBlock:(nullable AlertActionBlock)yesActionBlock {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertActionOfYes = [UIAlertAction actionWithTitle:yesStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (yesActionBlock) {
+            yesActionBlock();
+        }
+    }];
+    
+    [alertController addAction:alertActionOfYes];
+    
+    [vc presentViewController:alertController animated:YES completion:nil];
+}
+
+
 #pragma mark color
 
 + (UIImage *)imageWithColor:(UIColor *)color {

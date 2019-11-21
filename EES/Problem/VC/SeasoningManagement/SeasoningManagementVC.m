@@ -10,6 +10,9 @@
 #import "SeasoningManagementFirstCell.h"
 #import "SeasoningManagementSecondCell.h"
 
+#import "SeasoningManagementScanCodeVC.h"
+#import "SeasoningManagementScanBarcodeVC.h"
+
 @interface SeasoningManagementVC ()
 
 @end
@@ -51,7 +54,24 @@
 #pragma mark actions
 
 - (void)tryToScan {
-    
+    WS(weakSelf)
+    AlertActionBlock block1 = ^(void) {
+        [weakSelf scan:0];
+    };
+    AlertActionBlock block2 = ^(void) {
+        [weakSelf scan:1];
+    };
+    [GlobalTool popSheetAlertWithTitle:@"选择扫码类型" message:nil optionsStrings:@[@"一维码", @"二维码"] yesActionBlocks:@[block1, block2]];
+}
+
+- (void)scan:(NSInteger)index {
+    if (index == 0) {
+        SeasoningManagementScanCodeVC *vc = [[SeasoningManagementScanCodeVC alloc] init];
+        [self pushVC:vc];
+    } else {
+        SeasoningManagementScanBarcodeVC *vc = [[SeasoningManagementScanBarcodeVC alloc] init];
+        [self pushVC:vc];
+    }
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource

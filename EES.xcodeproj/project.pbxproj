@@ -34,6 +34,8 @@
 		4E552FC22387493400FC198B /* SeasoningManagementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FC12387493400FC198B /* SeasoningManagementVC.m */; };
 		4E552FC623874A5F00FC198B /* SeasoningManagementFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FC523874A5F00FC198B /* SeasoningManagementFirstCell.m */; };
 		4E552FC923874A7100FC198B /* SeasoningManagementSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FC823874A7100FC198B /* SeasoningManagementSecondCell.m */; };
+		4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */; };
+		4E552FCF2387506300FC198B /* SeasoningManagementScanCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */; };
 		4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */; };
 		4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */; };
 		4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */; };
@@ -142,6 +144,10 @@
 		4E552FC523874A5F00FC198B /* SeasoningManagementFirstCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementFirstCell.m; sourceTree = "<group>"; };
 		4E552FC723874A7100FC198B /* SeasoningManagementSecondCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementSecondCell.h; sourceTree = "<group>"; };
 		4E552FC823874A7100FC198B /* SeasoningManagementSecondCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementSecondCell.m; sourceTree = "<group>"; };
+		4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementScanBarcodeVC.h; sourceTree = "<group>"; };
+		4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementScanBarcodeVC.m; sourceTree = "<group>"; };
+		4E552FCD2387506300FC198B /* SeasoningManagementScanCodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementScanCodeVC.h; sourceTree = "<group>"; };
+		4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementScanCodeVC.m; sourceTree = "<group>"; };
 		4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceItemCell.h; sourceTree = "<group>"; };
 		4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceItemCell.m; sourceTree = "<group>"; };
 		4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailVC.h; sourceTree = "<group>"; };
@@ -503,6 +509,10 @@
 			children = (
 				4E552FC02387493400FC198B /* SeasoningManagementVC.h */,
 				4E552FC12387493400FC198B /* SeasoningManagementVC.m */,
+				4E552FCD2387506300FC198B /* SeasoningManagementScanCodeVC.h */,
+				4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */,
+				4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */,
+				4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */,
 			);
 			path = SeasoningManagement;
 			sourceTree = "<group>";
@@ -836,6 +846,7 @@
 				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
 				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
+				4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */,
 				4E552FBD2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.m in Sources */,
 				4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
@@ -886,6 +897,7 @@
 				4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
+				4E552FCF2387506300FC198B /* SeasoningManagementScanCodeVC.m in Sources */,
 				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
 				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,
