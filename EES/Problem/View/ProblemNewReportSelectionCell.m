@@ -63,6 +63,10 @@
     self.txtOfContent.text = content;
 }
 
+- (void)setPlaceholder:(NSString *)placeholder {
+    self.txtOfTitle.text = placeholder;
+}
+
 - (void)showHilighted:(BOOL)shouldHighlight {
     if (shouldHighlight == YES) {
         [UIView transitionWithView:self.contentView duration:0.30 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{

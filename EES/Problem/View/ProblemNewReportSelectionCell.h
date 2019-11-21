@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setContent:(NSString *)content;
 
+- (void)setPlaceholder:(NSString *)placeholder;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import "ProblemWholeCheckDetailVC.h"
 #import "ProblemWholeCheckDetailItemCell.h"
 
+#import "ProblemWholeCheckSubmitVC.h"
+
 @interface ProblemWholeCheckDetailVC ()
 
 @end
@@ -31,8 +33,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-//    ProblemMaintenancePlanDetailVC *vc = [[ProblemMaintenancePlanDetailVC alloc] init];
-//    [self pushVC:vc];
+    ProblemWholeCheckSubmitVC *vc = [[ProblemWholeCheckSubmitVC alloc] init];
+    [self pushVC:vc];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
