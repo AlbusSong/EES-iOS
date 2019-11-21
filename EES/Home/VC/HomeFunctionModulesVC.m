@@ -16,6 +16,7 @@
 #import "ProblemPeriodicalMaintenanceListVC.h"
 #import "ProblemMaintenancePlanListVC.h"
 #import "ProblemGroupCheckListVC.h"
+#import "ProblemWholeCheckListVC.h"
 
 @interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -91,6 +92,9 @@
         [self pushVC:vc];
     } else if (indexPath.item == 6) {
         ProblemGroupCheckListVC *vc = [[ProblemGroupCheckListVC alloc] init];
+        [self pushVC:vc];
+    } else if (indexPath.item == 7) {
+        ProblemWholeCheckListVC *vc = [[ProblemWholeCheckListVC alloc] init];
         [self pushVC:vc];
     }
 }

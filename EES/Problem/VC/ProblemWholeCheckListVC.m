@@ -1,29 +1,29 @@
 //
-//  ProblemGroupCheckListVC.m
+//  ProblemWholeCheckListVC.m
 //  EES
 //
 //  Created by Albus on 2019-11-21.
 //  Copyright © 2019 Zivos. All rights reserved.
 //
 
-#import "ProblemGroupCheckListVC.h"
-#import "ProblemGroupCheckItemCell.h"
+#import "ProblemWholeCheckListVC.h"
+#import "ProblemWholeCheckItemCell.h"
 #import "ProblemSearchBar.h"
 
-#import "ProblemGroupCheckItemVC.h"
+#import "ProblemWholeCheckItemVC.h"
 
-@interface ProblemGroupCheckListVC () <ProblemSearchBarDelegate>
+@interface ProblemWholeCheckListVC ()<ProblemSearchBarDelegate>
 
 @property (nonatomic, copy) NSString *searchContent;
 
 @end
 
-@implementation ProblemGroupCheckListVC
+@implementation ProblemWholeCheckListVC
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"班组点检";
+        self.title = @"保全点检";
     }
     return self;
 }
@@ -43,33 +43,9 @@
         make.height.mas_equalTo(45);
     }];
     
-    [self.tableView registerClass:[ProblemGroupCheckItemCell class] forCellReuseIdentifier:ProblemGroupCheckItemCell.cellIdentifier];
+    [self.tableView registerClass:[ProblemWholeCheckItemCell class] forCellReuseIdentifier:ProblemWholeCheckItemCell.cellIdentifier];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.insets(UIEdgeInsetsMake(45, 0, 50, 0));
-    }];
-    
-    UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnConfirm.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnConfirm setTitle:@"通过" forState:UIControlStateNormal];
-    [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
-    [self.view addSubview:btnConfirm];
-    [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.equalTo(self.view);
-        make.right.mas_equalTo(self.view.mas_centerX).offset(-1);
-        make.top.mas_equalTo(self.tableView.mas_bottom);
-    }];
-    
-    UIButton *btnReject = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnReject.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [btnReject setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnReject setTitle:@"驳回" forState:UIControlStateNormal];
-    [btnReject setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
-    [self.view addSubview:btnReject];
-    [btnReject mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.right.equalTo(self.view);
-        make.left.mas_equalTo(self.view.mas_centerX).offset(1);
-        make.top.mas_equalTo(self.tableView.mas_bottom);
+        make.edges.insets(UIEdgeInsetsMake(45, 0, 0, 0));
     }];
 }
 
@@ -92,7 +68,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    ProblemGroupCheckItemVC *vc = [[ProblemGroupCheckItemVC alloc] init];
+    ProblemWholeCheckItemVC *vc = [[ProblemWholeCheckItemVC alloc] init];
     [self pushVC:vc];
 }
 
@@ -118,7 +94,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProblemGroupCheckItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemGroupCheckItemCell.cellIdentifier forIndexPath:indexPath];
+    ProblemWholeCheckItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckItemCell.cellIdentifier forIndexPath:indexPath];
     
     return cell;
 }

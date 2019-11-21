@@ -21,6 +21,9 @@
 		4E552F8F2387038500FC198B /* ProblemGroupCheckDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */; };
 		4E552F922387042A00FC198B /* BasePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F912387042A00FC198B /* BasePageVC.m */; };
 		4E552F952387065C00FC198B /* ProblemGroupCheckDetailItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */; };
+		4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F972387115000FC198B /* ProblemWholeCheckListVC.m */; };
+		4E552F9C2387126300FC198B /* ProblemWholeCheckItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F9B2387126300FC198B /* ProblemWholeCheckItemCell.m */; };
+		4E552F9F238713F900FC198B /* ProblemWholeCheckItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F9E238713F900FC198B /* ProblemWholeCheckItemVC.m */; };
 		4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */; };
 		4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */; };
 		4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */; };
@@ -103,6 +106,12 @@
 		4E552F912387042A00FC198B /* BasePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePageVC.m; sourceTree = "<group>"; };
 		4E552F932387065C00FC198B /* ProblemGroupCheckDetailItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemGroupCheckDetailItemCell.h; sourceTree = "<group>"; };
 		4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemGroupCheckDetailItemCell.m; sourceTree = "<group>"; };
+		4E552F962387115000FC198B /* ProblemWholeCheckListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemWholeCheckListVC.h; sourceTree = "<group>"; };
+		4E552F972387115000FC198B /* ProblemWholeCheckListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemWholeCheckListVC.m; sourceTree = "<group>"; };
+		4E552F9A2387126300FC198B /* ProblemWholeCheckItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemWholeCheckItemCell.h; sourceTree = "<group>"; };
+		4E552F9B2387126300FC198B /* ProblemWholeCheckItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemWholeCheckItemCell.m; sourceTree = "<group>"; };
+		4E552F9D238713F900FC198B /* ProblemWholeCheckItemVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemWholeCheckItemVC.h; sourceTree = "<group>"; };
+		4E552F9E238713F900FC198B /* ProblemWholeCheckItemVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemWholeCheckItemVC.m; sourceTree = "<group>"; };
 		4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceItemCell.h; sourceTree = "<group>"; };
 		4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceItemCell.m; sourceTree = "<group>"; };
 		4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailVC.h; sourceTree = "<group>"; };
@@ -370,6 +379,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4E552F992387124B00FC198B /* WholeCheck */ = {
+			isa = PBXGroup;
+			children = (
+				4E552F9A2387126300FC198B /* ProblemWholeCheckItemCell.h */,
+				4E552F9B2387126300FC198B /* ProblemWholeCheckItemCell.m */,
+			);
+			path = WholeCheck;
+			sourceTree = "<group>";
+		};
 		4E5A35F72385E41600ECB3B6 /* Maintenance */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +566,10 @@
 				4E5A36322386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m */,
 				4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */,
 				4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */,
+				4E552F962387115000FC198B /* ProblemWholeCheckListVC.h */,
+				4E552F972387115000FC198B /* ProblemWholeCheckListVC.m */,
+				4E552F9D238713F900FC198B /* ProblemWholeCheckItemVC.h */,
+				4E552F9E238713F900FC198B /* ProblemWholeCheckItemVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -555,6 +577,7 @@
 		4EDB753D23843FDD00A0BC84 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E552F992387124B00FC198B /* WholeCheck */,
 				4E5A362D2386A07700ECB3B6 /* GroupCheck */,
 				4E5A361D238696D000ECB3B6 /* MaintenancePlan */,
 				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
@@ -695,6 +718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5A36332386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m in Sources */,
+				4E552F9C2387126300FC198B /* ProblemWholeCheckItemCell.m in Sources */,
 				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
 				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
@@ -739,6 +763,7 @@
 				4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
+				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
 				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,
 				4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */,
@@ -748,6 +773,7 @@
 				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
 				4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */,
+				4E552F9F238713F900FC198B /* ProblemWholeCheckItemVC.m in Sources */,
 				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,
 				4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */,
 				4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */,
