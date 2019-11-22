@@ -68,11 +68,11 @@ static UILabel *txtForSizeFitting = nil;
 }
 
 + (void)popAlertWithTitle:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock {
-    [self popAlertOnVC:[UIApplication sharedApplication].delegate.window.rootViewController title:title message:message yesStr:yesStr noStr:@"Cancel" yesActionBlock:yesActionBlock];
+    [self popAlertOnVC:[UIApplication sharedApplication].delegate.window.rootViewController title:title message:message yesStr:yesStr noStr:@"取消" yesActionBlock:yesActionBlock];
 }
 
 + (void)popAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock {
-    [self popAlertOnVC:vc title:title message:message yesStr:yesStr noStr:@"Cancel" yesActionBlock:yesActionBlock];
+    [self popAlertOnVC:vc title:title message:message yesStr:yesStr noStr:@"取消" yesActionBlock:yesActionBlock];
 }
 
 + (void)popAlertOnVC:(UIViewController *)vc title:(nullable NSString *)title message:(nullable NSString *)message yesStr:(NSString *)yesStr noStr:(NSString *)noStr yesActionBlock:(nonnull AlertActionBlock)yesActionBlock {

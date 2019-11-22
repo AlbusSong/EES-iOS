@@ -49,6 +49,8 @@
 #import "UILabel+QuickLabel.h"
 #import "UIImageView+SetImage.h"
 #import "UITextField+QuickTextField.h"
+#import "UIView+Kit.h"
+#import "UIButton+HDTool.h"
 
 
 #pragma mark Macro

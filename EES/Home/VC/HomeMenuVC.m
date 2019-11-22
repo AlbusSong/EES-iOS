@@ -10,6 +10,8 @@
 #import "HomeMenuUserCell.h"
 #import "HomeMenuFunctionCell.h"
 
+#import "LoginVC.h"
+
 @interface HomeMenuVC () <UIGestureRecognizerDelegate>
 
 @end
@@ -44,28 +46,34 @@
     [self showAnimated];
 }
 
+#pragma mark private actions
+
+- (void)logout {
+    WS(weakSelf)
+    [self hideAnimatedWithCompletion:^{
+        LoginVC *vcOfLogin = [[LoginVC alloc] init];
+        [weakSelf presentViewController:vcOfLogin animated:YES completion:nil];
+    }];
+}
+
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    WS(weakSelf)
     
     if (indexPath.section == 1) {
-        
+        [weakSelf logout];
+//        [GlobalTool popAlertOnVC:self title:@"确定注销？" message:nil yesStr:@"确定" yesActionBlock:^{
+//            [weakSelf logout];
+//        }];
     } else if (indexPath.section == 2) {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-            [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.top.bottom.equalTo(self.view);
-                make.right.equalTo(self.view.mas_left);
-                make.width.mas_equalTo(ScreenW*2/3.0);
-            }];
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            if (self.blockOfGoingToFunctions) {
-                self.blockOfGoingToFunctions();
+        [self hideAnimatedWithCompletion:^{
+           if (weakSelf.blockOfGoingToFunctions) {
+                weakSelf.blockOfGoingToFunctions();
             }
-            [self dismissViewControllerAnimated:NO completion:nil];
+            [weakSelf dismissViewControllerAnimated:NO completion:nil];
         }];
     }
 }
@@ -160,6 +168,12 @@
 }
 
 - (void)hideAnimated {
+    [self hideAnimatedWithCompletion:^{
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }];
+}
+
+- (void)hideAnimatedWithCompletion:(void (^) (void))theCompletion {
     [UIView animateWithDuration:0.3 animations:^{
         self.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
         [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -169,7 +183,9 @@
         }];
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
-        [self dismissViewControllerAnimated:NO completion:nil];
+        if (theCompletion) {
+            theCompletion();
+        }
     }];
 }
 

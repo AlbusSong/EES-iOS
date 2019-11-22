@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "HomeVC.h"
 
+#import <IQKeyboardManager.h>
+
 @interface AppDelegate ()
 
 @end
@@ -27,9 +29,17 @@
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
     
+    [self initThirdPartyService];
+    
     return YES;
 }
 
+#pragma mark 初始化第三方
+
+- (void)initThirdPartyService {
+    // IQKeyboardManager
+    [IQKeyboardManager sharedManager].enable = YES;
+}
 
 //#pragma mark - UISceneSession lifecycle
 //

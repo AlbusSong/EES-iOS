@@ -36,6 +36,8 @@
 		4E552FC923874A7100FC198B /* SeasoningManagementSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FC823874A7100FC198B /* SeasoningManagementSecondCell.m */; };
 		4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */; };
 		4E552FCF2387506300FC198B /* SeasoningManagementScanCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */; };
+		4E552FD5238753B000FC198B /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FD4238753AF00FC198B /* LoginVC.m */; };
+		4E552FD8238753BE00FC198B /* LoginTimeoutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FD7238753BE00FC198B /* LoginTimeoutVC.m */; };
 		4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */; };
 		4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */; };
 		4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F92385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m */; };
@@ -59,6 +61,9 @@
 		4E5A36332386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36322386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m */; };
 		4E5A36362386B2EC00ECB3B6 /* SegmentTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36352386B2EC00ECB3B6 /* SegmentTitlesView.m */; };
 		4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A36382386B64700ECB3B6 /* ProblemCheckTitleView.m */; };
+		4E5D9A1F2387CF1300B42D2A /* LoginInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A1E2387CF1300B42D2A /* LoginInputView.m */; };
+		4E5D9A222387D59900B42D2A /* UIView+Kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A212387D59900B42D2A /* UIView+Kit.m */; };
+		4E5D9A252387E0DE00B42D2A /* UIButton+HDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -148,6 +153,10 @@
 		4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementScanBarcodeVC.m; sourceTree = "<group>"; };
 		4E552FCD2387506300FC198B /* SeasoningManagementScanCodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementScanCodeVC.h; sourceTree = "<group>"; };
 		4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementScanCodeVC.m; sourceTree = "<group>"; };
+		4E552FD3238753AF00FC198B /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		4E552FD4238753AF00FC198B /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		4E552FD6238753BE00FC198B /* LoginTimeoutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTimeoutVC.h; sourceTree = "<group>"; };
+		4E552FD7238753BE00FC198B /* LoginTimeoutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTimeoutVC.m; sourceTree = "<group>"; };
 		4E5A35F12385BC3600ECB3B6 /* ProblemMaintenanceItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceItemCell.h; sourceTree = "<group>"; };
 		4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceItemCell.m; sourceTree = "<group>"; };
 		4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceDetailVC.h; sourceTree = "<group>"; };
@@ -194,6 +203,12 @@
 		4E5A36352386B2EC00ECB3B6 /* SegmentTitlesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentTitlesView.m; sourceTree = "<group>"; };
 		4E5A36372386B64700ECB3B6 /* ProblemCheckTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemCheckTitleView.h; sourceTree = "<group>"; };
 		4E5A36382386B64700ECB3B6 /* ProblemCheckTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemCheckTitleView.m; sourceTree = "<group>"; };
+		4E5D9A1D2387CF1300B42D2A /* LoginInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginInputView.h; sourceTree = "<group>"; };
+		4E5D9A1E2387CF1300B42D2A /* LoginInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginInputView.m; sourceTree = "<group>"; };
+		4E5D9A202387D59900B42D2A /* UIView+Kit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Kit.h"; sourceTree = "<group>"; };
+		4E5D9A212387D59900B42D2A /* UIView+Kit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Kit.m"; sourceTree = "<group>"; };
+		4E5D9A232387E0DE00B42D2A /* UIButton+HDTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HDTool.h"; sourceTree = "<group>"; };
+		4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HDTool.m"; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -338,6 +353,10 @@
 				4EDB751A2383DFD700A0BC84 /* UIImageView+SetImage.m */,
 				4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */,
 				4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */,
+				4E5D9A202387D59900B42D2A /* UIView+Kit.h */,
+				4E5D9A212387D59900B42D2A /* UIView+Kit.m */,
+				4E5D9A232387E0DE00B42D2A /* UIButton+HDTool.h */,
+				4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -528,6 +547,35 @@
 			path = SeasoningManagement;
 			sourceTree = "<group>";
 		};
+		4E552FD02387534600FC198B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4E552FD12387535000FC198B /* VC */,
+				4E552FD22387535900FC198B /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4E552FD12387535000FC198B /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4E552FD3238753AF00FC198B /* LoginVC.h */,
+				4E552FD4238753AF00FC198B /* LoginVC.m */,
+				4E552FD6238753BE00FC198B /* LoginTimeoutVC.h */,
+				4E552FD7238753BE00FC198B /* LoginTimeoutVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4E552FD22387535900FC198B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E5D9A1D2387CF1300B42D2A /* LoginInputView.h */,
+				4E5D9A1E2387CF1300B42D2A /* LoginInputView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4E5A35F72385E41600ECB3B6 /* Maintenance */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +655,7 @@
 		4E9100A123829E6800DD195A /* EES */ = {
 			isa = PBXGroup;
 			children = (
+				4E552FD02387534600FC198B /* Login */,
 				4EDB753B23843FD100A0BC84 /* Problem */,
 				4E0F9E1C2382FA4F0093BF86 /* Home */,
 				4E0F9DF92382F2380093BF86 /* Others */,
@@ -855,6 +904,7 @@
 				4E5A361623867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.m in Sources */,
 				4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */,
 				4EDB75252383ED5F00A0BC84 /* GlobalTool.m in Sources */,
+				4E552FD5238753B000FC198B /* LoginVC.m in Sources */,
 				4E552FC623874A5F00FC198B /* SeasoningManagementFirstCell.m in Sources */,
 				4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */,
 				4E5A3623238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m in Sources */,
@@ -867,6 +917,7 @@
 				4E552FBA23873CB700FC198B /* ProblemWholeCheckSubmitSegmentControlCell.m in Sources */,
 				4E552FB4238738C700FC198B /* ProblemWholeCheckSubmitTitleCell.m in Sources */,
 				4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */,
+				4E5D9A252387E0DE00B42D2A /* UIButton+HDTool.m in Sources */,
 				4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */,
 				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
 				4E5A36302386A1E100ECB3B6 /* ProblemGroupCheckItemCell.m in Sources */,
@@ -875,6 +926,7 @@
 				4E5A3620238696EF00ECB3B6 /* ProblemMaintenancePlanItemCell.m in Sources */,
 				4E5A36002385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m in Sources */,
 				4E552F8F2387038500FC198B /* ProblemGroupCheckDetailVC.m in Sources */,
+				4E5D9A1F2387CF1300B42D2A /* LoginInputView.m in Sources */,
 				4E5A360F238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
 				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
@@ -904,12 +956,14 @@
 				4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */,
 				4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */,
 				4EDB75312383F86A00A0BC84 /* MeInfo.m in Sources */,
+				4E5D9A222387D59900B42D2A /* UIView+Kit.m in Sources */,
 				4E5A361923867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m in Sources */,
 				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
 				4E552FB123871CFB00FC198B /* ProblemWholeCheckSubmitVC.m in Sources */,
 				4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */,
 				4E552F9F238713F900FC198B /* ProblemWholeCheckItemVC.m in Sources */,
+				4E552FD8238753BE00FC198B /* LoginTimeoutVC.m in Sources */,
 				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,
 				4EDB75182383DE3900A0BC84 /* UILabel+QuickLabel.m in Sources */,
 				4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */,
