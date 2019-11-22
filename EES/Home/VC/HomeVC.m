@@ -41,9 +41,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = HexColor(@"f0eff5");
+    
+    [self initSubviews];
     
 //    [self getDataFromServer];
+}
+
+#pragma mark init subviews
+
+- (void)initSubviews {
+    UIImageView *imgvOfCompanyLogo = [[UIImageView alloc] init];
+    imgvOfCompanyLogo.image = [UIImage imageNamed:@"Home-CompanyLogo"];
+    imgvOfCompanyLogo.contentMode = UIViewContentModeScaleAspectFit;
+    imgvOfCompanyLogo.clipsToBounds = YES;
+    [self.view addSubview:imgvOfCompanyLogo];
+    [imgvOfCompanyLogo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.centerY.equalTo(self.view).offset(-30);
+        CGFloat widthOfImgv = ScreenW - 50*2;
+        make.width.mas_equalTo(widthOfImgv);
+        make.height.mas_equalTo(widthOfImgv * imgvOfCompanyLogo.image.size.height / imgvOfCompanyLogo.image.size.width);
+    }];
 }
 
 #pragma mark network

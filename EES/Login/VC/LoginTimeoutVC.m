@@ -9,6 +9,8 @@
 #import "LoginTimeoutVC.h"
 #import "LoginTimeoutHintCell.h"
 
+#import "LoginVC.h"
+
 
 @interface LoginTimeoutVC ()
 
@@ -33,15 +35,26 @@
         make.edges.insets(UIEdgeInsetsMake(0, 0, 50, 0));
     }];
     
-    UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnConfirm.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnConfirm setTitle:@"重新登陆" forState:UIControlStateNormal];
-    [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
-    [self.view addSubview:btnConfirm];
-    [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *btnRelogin = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnRelogin.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    [btnRelogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnRelogin setTitle:@"重新登陆" forState:UIControlStateNormal];
+    [btnRelogin setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
+    [btnRelogin addTarget:self action:@selector(tryToRelogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnRelogin];
+    [btnRelogin mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(self.view);
         make.top.mas_equalTo(self.tableView.mas_bottom);
+    }];
+}
+
+#pragma mark gestures
+
+- (void)tryToRelogin {
+    LoginVC *vcOfLogin = [[LoginVC alloc] init];
+    WS(weakSelf)
+    [self presentViewController:vcOfLogin animated:YES completion:^{
+        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 
