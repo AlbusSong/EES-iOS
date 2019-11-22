@@ -64,6 +64,7 @@
 		4E5D9A1F2387CF1300B42D2A /* LoginInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A1E2387CF1300B42D2A /* LoginInputView.m */; };
 		4E5D9A222387D59900B42D2A /* UIView+Kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A212387D59900B42D2A /* UIView+Kit.m */; };
 		4E5D9A252387E0DE00B42D2A /* UIButton+HDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */; };
+		4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A272387E2E600B42D2A /* LoginTimeoutHintCell.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -209,6 +210,8 @@
 		4E5D9A212387D59900B42D2A /* UIView+Kit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Kit.m"; sourceTree = "<group>"; };
 		4E5D9A232387E0DE00B42D2A /* UIButton+HDTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HDTool.h"; sourceTree = "<group>"; };
 		4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HDTool.m"; sourceTree = "<group>"; };
+		4E5D9A262387E2E600B42D2A /* LoginTimeoutHintCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTimeoutHintCell.h; sourceTree = "<group>"; };
+		4E5D9A272387E2E600B42D2A /* LoginTimeoutHintCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTimeoutHintCell.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -572,6 +575,8 @@
 			children = (
 				4E5D9A1D2387CF1300B42D2A /* LoginInputView.h */,
 				4E5D9A1E2387CF1300B42D2A /* LoginInputView.m */,
+				4E5D9A262387E2E600B42D2A /* LoginTimeoutHintCell.h */,
+				4E5D9A272387E2E600B42D2A /* LoginTimeoutHintCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -951,6 +956,7 @@
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
 				4E552FCF2387506300FC198B /* SeasoningManagementScanCodeVC.m in Sources */,
 				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
+				4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
 				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,
 				4EDB751B2383DFD700A0BC84 /* UIImageView+SetImage.m in Sources */,

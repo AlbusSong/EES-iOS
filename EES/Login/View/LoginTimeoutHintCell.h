@@ -1,16 +1,16 @@
 //
-//  LoginTimeoutVC.h
+//  LoginTimeoutHintCell.h
 //  EES
 //
 //  Created by Albus on 2019-11-22.
 //  Copyright © 2019 Zivos. All rights reserved.
 //
 
-#import "BaseVC.h"
+#import "ASTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginTimeoutVC : BaseTableVC
+@interface LoginTimeoutHintCell : ASTableViewCell
 
 @end
 

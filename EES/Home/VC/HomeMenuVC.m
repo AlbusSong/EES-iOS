@@ -64,10 +64,9 @@
     WS(weakSelf)
     
     if (indexPath.section == 1) {
-        [weakSelf logout];
-//        [GlobalTool popAlertOnVC:self title:@"确定注销？" message:nil yesStr:@"确定" yesActionBlock:^{
-//            [weakSelf logout];
-//        }];
+        [GlobalTool popAlertOnVC:self title:@"确定注销？" message:nil yesStr:@"确定" yesActionBlock:^{
+            [weakSelf logout];
+        }];
     } else if (indexPath.section == 2) {
         [self hideAnimatedWithCompletion:^{
            if (weakSelf.blockOfGoingToFunctions) {
