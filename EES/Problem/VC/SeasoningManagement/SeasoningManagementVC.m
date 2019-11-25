@@ -10,7 +10,6 @@
 #import "SeasoningManagementFirstCell.h"
 #import "SeasoningManagementSecondCell.h"
 
-#import "SeasoningManagementScanCodeVC.h"
 #import "SeasoningManagementScanBarcodeVC.h"
 
 @interface SeasoningManagementVC ()
@@ -65,13 +64,15 @@
 }
 
 - (void)scan:(NSInteger)index {
+    SeasoningManagementScanBarcodeVC *vc = [[SeasoningManagementScanBarcodeVC alloc] init];
+    
     if (index == 0) {
-        SeasoningManagementScanCodeVC *vc = [[SeasoningManagementScanCodeVC alloc] init];
-        [self pushVC:vc];
+        vc.isQRCode = NO;
     } else {
-        SeasoningManagementScanBarcodeVC *vc = [[SeasoningManagementScanBarcodeVC alloc] init];
-        [self pushVC:vc];
+        vc.isQRCode = YES;
     }
+    
+    [self pushVC:vc];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource

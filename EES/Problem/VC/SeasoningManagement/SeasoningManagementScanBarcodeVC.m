@@ -7,8 +7,11 @@
 //
 
 #import "SeasoningManagementScanBarcodeVC.h"
+#import "CDZQRScanView.h"
 
-@interface SeasoningManagementScanBarcodeVC ()
+@interface SeasoningManagementScanBarcodeVC () <CDZQRScanDelegate>
+
+@property (nonatomic ,strong) CDZQRScanView *scanView;
 
 @end
 
@@ -17,16 +20,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.view addSubview:self.scanView];
+    [self.scanView startScanning];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - scanViewDelegate
+- (void)scanView:(CDZQRScanView *)scanView pickUpMessage:(NSString *)message {
+    [scanView stopScanning];
 }
-*/
+
+#pragma mark getter
+
+- (CDZQRScanView *)scanView {
+    if (!_scanView) {
+        _scanView = [[CDZQRScanView alloc] initWithFrame:self.view.bounds];
+        _scanView.delegate = self;
+        _scanView.showBorderLine = YES;
+    }
+    return _scanView;
+}
 
 @end

@@ -65,7 +65,7 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[HttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:nil success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[HttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
         NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
     }];
 }

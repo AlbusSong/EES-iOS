@@ -45,7 +45,7 @@
     
     [self initSubviews];
     
-//    [self getDataFromServer];
+    [self getDataFromServer];
 }
 
 #pragma mark init subviews

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SeasoningManagementScanBarcodeVC : BaseVC
 
+@property (nonatomic) BOOL isQRCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

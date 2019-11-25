@@ -17,6 +17,7 @@
 		4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E172382F6A50093BF86 /* BaseNavigationController.m */; };
 		4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */; };
 		4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E212382FA770093BF86 /* HomeVC.m */; };
+		4E14EC87238C711000C227FA /* CDZQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E14EC86238C711000C227FA /* CDZQRScanView.m */; };
 		4E3082802385530100AF28D2 /* ProblemMaintenanceListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */; };
 		4E552F8F2387038500FC198B /* ProblemGroupCheckDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */; };
 		4E552F922387042A00FC198B /* BasePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552F912387042A00FC198B /* BasePageVC.m */; };
@@ -35,7 +36,6 @@
 		4E552FC623874A5F00FC198B /* SeasoningManagementFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FC523874A5F00FC198B /* SeasoningManagementFirstCell.m */; };
 		4E552FC923874A7100FC198B /* SeasoningManagementSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FC823874A7100FC198B /* SeasoningManagementSecondCell.m */; };
 		4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */; };
-		4E552FCF2387506300FC198B /* SeasoningManagementScanCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */; };
 		4E552FD5238753B000FC198B /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FD4238753AF00FC198B /* LoginVC.m */; };
 		4E552FD8238753BE00FC198B /* LoginTimeoutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E552FD7238753BE00FC198B /* LoginTimeoutVC.m */; };
 		4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A35F22385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m */; };
@@ -116,6 +116,8 @@
 		4E0F9E1A2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseNavigationController+SVProgressHud.m"; sourceTree = "<group>"; };
 		4E0F9E202382FA770093BF86 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		4E0F9E212382FA770093BF86 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		4E14EC85238C711000C227FA /* CDZQRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDZQRScanView.h; sourceTree = "<group>"; };
+		4E14EC86238C711000C227FA /* CDZQRScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDZQRScanView.m; sourceTree = "<group>"; };
 		4E30827E2385530100AF28D2 /* ProblemMaintenanceListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceListVC.h; sourceTree = "<group>"; };
 		4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceListVC.m; sourceTree = "<group>"; };
 		4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemGroupCheckDetailVC.h; sourceTree = "<group>"; };
@@ -152,8 +154,6 @@
 		4E552FC823874A7100FC198B /* SeasoningManagementSecondCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementSecondCell.m; sourceTree = "<group>"; };
 		4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementScanBarcodeVC.h; sourceTree = "<group>"; };
 		4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementScanBarcodeVC.m; sourceTree = "<group>"; };
-		4E552FCD2387506300FC198B /* SeasoningManagementScanCodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementScanCodeVC.h; sourceTree = "<group>"; };
-		4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementScanCodeVC.m; sourceTree = "<group>"; };
 		4E552FD3238753AF00FC198B /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		4E552FD4238753AF00FC198B /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		4E552FD6238753BE00FC198B /* LoginTimeoutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTimeoutVC.h; sourceTree = "<group>"; };
@@ -437,6 +437,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4E14EC84238C70FC00C227FA /* CDZQRScaniew */ = {
+			isa = PBXGroup;
+			children = (
+				4E14EC85238C711000C227FA /* CDZQRScanView.h */,
+				4E14EC86238C711000C227FA /* CDZQRScanView.m */,
+			);
+			path = CDZQRScaniew;
+			sourceTree = "<group>";
+		};
 		4E552F992387124B00FC198B /* WholeCheck */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,8 +540,6 @@
 			children = (
 				4E552FC02387493400FC198B /* SeasoningManagementVC.h */,
 				4E552FC12387493400FC198B /* SeasoningManagementVC.m */,
-				4E552FCD2387506300FC198B /* SeasoningManagementScanCodeVC.h */,
-				4E552FCE2387506300FC198B /* SeasoningManagementScanCodeVC.m */,
 				4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */,
 				4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */,
 			);
@@ -708,6 +715,7 @@
 		4EDB75332383FAF700A0BC84 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				4E14EC84238C70FC00C227FA /* CDZQRScaniew */,
 				4EDB75342383FB0000A0BC84 /* LYLUnicode */,
 			);
 			path = ThirdParty;
@@ -915,6 +923,7 @@
 				4E5A3623238698B800ECB3B6 /* ProblemMaintenancePlanDetailVC.m in Sources */,
 				4E5A36292386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m in Sources */,
 				4E5A361323867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.m in Sources */,
+				4E14EC87238C711000C227FA /* CDZQRScanView.m in Sources */,
 				4E552FA2238714E100FC198B /* ProblemWholeCheckDetailVC.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
@@ -954,7 +963,6 @@
 				4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
-				4E552FCF2387506300FC198B /* SeasoningManagementScanCodeVC.m in Sources */,
 				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
 				4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
