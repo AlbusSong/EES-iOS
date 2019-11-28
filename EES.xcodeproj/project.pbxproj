@@ -71,6 +71,7 @@
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
 		4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */; };
 		4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */; };
+		4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA8286238FD340009B0C79 /* NSString+JSON.m */; };
 		4EDB750C2383DB0600A0BC84 /* HomeMenuUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */; };
 		4EDB750F2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB750E2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.m */; };
 		4EDB75122383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75112383DC5800A0BC84 /* UICollectionViewCell+CellIdentifier.m */; };
@@ -223,6 +224,8 @@
 		4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemSearchBar.m; sourceTree = "<group>"; };
 		4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QuickTextField.h"; sourceTree = "<group>"; };
 		4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+QuickTextField.m"; sourceTree = "<group>"; };
+		4EDA8285238FD340009B0C79 /* NSString+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		4EDA8286238FD340009B0C79 /* NSString+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		4EDB750A2383DB0600A0BC84 /* HomeMenuUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuUserCell.h; sourceTree = "<group>"; };
 		4EDB750B2383DB0600A0BC84 /* HomeMenuUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuUserCell.m; sourceTree = "<group>"; };
 		4EDB750D2383DC1D00A0BC84 /* UITableViewCell+CellIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+CellIdentifier.h"; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 				4E5D9A212387D59900B42D2A /* UIView+Kit.m */,
 				4E5D9A232387E0DE00B42D2A /* UIButton+HDTool.h */,
 				4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */,
+				4EDA8285238FD340009B0C79 /* NSString+JSON.h */,
+				4EDA8286238FD340009B0C79 /* NSString+JSON.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -685,6 +690,15 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		4EDA8284238F3EDF009B0C79 /* NewReport */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */,
+				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
+			);
+			path = NewReport;
+			sourceTree = "<group>";
+		};
 		4EDB75222383ED4E00A0BC84 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,8 +756,7 @@
 		4EDB753C23843FD900A0BC84 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */,
-				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
+				4EDA8284238F3EDF009B0C79 /* NewReport */,
 				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
 				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
 				4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */,
@@ -964,6 +977,7 @@
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
 				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
+				4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */,
 				4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,
 				4EDB75212383E8F500A0BC84 /* HomeFunctionModuleCell.m in Sources */,

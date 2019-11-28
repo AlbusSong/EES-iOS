@@ -50,6 +50,18 @@
         make.bottom.left.right.equalTo(self.view);
         make.top.mas_equalTo(self.tableView.mas_bottom);
     }];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [[HttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_CHANXIAN_LIST parameters:@{} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+        NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", responseJson);
+        NSString *extend = [responseJson objectForKey:@"Extend"];
+        NSLog(@"ssfasld: %@", [extend toArray]);
+    }];
 }
 
 #pragma mark private actions

@@ -10,6 +10,7 @@
 #define MacroOfUri_h
 
 #define BASE_URL @"http://oscarzq.51vip.biz:51593/"
+//#define BASE_URL @"https://58.210.106.178:4433/"
 
 
 // 登陆
@@ -20,5 +21,10 @@
 
 // 加载报修呼叫列表
 #define PROBLEM_REPORT_LIST @"BMRequestStateList/LoadList"
+
+
+// 故障报修
+// 报修呼叫-加载产线
+#define PROBLEM_REPORT_CHANXIAN_LIST @"BMRequestStateList/LoadLine"
 
 #endif /* MacroOfUri_h */

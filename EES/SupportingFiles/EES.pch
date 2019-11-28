@@ -51,6 +51,7 @@
 #import "UITextField+QuickTextField.h"
 #import "UIView+Kit.h"
 #import "UIButton+HDTool.h"
+#import "NSString+JSON.h"
 
 
 #pragma mark Macro

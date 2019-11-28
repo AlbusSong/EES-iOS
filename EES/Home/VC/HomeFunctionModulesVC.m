@@ -67,6 +67,8 @@
 - (void)getDataFromServer {
     [[HttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
         NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
+        NSString *extend = responseJson[@"Extend"];
+        NSLog(@"Extend: %@", extend);
     }];
 }
 

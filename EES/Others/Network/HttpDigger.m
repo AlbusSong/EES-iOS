@@ -434,6 +434,11 @@ NSString * const HttpDiggerCache = @"HttpDiggerCache";
 //        mgr.securityPolicy = policy;
 //        mgr.securityPolicy.validatesDomainName = NO;
         
+        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+        securityPolicy.validatesDomainName = NO;
+        securityPolicy.allowInvalidCertificates = YES;
+        mgr.securityPolicy = securityPolicy;
+        
         [mgr setResponseSerializer:responceSerializer];
         
         [mgr setRequestSerializer:requestSerializer];
