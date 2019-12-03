@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)resetSubviewsWithTitle:(NSString *)title;
 
+- (void)resetBadgeValue:(NSInteger)badgeValue;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -50,7 +50,7 @@
     }];
     self.txtOfTitle.text = @"故障报修";
     
-    NSString *badgeValue = [NSString stringWithFormat:@"%d", arc4random()%15];
+//    NSString *badgeValue = [NSString stringWithFormat:@"%d", arc4random()%15];
     self.txtOfBadge = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:9] textColor:[UIColor whiteColor] parentView:self.wrapperView];
     self.txtOfBadge.backgroundColor = HexColor(@"eb4d3d");
     self.txtOfBadge.clipsToBounds = YES;
@@ -61,14 +61,14 @@
         make.left.equalTo(self.txtOfTitle.mas_right).offset(4);
         make.top.offset(3);
         make.height.mas_equalTo(15);
-        make.width.mas_equalTo(MAX(15, [GlobalTool sizeFitsWithSize:CGSizeMake(MAXFLOAT, 15) text:badgeValue font:[UIFont systemFontOfSize:9]].width + 6));
+//        make.width.mas_equalTo(MAX(15, [GlobalTool sizeFitsWithSize:CGSizeMake(MAXFLOAT, 15) text:badgeValue font:[UIFont systemFontOfSize:9]].width + 6));
     }];
-    self.txtOfBadge.text = badgeValue;
+    self.txtOfBadge.hidden = YES;
     
     self.imgvOfIcon = [[UIImageView alloc] init];
     self.imgvOfIcon.clipsToBounds = YES;
     self.imgvOfIcon.contentMode = UIViewContentModeScaleAspectFit;
-    self.imgvOfIcon.backgroundColor = RANDOM_COLOR;
+    self.imgvOfIcon.backgroundColor = DEFAULT_VIEW_BACKGROUND_COLOR;
     [self.contentView addSubview:self.imgvOfIcon];
     [self.imgvOfIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.wrapperView);
@@ -80,6 +80,19 @@
 
 - (void)resetSubviewsWithTitle:(NSString *)title {
     self.txtOfTitle.text = title;
+}
+
+- (void)resetBadgeValue:(NSInteger)badgeValue {
+    if (badgeValue <= 0) {
+        self.txtOfBadge.hidden = YES;
+    } else {
+        self.txtOfBadge.hidden = NO;
+        NSString *badgeString = [NSString stringWithFormat:@"%li", badgeValue];
+        self.txtOfBadge.text = badgeString;
+        [self.txtOfBadge mas_updateConstraints:^(MASConstraintMaker *make) {
+           make.width.mas_equalTo(MAX(15, [GlobalTool sizeFitsWithSize:CGSizeMake(MAXFLOAT, 15) text:badgeString font:[UIFont systemFontOfSize:9]].width + 6));
+        }];
+    }
 }
 
 @end

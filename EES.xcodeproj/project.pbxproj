@@ -70,6 +70,7 @@
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
 		4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29023964E2900906FE4 /* EESHttpDigger.m */; };
+		4EBCB29423969D6A00906FE4 /* HomeFunctionModuleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */; };
 		4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */; };
 		4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */; };
 		4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA8286238FD340009B0C79 /* NSString+JSON.m */; };
@@ -223,6 +224,8 @@
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4EBCB28F23964E2900906FE4 /* EESHttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EESHttpDigger.h; sourceTree = "<group>"; };
 		4EBCB29023964E2900906FE4 /* EESHttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EESHttpDigger.m; sourceTree = "<group>"; };
+		4EBCB29223969D6A00906FE4 /* HomeFunctionModuleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModuleModel.h; sourceTree = "<group>"; };
+		4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFunctionModuleModel.m; sourceTree = "<group>"; };
 		4ECDAACD23852F030063FFF9 /* ProblemSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemSearchBar.h; sourceTree = "<group>"; };
 		4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemSearchBar.m; sourceTree = "<group>"; };
 		4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QuickTextField.h"; sourceTree = "<group>"; };
@@ -441,6 +444,8 @@
 		4E0F9E1F2382FA5B0093BF86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EBCB29223969D6A00906FE4 /* HomeFunctionModuleModel.h */,
+				4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -939,6 +944,7 @@
 				4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
 				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
+				4EBCB29423969D6A00906FE4 /* HomeFunctionModuleModel.m in Sources */,
 				4E3082802385530100AF28D2 /* ProblemMaintenanceListVC.m in Sources */,
 				4E5A361623867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.m in Sources */,
 				4EDB753A2383FB8900A0BC84 /* LYLUnicode.m in Sources */,

@@ -19,11 +19,15 @@
 #import "ProblemWholeCheckListVC.h"
 #import "SeasoningManagementVC.h"
 
+#import "HomeFunctionModuleModel.h"
+
 @interface HomeFunctionModulesVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *clv;
 
 @property (nonatomic, copy) NSArray *arrOfTitle;
+
+@property (nonatomic, strong) HomeFunctionModuleModel *moduleData;
 
 @end
 
@@ -65,12 +69,18 @@
 #pragma mark network
 
 - (void)getDataFromServer {
+    [SVProgressHUD show];
+    WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
         NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
-        NSString *extend = responseJson[@"Extend"];
-        NSLog(@"Extend: %@", extend);
-    } failure:^(NSError * _Nonnull error) {
-        NSLog(@"HOME_FUNCTION_MODULES: %@", error);
+        NSArray *extend = responseJson[@"Extend"];
+        if (extend.count == 0) {
+            return ;
+        }
+        
+        weakSelf.moduleData = [HomeFunctionModuleModel mj_objectWithKeyValues:extend.firstObject];
+        [weakSelf.clv reloadData];
     }];
 }
 
@@ -145,6 +155,26 @@
     HomeFunctionModuleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:HomeFunctionModuleCell.cellIdentifier forIndexPath:indexPath];
     
     [cell resetSubviewsWithTitle:[self.arrOfTitle objectAtIndex:indexPath.item]];
+    
+    NSInteger badgeValue = 0;
+    if (indexPath.item == 1) {
+        badgeValue = self.moduleData.IntCol1;
+    } else if (indexPath.item == 2) {
+        badgeValue = self.moduleData.IntCol2;
+    } else if (indexPath.item == 3) {
+           badgeValue = self.moduleData.IntCol3;
+    } else if (indexPath.item == 4) {
+           badgeValue = self.moduleData.IntCol4;
+    } else if (indexPath.item == 5) {
+           badgeValue = self.moduleData.IntCol5;
+    } else if (indexPath.item == 6) {
+           badgeValue = self.moduleData.IntCol6;
+    } else if (indexPath.item == 7) {
+           badgeValue = self.moduleData.IntCol7;
+    } else if (indexPath.item == 8) {
+           badgeValue = self.moduleData.IntCol8;
+    }
+    [cell resetBadgeValue:badgeValue];
     
     return cell;
 }
