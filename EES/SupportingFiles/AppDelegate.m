@@ -31,6 +31,8 @@
     
     [self initThirdPartyService];
     
+    [MeInfo sharedInstance].shouldRememberMe = YES;
+    
     return YES;
 }
 

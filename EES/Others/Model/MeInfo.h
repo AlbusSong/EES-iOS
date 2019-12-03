@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype _Nullable )sharedInstance;
 
+
+@property (nonatomic) BOOL shouldRememberMe;
+
+@property (nonatomic, copy) NSString *cookie;
+
 @end
 
 NS_ASSUME_NONNULL_END

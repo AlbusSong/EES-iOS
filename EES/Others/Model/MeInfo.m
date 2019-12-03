@@ -22,4 +22,47 @@ static MeInfo *instance = nil;
     return instance;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self initSomeVars];
+    }
+    return self;
+}
+
+- (void)initSomeVars {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    self.shouldRememberMe = [userDefaults boolForKey:@"shouldRememberMe"];
+    self.cookie = [userDefaults objectForKey:@"cookie"];
+}
+
+#pragma mark setter
+
+- (void)setShouldRememberMe:(BOOL)shouldRememberMe {
+    if (_shouldRememberMe == shouldRememberMe) {
+        return;
+    }
+    
+    _shouldRememberMe = shouldRememberMe;
+    [[NSUserDefaults standardUserDefaults] setBool:shouldRememberMe forKey:@"shouldRememberMe"];
+    
+    if (shouldRememberMe == NO) {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"cookie"];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setCookie:(NSString *)cookie {
+    _cookie = cookie;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+//    if (_shouldRememberMe) {
+//
+//    }
+}
+
 @end

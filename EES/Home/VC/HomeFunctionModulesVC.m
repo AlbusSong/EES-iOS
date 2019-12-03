@@ -65,10 +65,12 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[HttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
         NSString *extend = responseJson[@"Extend"];
         NSLog(@"Extend: %@", extend);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"HOME_FUNCTION_MODULES: %@", error);
     }];
 }
 

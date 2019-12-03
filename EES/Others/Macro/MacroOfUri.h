@@ -14,7 +14,8 @@
 
 
 // 登陆
-#define LOGIN @"Login/Online"
+//#define LOGIN @"Login/Online"
+#define LOGIN @"Login/OutOnline"
 
 // 首页各功能条数
 #define HOME_FUNCTION_MODULES @"MainPage/LoadCount"

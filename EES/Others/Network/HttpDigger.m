@@ -124,6 +124,12 @@ NSString * const HttpDiggerCache = @"HttpDiggerCache";
 
 }
 
+//#pragma mark EES Post
+//
+//- (void)postWithUri:(NSString *)uri parameters:(NSDictionary *)parameters success:(Success)succes failure:(nonnull Failure)failure {
+//
+//}
+
 #pragma mark Post And Get
 
 // POST
@@ -185,18 +191,23 @@ NSString * const HttpDiggerCache = @"HttpDiggerCache";
 
 - (void)asyncHttpDiggerWithUrl:(NSString *)url method:(NSString *)method parameters:(nullable NSDictionary *)parameters authable:(BOOL)authable shouldCache:(BOOL)shouldCache success:(Success)success failure:(Failure)failure {
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc] initWithDictionary:parameters];
-//    if (authable) {
-//        [self.networkMgr.requestSerializer setValue:([MeInfo sharedInstance].token.length > 0 ? [MeInfo sharedInstance].token : @"") forHTTPHeaderField:@"XX-Token"];
-//        [self.networkMgr.requestSerializer setValue:[MeInfo sharedInstance].token forHTTPHeaderField:@"XX-Token"];
-//        [self.networkMgr.requestSerializer setValue:@"iphone" forHTTPHeaderField:@"XX-Device-Type"];
-//        [self.networkMgr.requestSerializer setValue:@"v1" forHTTPHeaderField:@"XX-Api-Version"];
-//        [self.networkMgr.requestSerializer setValue:@"wantupai" forHTTPHeaderField:@"XX-Channel"];
-//        [self.networkMgr.requestSerializer setValue:[GlobalTool getIphoneType] forHTTPHeaderField:@"phone_model"];
-//
-//        if (![mDict valueForKey:@"user_id"]) {
-//            [mDict setValue:[MeInfo sharedInstance].user_id forKey:@"user_id"];
-//        }
+    
+    self.networkMgr.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [self.networkMgr setResponseSerializer:[AFJSONResponseSerializer serializer]];
+    
+    [self.networkMgr.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [self.networkMgr.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    if ([MeInfo sharedInstance].cookie.length > 0) {
+        [self.networkMgr.requestSerializer setValue:[MeInfo sharedInstance].cookie forHTTPHeaderField:@"Cookie"];
+    }
+    
+//    NSError *serializationError;
+//    NSData *paramerData = [NSJSONSerialization dataWithJSONObject:mDict options:NSJSONWritingPrettyPrinted error:&serializationError];
+//    if (serializationError) {
+//        NSLog(@"serializationError: %@", serializationError);
+//        return;
 //    }
+    
     
     NSLog(@"网络请求：%@", url);
     NSString *cacheKey = [NSString stringWithFormat:@"%@%@%@", url, (mDict.allKeys.count > 0 ? @"?" : @""), [self generateUrlQueryStringByParameters:mDict]];
@@ -215,23 +226,32 @@ NSString * const HttpDiggerCache = @"HttpDiggerCache";
         }
     }
     
-//    [mDict setValuesForKeysWithDictionary:[[Trifles sharedInstance] getBaseClientInfo]];
-    
     WS(weakSelf)
     if ([method.uppercaseString isEqualToString:@"POST"]) {
         [self.networkMgr POST:url parameters:mDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"responseObject: %@", responseObject);
+
+            for (NSHTTPCookie *cookie in [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies) {
+                if ([[cookie name] isEqualToString:@".FRAMEWORKFAUTH"]) {
+                    [MeInfo sharedInstance].cookie = [cookie value];
+                    [weakSelf.networkMgr.requestSerializer setValue:[cookie value] forHTTPHeaderField:@"Cookie"];
+                }
+                NSLog(@"name: '%@'\n",   [cookie name]);
+                NSLog(@"value: '%@'\n",  [cookie value]);
+                NSLog(@"domain: '%@'\n", [cookie domain]);
+                NSLog(@"path: '%@'\n",   [cookie path]);
+            }
+
             id responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
             if (success) {
                 int code = [responseJson[@"code"] intValue];
                 NSString *msg = [NSString stringWithFormat:@"%@", responseJson[@"msg"]];
                 success(code, msg, responseJson);
-                
+
                 if (code == 1 && shouldCache) {
                     [weakSelf.cache setObject:responseObject forKey:cacheKey];
                 }
             }
-            
+
             [weakSelf checkLoginIfValidWithResponseJson:responseJson];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (failure) {
@@ -419,11 +439,14 @@ NSString * const HttpDiggerCache = @"HttpDiggerCache";
 - (AFHTTPSessionManager *)networkMgr {
     if (_networkMgr == nil) {
         AFHTTPSessionManager* mgr = [AFHTTPSessionManager manager];
-        AFHTTPRequestSerializer* requestSerializer = [AFJSONRequestSerializer serializer];
+        AFJSONRequestSerializer* requestSerializer = [AFJSONRequestSerializer serializer];
         [requestSerializer setTimeoutInterval:30.0];
         [requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        [mgr setRequestSerializer:requestSerializer];
+        
         AFHTTPResponseSerializer* responceSerializer = [AFHTTPResponseSerializer serializer];
         responceSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/javascript", @"text/plain", nil];
+        
         
         // ssl
 //        AFSecurityPolicy* policy = [self customSecurityPolicy];
@@ -440,8 +463,6 @@ NSString * const HttpDiggerCache = @"HttpDiggerCache";
         mgr.securityPolicy = securityPolicy;
         
         [mgr setResponseSerializer:responceSerializer];
-        
-        [mgr setRequestSerializer:requestSerializer];
         
         _networkMgr = mgr;
     }

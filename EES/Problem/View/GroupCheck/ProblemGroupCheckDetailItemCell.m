@@ -96,7 +96,6 @@
         make.height.mas_equalTo(30);
         make.bottom.offset(-10);
     }];
-    self.tfdOfInput.hidden = YES;
     
     self.smcOfDecision = [[UISegmentedControl alloc] initWithItems:@[@"OK", @"NG"]];
     [self.smcOfDecision addTarget:self action:@selector(smcOfDecisionClicked:) forControlEvents:UIControlEventValueChanged];
@@ -108,6 +107,15 @@
         make.height.mas_equalTo(30);
         make.bottom.offset(-10);
     }];
+    
+    int choose = arc4random()%2;
+    if (choose == 0) {
+        self.tfdOfInput.hidden = YES;
+        self.smcOfDecision.hidden = NO;
+    } else {
+        self.tfdOfInput.hidden = NO;
+        self.smcOfDecision.hidden = YES;
+    }
     
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");

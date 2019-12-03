@@ -69,6 +69,7 @@
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
+		4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29023964E2900906FE4 /* EESHttpDigger.m */; };
 		4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */; };
 		4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */; };
 		4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA8286238FD340009B0C79 /* NSString+JSON.m */; };
@@ -220,6 +221,8 @@
 		4E9100B123829E6900DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E9100B323829E6900DD195A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EBCB28F23964E2900906FE4 /* EESHttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EESHttpDigger.h; sourceTree = "<group>"; };
+		4EBCB29023964E2900906FE4 /* EESHttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EESHttpDigger.m; sourceTree = "<group>"; };
 		4ECDAACD23852F030063FFF9 /* ProblemSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemSearchBar.h; sourceTree = "<group>"; };
 		4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemSearchBar.m; sourceTree = "<group>"; };
 		4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QuickTextField.h"; sourceTree = "<group>"; };
@@ -672,9 +675,9 @@
 		4E9100A123829E6800DD195A /* EES */ = {
 			isa = PBXGroup;
 			children = (
+				4E0F9E1C2382FA4F0093BF86 /* Home */,
 				4E552FD02387534600FC198B /* Login */,
 				4EDB753B23843FD100A0BC84 /* Problem */,
-				4E0F9E1C2382FA4F0093BF86 /* Home */,
 				4E0F9DF92382F2380093BF86 /* Others */,
 				4E0F9DF82382F22A0093BF86 /* SupportingFiles */,
 			);
@@ -695,6 +698,8 @@
 			children = (
 				4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */,
 				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
+				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
+				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
 			);
 			path = NewReport;
 			sourceTree = "<group>";
@@ -713,6 +718,8 @@
 			children = (
 				4EDB75282383F42C00A0BC84 /* HttpDigger.h */,
 				4EDB75292383F42C00A0BC84 /* HttpDigger.m */,
+				4EBCB28F23964E2900906FE4 /* EESHttpDigger.h */,
+				4EBCB29023964E2900906FE4 /* EESHttpDigger.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -757,10 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				4EDA8284238F3EDF009B0C79 /* NewReport */,
-				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
-				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
-				4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */,
-				4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */,
+				4EF360BE2391D03500B63571 /* ReportList */,
 				4E552FAE23871C4600FC198B /* MaintenanceConfirmation */,
 				4E552FAD23871C0C00FC198B /* Maintenance */,
 				4E552FAC23871BFB00FC198B /* PeriodicalMaintenance */,
@@ -792,6 +796,15 @@
 				4E5A36052385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4EF360BE2391D03500B63571 /* ReportList */ = {
+			isa = PBXGroup;
+			children = (
+				4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */,
+				4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */,
+			);
+			path = ReportList;
 			sourceTree = "<group>";
 		};
 		72AF3C0C6220384690193FF6 /* Pods */ = {
@@ -937,6 +950,7 @@
 				4E5A36292386994F00ECB3B6 /* ProblemMaintenancePlanDetailInfoCell.m in Sources */,
 				4E5A361323867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.m in Sources */,
 				4E14EC87238C711000C227FA /* CDZQRScanView.m in Sources */,
+				4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */,
 				4E552FA2238714E100FC198B /* ProblemWholeCheckDetailVC.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,

@@ -57,10 +57,10 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[HttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_CHANXIAN_LIST parameters:@{} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_CHANXIAN_LIST parameters:@{} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", responseJson);
-        NSString *extend = [responseJson objectForKey:@"Extend"];
-        NSLog(@"ssfasld: %@", [extend toArray]);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", error);
     }];
 }
 

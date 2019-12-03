@@ -132,6 +132,7 @@
     }];
     
     [self.wrapperView layoutIfNeeded];
+    NSLog(@"self.btnLogin.bottom: %f", self.btnLogin.bottom);
     [self.wrapperView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(self.btnLogin.bottom + 80);
     }];

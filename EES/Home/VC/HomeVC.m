@@ -68,8 +68,9 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[HttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":@"zq", @"Password":@"123456"} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":@"zq", @"Password":@"123456"} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"LOGIN responseJson: %@", responseJson);
+        
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"LOGIN error: %@", error);
     }];
