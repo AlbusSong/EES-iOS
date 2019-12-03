@@ -58,6 +58,7 @@
     [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnConfirm setTitle:@"接受" forState:UIControlStateNormal];
     [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
+    [btnConfirm addTarget:self action:@selector(btnConfirmClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnConfirm];
     [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.equalTo(self.view);
@@ -70,6 +71,7 @@
     [btnReject setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
     [btnReject setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
+    [btnReject addTarget:self action:@selector(btnRejectClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnReject];
     [btnReject mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.right.equalTo(self.view);
@@ -78,6 +80,67 @@
     }];
     
     [self getDataFromServer];
+}
+
+#pragma mark gestures
+
+- (void)btnConfirmClicked {
+    if (self.selectedIndex < 0 || self.selectedIndex >= self.arrOfData.count) {
+        [SVProgressHUD showInfoWithStatus:@"请先选择一项"];
+        return;
+    }
+    
+    [SVProgressHUD show];
+    
+    ReportListItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:REPORT_ITEM_ACCEPT parameters:@{@"no":selectedModel.BMRequestNO} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"REPORT_ITEM_ACCEPT: %@", responseJson);
+        weakSelf.arrOfData = [ReportListItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
+    }];
+}
+
+- (void)btnRejectClicked {
+    
+    if (self.selectedIndex < 0 || self.selectedIndex >= self.arrOfData.count) {
+        [SVProgressHUD showInfoWithStatus:@"请先选择一项"];
+        return;
+    }
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定拒绝？" message:@"请输入拒绝原因" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
+        textField.placeholder = @"原因";
+    }];
+    
+    WS(weakSelf)
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *tfdOfReason = alertController.textFields.firstObject;
+        [weakSelf rejectActionWithReason:tfdOfReason.text];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)rejectActionWithReason:(NSString *)reason {
+    if (reason.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请输入拒绝原因"];
+        return;
+    }
+    
+    [SVProgressHUD show];
+    
+    ReportListItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:REPORT_ITEM_DECLINE parameters:@{@"no":selectedModel.BMRequestNO, @"reason":reason} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"REPORT_ITEM_DECLINE: %@", responseJson);
+        weakSelf.arrOfData = [ReportListItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark network

@@ -69,6 +69,7 @@
     
     // 产线
     [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_CHANXIAN_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
         NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", responseJson);
         NSArray *extend = responseJson[@"Extend"];
         weakSelf.arrOfChanxian = [NewReportChanxianModel mj_objectArrayWithKeyValuesArray:extend];

@@ -26,6 +26,12 @@
 // 加载报修呼叫列表
 #define GET_REPORT_LIST @"BMRequestStateList/LoadList"
 
+// 报修接受
+#define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"
+
+// 报修拒绝
+#define REPORT_ITEM_DECLINE @"BMRequestStateList/Refuse"
+
 
 // 故障报修
 // 报修呼叫-加载产线

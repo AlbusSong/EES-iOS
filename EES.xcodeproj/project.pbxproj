@@ -322,12 +322,12 @@
 		4E0F9DF92382F2380093BF86 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				4E0F9DFF2382F4220093BF86 /* Macro */,
 				4EDB75332383FAF700A0BC84 /* ThirdParty */,
 				4EDB752D2383F84E00A0BC84 /* Model */,
 				4EDB75272383F41100A0BC84 /* Network */,
 				4EDB75222383ED4E00A0BC84 /* Tool */,
 				4E0F9E012382F4630093BF86 /* Category */,
-				4E0F9DFF2382F4220093BF86 /* Macro */,
 				4E0F9DFA2382F2530093BF86 /* Base */,
 			);
 			path = Others;
