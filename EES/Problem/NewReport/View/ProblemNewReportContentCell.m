@@ -19,7 +19,6 @@
 - (void)initSubviews {
     [super initSubviews];
     
-//    self.txtOfContent.hidden = YES;
     self.imgvOfSmallTriangle.hidden = YES;
     [self.txtOfTitle mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bgView.mas_left).offset(15);
@@ -69,6 +68,12 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     [self showHilighted:NO];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(contentHasChangedTo:)]) {
+        [self.delegate contentHasChangedTo:textView.text];
+    }
 }
 
 @end

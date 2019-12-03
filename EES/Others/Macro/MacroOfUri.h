@@ -25,6 +25,14 @@
 
 // 加载报修呼叫列表
 #define GET_REPORT_LIST @"BMRequestStateList/LoadList"
+// 报修呼叫-加载设备
+#define GET_DEVICE_LIST @"BMRequestStateList/LoadEquip"
+// 报修呼叫-加载维修角色
+#define GET_MAINTENANCE_ROLE_LIST @"BMRequestStateList/LoadRole"
+// 报修呼叫-加载故障等级
+#define GET_PROBLEM_LEVEL_LIST @"BMRequestStateList/LoadLevel"
+// 报修呼叫-加载故障现象代码
+#define GET_PROBLEM_DESC_LIST @"BMRequestStateList/LoadItemCode"
 
 // 报修接受
 #define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"

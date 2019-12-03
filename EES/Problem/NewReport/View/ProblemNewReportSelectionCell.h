@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)showHilighted:(BOOL)shouldHighlight;
 
+- (void)resetTitle:(NSString *)title;
+
 - (void)setContent:(NSString *)content;
 
 - (void)setPlaceholder:(NSString *)placeholder;

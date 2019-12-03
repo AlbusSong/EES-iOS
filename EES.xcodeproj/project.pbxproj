@@ -70,6 +70,10 @@
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
+		4EB808B4239726C2009A3B91 /* NewReportWeihuJuesheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */; };
+		4EB808B7239727DA009A3B91 /* NewReportProblemLevelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B6239727DA009A3B91 /* NewReportProblemLevelModel.m */; };
+		4EB808BA239728F0009A3B91 /* NewReportProblemDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B9239728F0009A3B91 /* NewReportProblemDescModel.m */; };
+		4EB808BD23972A3D009A3B91 /* NewReportShebeiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808BC23972A3D009A3B91 /* NewReportShebeiModel.m */; };
 		4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29023964E2900906FE4 /* EESHttpDigger.m */; };
 		4EBCB29423969D6A00906FE4 /* HomeFunctionModuleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */; };
 		4EBCB29A2396A1D800906FE4 /* NewReportChanxianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB2992396A1D800906FE4 /* NewReportChanxianModel.m */; };
@@ -226,6 +230,14 @@
 		4E9100B123829E6900DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E9100B323829E6900DD195A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EB808B2239726C2009A3B91 /* NewReportWeihuJuesheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportWeihuJuesheModel.h; sourceTree = "<group>"; };
+		4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportWeihuJuesheModel.m; sourceTree = "<group>"; };
+		4EB808B5239727DA009A3B91 /* NewReportProblemLevelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportProblemLevelModel.h; sourceTree = "<group>"; };
+		4EB808B6239727DA009A3B91 /* NewReportProblemLevelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportProblemLevelModel.m; sourceTree = "<group>"; };
+		4EB808B8239728F0009A3B91 /* NewReportProblemDescModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportProblemDescModel.h; sourceTree = "<group>"; };
+		4EB808B9239728F0009A3B91 /* NewReportProblemDescModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportProblemDescModel.m; sourceTree = "<group>"; };
+		4EB808BB23972A3D009A3B91 /* NewReportShebeiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportShebeiModel.h; sourceTree = "<group>"; };
+		4EB808BC23972A3D009A3B91 /* NewReportShebeiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportShebeiModel.m; sourceTree = "<group>"; };
 		4EBCB28F23964E2900906FE4 /* EESHttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EESHttpDigger.h; sourceTree = "<group>"; };
 		4EBCB29023964E2900906FE4 /* EESHttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EESHttpDigger.m; sourceTree = "<group>"; };
 		4EBCB29223969D6A00906FE4 /* HomeFunctionModuleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModuleModel.h; sourceTree = "<group>"; };
@@ -749,6 +761,14 @@
 			children = (
 				4EBCB2982396A1D800906FE4 /* NewReportChanxianModel.h */,
 				4EBCB2992396A1D800906FE4 /* NewReportChanxianModel.m */,
+				4EB808B2239726C2009A3B91 /* NewReportWeihuJuesheModel.h */,
+				4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */,
+				4EB808B5239727DA009A3B91 /* NewReportProblemLevelModel.h */,
+				4EB808B6239727DA009A3B91 /* NewReportProblemLevelModel.m */,
+				4EB808B8239728F0009A3B91 /* NewReportProblemDescModel.h */,
+				4EB808B9239728F0009A3B91 /* NewReportProblemDescModel.m */,
+				4EB808BB23972A3D009A3B91 /* NewReportShebeiModel.h */,
+				4EB808BC23972A3D009A3B91 /* NewReportShebeiModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -996,8 +1016,10 @@
 				4E552F9C2387126300FC198B /* ProblemWholeCheckItemCell.m in Sources */,
 				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
+				4EB808B4239726C2009A3B91 /* NewReportWeihuJuesheModel.m in Sources */,
 				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
 				4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */,
+				4EB808B7239727DA009A3B91 /* NewReportProblemLevelModel.m in Sources */,
 				4E552FBD2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.m in Sources */,
 				4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
@@ -1040,6 +1062,7 @@
 				4E552FB723873A3100FC198B /* ProblemWholeCheckSubmitInfoCell.m in Sources */,
 				4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */,
 				4EBCB29A2396A1D800906FE4 /* NewReportChanxianModel.m in Sources */,
+				4EB808BA239728F0009A3B91 /* NewReportProblemDescModel.m in Sources */,
 				4E5A360C2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m in Sources */,
 				4E5A362C2386A02700ECB3B6 /* ProblemGroupCheckListVC.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
@@ -1057,6 +1080,7 @@
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
 				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
+				4EB808BD23972A3D009A3B91 /* NewReportShebeiModel.m in Sources */,
 				4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */,
 				4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */,
 				4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */,

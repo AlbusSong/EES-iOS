@@ -43,6 +43,7 @@
         make.left.equalTo(self.bgView.mas_left).offset(15);
         make.height.mas_equalTo(23);
         make.centerY.equalTo(self.bgView);
+        make.right.equalTo(self.bgView.mas_right).offset(-15);
     }];
     
     
@@ -58,6 +59,10 @@
 }
 
 #pragma mark actions
+
+- (void)resetTitle:(NSString *)title {
+    self.txtOfTitle.text = title;
+}
 
 - (void)setContent:(NSString *)content {
     self.txtOfContent.text = content;
