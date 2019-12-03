@@ -71,7 +71,7 @@
 - (void)getDataFromServer {
     [SVProgressHUD show];
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:HOME_FUNCTION_MODULES parameters:@{@"tag":@""} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
         NSArray *extend = responseJson[@"Extend"];

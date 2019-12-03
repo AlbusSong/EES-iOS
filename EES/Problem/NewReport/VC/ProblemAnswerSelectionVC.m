@@ -10,6 +10,8 @@
 
 @interface ProblemAnswerSelectionVC () <UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate>
 
+@property (nonatomic) NSInteger selectedIndex;
+
 @property (nonatomic, strong) UIView *wrapperView;
 
 @property (nonatomic, strong) UIPickerView *pickerView;
@@ -116,7 +118,7 @@
     [self hideAnimated];
     
     if (self.confirmationBlock) {
-        self.confirmationBlock(@"1");
+        self.confirmationBlock(self.selectedIndex, [self.arrOfData objectAtIndex:self.selectedIndex]);
     }
 }
 
@@ -156,15 +158,15 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 20;
+    return self.arrOfData.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return @"1";
+    return [self.arrOfData objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
+    self.selectedIndex = row;
 }
 
 #pragma mark UIGestureRecognizerDelegate

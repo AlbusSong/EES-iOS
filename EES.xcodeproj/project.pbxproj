@@ -71,6 +71,7 @@
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
 		4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29023964E2900906FE4 /* EESHttpDigger.m */; };
 		4EBCB29423969D6A00906FE4 /* HomeFunctionModuleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */; };
+		4EBCB29A2396A1D800906FE4 /* NewReportChanxianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB2992396A1D800906FE4 /* NewReportChanxianModel.m */; };
 		4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */; };
 		4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDAAD123852FE60063FFF9 /* UITextField+QuickTextField.m */; };
 		4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA8286238FD340009B0C79 /* NSString+JSON.m */; };
@@ -226,6 +227,8 @@
 		4EBCB29023964E2900906FE4 /* EESHttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EESHttpDigger.m; sourceTree = "<group>"; };
 		4EBCB29223969D6A00906FE4 /* HomeFunctionModuleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModuleModel.h; sourceTree = "<group>"; };
 		4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFunctionModuleModel.m; sourceTree = "<group>"; };
+		4EBCB2982396A1D800906FE4 /* NewReportChanxianModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportChanxianModel.h; sourceTree = "<group>"; };
+		4EBCB2992396A1D800906FE4 /* NewReportChanxianModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportChanxianModel.m; sourceTree = "<group>"; };
 		4ECDAACD23852F030063FFF9 /* ProblemSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemSearchBar.h; sourceTree = "<group>"; };
 		4ECDAACE23852F030063FFF9 /* ProblemSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemSearchBar.m; sourceTree = "<group>"; };
 		4ECDAAD023852FE60063FFF9 /* UITextField+QuickTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+QuickTextField.h"; sourceTree = "<group>"; };
@@ -689,6 +692,37 @@
 			path = EES;
 			sourceTree = "<group>";
 		};
+		4EBCB2952396A19200906FE4 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */,
+				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
+				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
+				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4EBCB2962396A1BC00906FE4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EDB75412384415200A0BC84 /* ProblemNewReportSelectionCell.h */,
+				4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */,
+				4EDB75442384417E00A0BC84 /* ProblemNewReportContentCell.h */,
+				4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EBCB2972396A1C500906FE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EBCB2982396A1D800906FE4 /* NewReportChanxianModel.h */,
+				4EBCB2992396A1D800906FE4 /* NewReportChanxianModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4ECDAACC23852EE40063FFF9 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,10 +735,9 @@
 		4EDA8284238F3EDF009B0C79 /* NewReport */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB753E2384400800A0BC84 /* ProblemNewReportVC.h */,
-				4EDB753F2384400800A0BC84 /* ProblemNewReportVC.m */,
-				4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */,
-				4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */,
+				4EBCB2972396A1C500906FE4 /* Model */,
+				4EBCB2962396A1BC00906FE4 /* View */,
+				4EBCB2952396A19200906FE4 /* VC */,
 			);
 			path = NewReport;
 			sourceTree = "<group>";
@@ -759,6 +792,7 @@
 		4EDB753B23843FD100A0BC84 /* Problem */ = {
 			isa = PBXGroup;
 			children = (
+				4EDA8284238F3EDF009B0C79 /* NewReport */,
 				4EDB753C23843FD900A0BC84 /* VC */,
 				4EDB753D23843FDD00A0BC84 /* View */,
 			);
@@ -768,7 +802,6 @@
 		4EDB753C23843FD900A0BC84 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				4EDA8284238F3EDF009B0C79 /* NewReport */,
 				4EF360BE2391D03500B63571 /* ReportList */,
 				4E552FAE23871C4600FC198B /* MaintenanceConfirmation */,
 				4E552FAD23871C0C00FC198B /* Maintenance */,
@@ -791,10 +824,6 @@
 				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
 				4E5A35F72385E41600ECB3B6 /* Maintenance */,
 				4ECDAACC23852EE40063FFF9 /* Global */,
-				4EDB75412384415200A0BC84 /* ProblemNewReportSelectionCell.h */,
-				4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */,
-				4EDB75442384417E00A0BC84 /* ProblemNewReportContentCell.h */,
-				4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */,
 				4EE72F9E23849ECD00A569E4 /* ProblemReportItemCell.h */,
 				4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */,
 				4E5A36042385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.h */,
@@ -980,6 +1009,7 @@
 				4E5A36032385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m in Sources */,
 				4E552FB723873A3100FC198B /* ProblemWholeCheckSubmitInfoCell.m in Sources */,
 				4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */,
+				4EBCB29A2396A1D800906FE4 /* NewReportChanxianModel.m in Sources */,
 				4E5A360C2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m in Sources */,
 				4E5A362C2386A02700ECB3B6 /* ProblemGroupCheckListVC.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,

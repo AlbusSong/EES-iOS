@@ -12,9 +12,15 @@
 
 #import "ProblemAnswerSelectionVC.h"
 
+#import "NewReportChanxianModel.h"
+
 @interface ProblemNewReportVC ()
 
 @property (nonatomic) NSInteger selectedIndex;
+
+@property (nonatomic, copy) NSArray *arrOfChanxian;
+
+@property (nonatomic, copy) NSArray *arrOfShebei;
 
 @end
 
@@ -57,10 +63,16 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_CHANXIAN_LIST parameters:@{} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    
+    // 产线
+    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_CHANXIAN_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", responseJson);
-    } failure:^(NSError * _Nonnull error) {
-        NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", error);
+        NSArray *extend = responseJson[@"Extend"];
+        weakSelf.arrOfChanxian = [NewReportChanxianModel mj_objectArrayWithKeyValuesArray:extend];
+        NSLog(@"arrOfChanxian: %@", weakSelf.arrOfChanxian);
     }];
 }
 
@@ -85,6 +97,14 @@
     }
 }
 
+- (NSArray *)generateSelectionTitlesBy:(NSArray *)sourceModelArray {
+    NSMutableArray *arrOfSelectionTitle = [NSMutableArray array];
+    
+//    for ()
+    
+    return (NSArray *)arrOfSelectionTitle;
+}
+
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,15 +119,25 @@
     ProblemNewReportSelectionCell *cell = (ProblemNewReportSelectionCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell showHilighted:YES];
     
+    NSMutableArray *arrOfSelectionTitle = [NSMutableArray array];
+    
+    if (indexPath.row == 0) {
+        for (NewReportChanxianModel *m in self.arrOfChanxian) {
+            NSString *title = [NSString stringWithFormat:@"%@|%@", m.LineCode, m.LineName];
+            [arrOfSelectionTitle addObject:title];
+        }
+    }
+    
     if (self.selectedIndex < 6) {
         
         ProblemAnswerSelectionVC *vcOfAnswerSelection = [[ProblemAnswerSelectionVC alloc] init];
+        vcOfAnswerSelection.arrOfData = arrOfSelectionTitle;
         WS(weakSelf)
         vcOfAnswerSelection.cancelBlock = ^{
             [weakSelf unhighlightSelectedCell];
         };
-        vcOfAnswerSelection.confirmationBlock = ^(NSString * _Nonnull answer) {
-            [weakSelf fillAnswerForSelectedCellByAnswer:answer];
+        vcOfAnswerSelection.confirmationBlock = ^(NSInteger index, NSString * _Nonnull title) {
+            [weakSelf fillAnswerForSelectedCellByAnswer:title];
         };
         [self presentViewController:vcOfAnswerSelection animated:NO completion:nil];
         

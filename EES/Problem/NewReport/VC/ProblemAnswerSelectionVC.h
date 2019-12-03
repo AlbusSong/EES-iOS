@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void (^cancelBlock) (void);
 
-@property (nonatomic, copy) void (^confirmationBlock) (NSString *answer);
+@property (nonatomic, copy) void (^confirmationBlock) (NSInteger index, NSString *title);
 
 @property (nonatomic, copy) NSArray *arrOfData;
 

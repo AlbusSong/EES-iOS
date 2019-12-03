@@ -21,8 +21,11 @@ typedef void (^HttpFailure) (NSError *error);
 + (instancetype)sharedInstance;
 
 
-- (void)postWithUri:(NSString *)uri parameters:(NSDictionary *)parameters success:(HttpSuccess)success;
+- (void)postWithUri:(NSString *)uri parameters:(nullable NSDictionary *)parameters success:(HttpSuccess)success;
 - (void)postWithUri:(NSString *)uri parameters:(nullable NSDictionary *)parameters success:(HttpSuccess)success failure:(HttpFailure)failure;
+
+- (void)postWithUri:(NSString *)uri parameters:(NSDictionary *)parameters shouldCache:(BOOL)shouldCache success:(HttpSuccess)success;
+- (void)postWithUri:(NSString *)uri parameters:(nullable NSDictionary *)parameters shouldCache:(BOOL)shouldCache success:(HttpSuccess)success failure:(HttpFailure)failure;
 
 @end
 
