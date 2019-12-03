@@ -31,31 +31,22 @@ static EESHttpDigger *instance = nil;
 - (void)postWithUri:(NSString *)uri parameters:(NSDictionary *)parameters success:(HttpSuccess)success failure:(HttpFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", BASE_URL, uri];
     
-    if ([MeInfo sharedInstance].cookie.length > 0) {
-//        NSString *cookieHeaderContent = [NSString stringWithFormat:@"%@; .FRAMEWORKFAUTH=FRM=%@", [MeInfo sharedInstance].cookie, [MeInfo sharedInstance].cookie];
-//        [self.networkMgr.requestSerializer setValue:[MeInfo sharedInstance].cookie forHTTPHeaderField:@"Cookie"];
-    }
-//    [self.networkMgr.requestSerializer setValue:@"PostmanRuntime/7.20.1" forKey:@"User-Agent"];
-    NSLog(@"requestSerializer cookie: %@", [MeInfo sharedInstance].cookie);
-    
-    NSLog(@"alllheaderHF: %@", self.networkMgr.requestSerializer.HTTPRequestHeaders);
-    
-    WS(weakSelf)
+//    WS(weakSelf)
     [self.networkMgr POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
-        for (NSHTTPCookie *cookie in [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies) {
-            if ([[cookie name] isEqualToString:@".FRAMEWORKFAUTH"] &&
-                [uri isEqualToString:LOGIN]) {
+//        for (NSHTTPCookie *cookie in [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies) {
+//            if ([[cookie name] isEqualToString:@".FRAMEWORKFAUTH"] &&
+//                [uri isEqualToString:LOGIN]) {
 //                [MeInfo sharedInstance].cookie = [cookie value];
 //                [weakSelf.networkMgr.requestSerializer setValue:[cookie value] forHTTPHeaderField:@"Cookie"];
-
-            }
-            NSLog(@"name: '%@'\n",   [cookie name]);
-            NSLog(@"value: '%@'\n",  [cookie value]);
-            NSLog(@"domain: '%@'\n", [cookie domain]);
-            NSLog(@"path: '%@'\n",   [cookie path]);
-        }
+//
+//            }
+//            NSLog(@"name: '%@'\n",   [cookie name]);
+//            NSLog(@"value: '%@'\n",  [cookie value]);
+//            NSLog(@"domain: '%@'\n", [cookie domain]);
+//            NSLog(@"path: '%@'\n",   [cookie path]);
+//        }
         
         if (success) {
             int code = [responseJson[@"Success"] intValue];
