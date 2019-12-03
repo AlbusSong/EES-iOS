@@ -58,7 +58,6 @@
         make.top.offset(10);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfTime.text = @"16:09";
     
     self.txtOfTitle = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:17] textColor:HexColor(MAIN_COLOR_BLACK) parentView:self.contentView];
     [self.txtOfTitle mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,7 +65,6 @@
         make.left.offset(10);
         make.right.equalTo(self.txtOfTime.mas_left).offset(-5);
     }];
-    self.txtOfTitle.text = @"GDWY4H09201|压缩机称重设备";
     
     self.txtOfChanxian = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfChanxian mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,7 +72,6 @@
         make.top.equalTo(self.txtOfTitle.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfChanxian.text = @"产线：上法兰线";
     
     self.txtOfBaoxiu = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfBaoxiu.textAlignment = NSTextAlignmentRight;
@@ -85,7 +82,7 @@
         make.right.equalTo(self.txtOfTime);
         make.left.equalTo(self.txtOfChanxian.mas_right).offset(3);
     }];
-    self.txtOfBaoxiu.text = @"报修：System";
+    
     
     self.txtOfRole = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfRole mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,7 +90,6 @@
         make.top.equalTo(self.txtOfChanxian.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfRole.text = @"角色：保全员";
     
     self.txtOfType = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfType.textAlignment = NSTextAlignmentRight;
@@ -104,7 +100,6 @@
         make.right.equalTo(self.txtOfTime);
         make.left.equalTo(self.txtOfRole.mas_right).offset(3);
     }];
-    self.txtOfType.text = @"类型：报警";
     
     self.txtOfOrderNumber = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfOrderNumber mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,7 +107,7 @@
         make.top.equalTo(self.txtOfRole.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfOrderNumber.text = @"单号：BMPO2019112043";
+    
     
     self.txtOfProblemDetail = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfProblemDetail mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +117,6 @@
         make.right.equalTo(self.txtOfTime);
         make.bottom.offset(-10);
     }];
-    self.txtOfProblemDetail.text = @"现象：ALM异常";
     
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");
@@ -131,6 +125,26 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)showSelected:(BOOL)ifSelected {
+    self.imgvOfSelection.hidden = (!ifSelected);
+}
+
+- (void)resetSubviewsWithData:(ReportListItemModel *)data {
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    
+    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
+    
+    self.txtOfBaoxiu.text = [NSString stringWithFormat:@"报修：%@", data.ApprovalState];
+    
+    self.txtOfRole.text = [NSString stringWithFormat:@"角色：%@", data.RoleName];
+    
+    self.txtOfType.text = [NSString stringWithFormat:@"类型：%@", data.BMTypeName];
+    
+    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"单号：%@", data.BMRequestNO];
+    
+    self.txtOfProblemDetail.text = [NSString stringWithFormat:@"现象：%@",data.ItemDesc];
 }
 
 @end

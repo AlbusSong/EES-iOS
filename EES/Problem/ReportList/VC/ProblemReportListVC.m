@@ -11,9 +11,13 @@
 
 #import "ProblemSearchBar.h"
 
+#import "ReportListItemModel.h"
+
 @interface ProblemReportListVC () <ProblemSearchBarDelegate>
 
 @property (nonatomic, copy) NSString *searchContent;
+
+@property (nonatomic) NSInteger selectedIndex;
 
 @end
 
@@ -23,6 +27,8 @@
     self = [super init];
     if (self) {
         self.title = @"报修清单";
+        
+        self.selectedIndex = -1;
     }
     return self;
 }
@@ -77,8 +83,15 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[HttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode":@""} success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode":@""} shouldCache:YES success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
         NSLog(@"PROBLEM_REPORT_LIST: %@", responseJson);
+        
+        weakSelf.arrOfData = [ReportListItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
     }];
 }
 
@@ -100,6 +113,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (self.selectedIndex == indexPath.row) {
+        return;
+    }
+    
+    self.selectedIndex = indexPath.row;
+    [tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -107,7 +127,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,6 +145,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProblemReportItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemReportItemCell.cellIdentifier forIndexPath:indexPath];
+    
+    [cell resetSubviewsWithData:self.arrOfData[indexPath.row]];
+    [cell showSelected:(indexPath.row == self.selectedIndex)];
     
     return cell;
 }

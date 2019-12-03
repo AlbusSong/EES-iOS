@@ -23,6 +23,9 @@
 // 加载报修呼叫列表
 #define PROBLEM_REPORT_LIST @"BMRequestStateList/LoadList"
 
+// 加载报修呼叫列表
+#define GET_REPORT_LIST @"BMRequestStateList/LoadList"
+
 
 // 故障报修
 // 报修呼叫-加载产线

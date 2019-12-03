@@ -7,10 +7,15 @@
 //
 
 #import "ASTableViewCell.h"
+#import "ReportListItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProblemReportItemCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(ReportListItemModel *)data;
+
+- (void)showSelected:(BOOL)ifSelected;
 
 @end
 
