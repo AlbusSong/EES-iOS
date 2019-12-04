@@ -10,7 +10,12 @@
 #import "ProblemMaintenancePlanDetailTitleCell.h"
 #import "ProblemMaintenancePlanDetailInfoCell.h"
 
+#import "MaintenancePlanItemModel.h"
+#import "MaintenancePlanDetailModel.h"
+
 @interface ProblemMaintenancePlanDetailVC ()
+
+@property (nonatomic, strong) MaintenancePlanDetailModel *detailData;
 
 @end
 
@@ -56,6 +61,22 @@
             }
         }];
     }
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ITEM_DETAIL parameters:@{@"workOrderNo":self.data.WorkOrderNo} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"MAINTENANCE_PLAN_GET_ITEM_DETAIL: %@", responseJson);
+        weakSelf.detailData = [MaintenancePlanDetailModel mj_objectWithKeyValues:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark gestures
@@ -64,6 +85,42 @@
     NSInteger index = sender.tag % 10;
     
     NSLog(@"btnFunctionClicked: %li", index);
+    WS(weakSelf)
+    [GlobalTool popAlertWithTitle:[NSString stringWithFormat:@"确定%@？", index == 0 ? @"开始" : @"结束"] message:nil yesStr:@"确定" yesActionBlock:^{
+        if (index == 0) {
+            [weakSelf tryToStart];
+        } else if (index == 1) {
+            [weakSelf tryToTerminate];
+        }
+    }];
+}
+
+- (void)tryToStart {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ACTION_START parameters:@{@"id":self.detailData.WorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        NSLog(@"MAINTENANCE_PLAN_GET_ACTION_START: %@", responseJson);
+        [weakSelf back];
+        if (weakSelf.backBlock) {
+            weakSelf.backBlock();
+        }
+    }];
+}
+
+- (void)tryToTerminate {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ACTION_END parameters:@{@"id":self.detailData.WorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        NSLog(@"MAINTENANCE_PLAN_GET_ACTION_END: %@", responseJson);
+        [weakSelf back];
+        if (weakSelf.backBlock) {
+            weakSelf.backBlock();
+        }
+    }];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -97,9 +154,13 @@
     if (indexPath.row == 0) {
         ProblemMaintenancePlanDetailTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenancePlanDetailTitleCell.cellIdentifier forIndexPath:indexPath];
         
+        [cell resetSubviewsWithTitle:[NSString stringWithFormat:@"%@|%@", self.detailData.EquipCode, self.detailData.EquipName]];
+        
         return cell;
     } else {
         ProblemMaintenancePlanDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenancePlanDetailInfoCell.cellIdentifier forIndexPath:indexPath];
+        
+        [cell resetSubviewsWithData:self.detailData];
         
         return cell;
     }

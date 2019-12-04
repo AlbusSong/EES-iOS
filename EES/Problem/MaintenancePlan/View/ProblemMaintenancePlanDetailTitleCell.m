@@ -24,7 +24,10 @@
         make.top.offset(10);
         make.bottom.offset(-10);
     }];
-    self.txtOfTitle.text = @"设备：GDWYJ0J09409|上法蓝内圆磨床#";
+}
+
+- (void)resetSubviewsWithTitle:(NSString *)title {
+    self.txtOfTitle.text = title;
 }
 
 @end

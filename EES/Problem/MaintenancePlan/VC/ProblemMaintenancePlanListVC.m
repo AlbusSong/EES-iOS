@@ -67,6 +67,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ProblemMaintenancePlanDetailVC *vc = [[ProblemMaintenancePlanDetailVC alloc] init];
+    vc.data = self.arrOfData[indexPath.row];
+    WS(weakSelf)
+    vc.backBlock = ^{
+        [weakSelf getDataFromServerShouldShowHUD:NO];
+    };
     [self pushVC:vc];
 }
 

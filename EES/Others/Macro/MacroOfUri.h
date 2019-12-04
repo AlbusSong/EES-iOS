@@ -94,6 +94,13 @@
 // 　计划维修
 // 查询工单集合
 #define MAINTENANCE_PLAN_GET_LIST @"SMWorkOrder/LoadList"
+// 根据工单编号查询工单信息
+#define MAINTENANCE_PLAN_GET_ITEM_DETAIL @"SMWorkOrder/LoadWorkOrder"
+// 根据id编号开始工单
+#define MAINTENANCE_PLAN_GET_ACTION_START @"SMWorkOrder/StartWork"
+// 根据id编号结束工单
+#define MAINTENANCE_PLAN_GET_ACTION_END @"SMWorkOrder/EndWork"
+
 
 
 // 故障报修

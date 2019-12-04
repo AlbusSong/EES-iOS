@@ -7,6 +7,7 @@
 //
 
 #import "ProblemMaintenancePlanDetailInfoCell.h"
+#import "MaintenancePlanDetailModel.h"
 
 @interface ProblemMaintenancePlanDetailInfoCell ()
 
@@ -42,7 +43,6 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo1.text = @"产线名称：上法兰线";
     
     self.txtOfInfo2 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,7 +50,6 @@
         make.top.equalTo(self.txtOfInfo1.mas_bottom).offset(5);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfInfo2.text = @"计划日期：2019-11-16";
     
     self.txtOfInfo3 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -59,7 +58,6 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo3.text = @"当前状态：进行中";
     
     self.txtOfInfo4 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -68,7 +66,6 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo4.text = @"维修项目：确保电机旋转正常";
     
     self.txtOfInfo5 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo5 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,7 +75,18 @@
         make.right.offset(-10);
         make.bottom.offset(-20);
     }];
-    self.txtOfInfo5.text = @"实际日期：2019-11-16 12:30";
+}
+
+- (void)resetSubviewsWithData:(MaintenancePlanDetailModel *)data {
+    self.txtOfInfo1.text = [NSString stringWithFormat:@"产线名称：%@", data.LineName];
+    
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"计划日期：%@", data.PlanDate1];
+    
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"当前状态：%@", data.WorkOrderState];
+    
+    self.txtOfInfo4.text = [NSString stringWithFormat:@"维修项目：：%@", data.SMItem];
+    
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"实际日期：%@", data.PlanDate1];
 }
 
 @end

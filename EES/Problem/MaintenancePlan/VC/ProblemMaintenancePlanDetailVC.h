@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MaintenancePlanItemModel;
+
 @interface ProblemMaintenancePlanDetailVC : BaseTableVC
+
+@property (nonatomic, strong) MaintenancePlanItemModel *data;
 
 @end
 

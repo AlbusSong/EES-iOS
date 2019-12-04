@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProblemMaintenancePlanDetailTitleCell : ASTableViewCell
 
+- (void)resetSubviewsWithTitle:(NSString *)title;
+
 @end
 
 NS_ASSUME_NONNULL_END
