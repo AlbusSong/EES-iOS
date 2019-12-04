@@ -101,15 +101,39 @@
     }
     
     WS(weakSelf)
+    [GlobalTool popAlertWithTitle:@"确定操作?" message:nil yesStr:@"确定" yesActionBlock:^{
+        [weakSelf realActionOfSubmission];
+    }];
+}
+
+- (void)realActionOfSubmission {
+    WS(weakSelf)
     if (self.editInfoType == MaintenanceEditInfoType_ChangeLevel) {
         MaintenanceEditInfoLevelModel *model = self.arrOfData[self.selectedIndex];
-        
+        [SVProgressHUD show];
+        [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_ACTION_CHANGE_LEVEL parameters:@{@"workOrderNo":self.detailData.BMWorkOrder, @"bmlevel":model.Code, @"bmlevelremark":self.content ? self.content : @""} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+            [SVProgressHUD showInfoWithStatus:@"操作成功"];
+            NSLog(@"MAINTENANCE_ACTION_CHANGE_LEVEL: %@", responseJson);
+            if (weakSelf.backBlock) {
+                weakSelf.backBlock();
+            }
+            [weakSelf back];
+        }];
     } else if (self.editInfoType == MaintenanceEditInfoType_ChangeRole) {
-        
+        MaintenanceEditInfoRoleModel *model = self.arrOfData[self.selectedIndex];
+        [SVProgressHUD show];
+        [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_ACTION_CHANGE_ROLE parameters:@{@"workOrderNo":self.detailData.BMWorkOrder, @"maintancerole":model.Code, @"maintanceroleremark":self.content ? self.content : @""} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+            [SVProgressHUD showInfoWithStatus:@"操作成功"];
+            NSLog(@"MAINTENANCE_ACTION_CHANGE_ROLE: %@", responseJson);
+            if (weakSelf.backBlock) {
+                weakSelf.backBlock();
+            }
+            [weakSelf back];
+        }];
     } else if (self.editInfoType == MaintenanceEditInfoType_WeiwaiApply) {
         [SVProgressHUD show];
         [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_ACTION_WEIWAI_APPLY parameters:@{@"workOrderNo":self.detailData.BMWorkOrder, @"vendoritem":self.content ? self.content : @""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-            [SVProgressHUD showInfoWithStatus:@"成功"];
+            [SVProgressHUD showInfoWithStatus:@"操作成功"];
             NSLog(@"MAINTENANCE_ACTION_WEIWAI_APPLY: %@", responseJson);
             if (weakSelf.backBlock) {
                 weakSelf.backBlock();
@@ -120,7 +144,7 @@
         [SVProgressHUD show];
         MaintenanceEditInfoFailCodeModel *model = self.arrOfData[self.selectedIndex];
         [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_ACTION_REPORT parameters:@{@"workOrderNo":self.detailData.BMWorkOrder, @"failcode":model.BDCCode, @"prestremark":self.content ? self.content : @""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-            [SVProgressHUD showInfoWithStatus:@"成功"];
+            [SVProgressHUD showInfoWithStatus:@"操作成功"];
             NSLog(@"MAINTENANCE_ACTION_REPORT: %@", responseJson);
             if (weakSelf.backBlock) {
                 weakSelf.backBlock();

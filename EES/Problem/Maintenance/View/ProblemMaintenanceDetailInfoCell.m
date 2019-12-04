@@ -53,60 +53,75 @@
     self.txtOfTitle.text = @"【维修信息】";
     
     self.txtOfInfo1 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo1.numberOfLines = 0;
     [self.txtOfInfo1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfTitle.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
     
     
     self.txtOfInfo2 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo2.numberOfLines = 0;
     [self.txtOfInfo2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfInfo1.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
     
     
     self.txtOfInfo3 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo3.numberOfLines = 0;
     [self.txtOfInfo3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfInfo2.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
     
     
     self.txtOfInfo4 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo4.numberOfLines = 0;
     [self.txtOfInfo4 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfInfo3.mas_bottom).offset(0);
-        make.height.mas_equalTo(21);
+        make.height.mas_greaterThanOrEqualTo(21);
     }];
     
     
     self.txtOfInfo5 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo5.numberOfLines = 0;
     [self.txtOfInfo5 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfInfo4.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
     
     
     self.txtOfInfo6 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo6.numberOfLines = 0;
     [self.txtOfInfo6 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfInfo5.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
     
     self.txtOfInfo7 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo7.numberOfLines = 0;
     [self.txtOfInfo7 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
+        make.right.offset(-10);
         make.top.equalTo(self.txtOfInfo6.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
     
     self.txtOfInfo8 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfInfo8.numberOfLines = 0;
     [self.txtOfInfo8 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
         make.right.offset(-10);
