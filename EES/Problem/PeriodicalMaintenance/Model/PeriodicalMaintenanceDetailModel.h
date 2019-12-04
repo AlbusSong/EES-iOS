@@ -1,5 +1,5 @@
 //
-//  PeriodicalMaintenanceItemModel.h
+//  PeriodicalMaintenanceDetailModel.h
 //  EES
 //
 //  Created by Albus on 2019-12-04.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PeriodicalMaintenanceItemModel : NSObject
+@interface PeriodicalMaintenanceDetailModel : NSObject
 
 @property (nonatomic, copy) NSString *EquipCode;
 
@@ -32,6 +32,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *PMWorkOrderNo;
 
+@property (nonatomic, copy) NSString *PMTypeName;
+
+@property (nonatomic, copy) NSString *Method;
+//
+@property (nonatomic, copy) NSString *Detail;
+//
+@property (nonatomic, copy) NSString *Stardard;
+
+@property (nonatomic, copy) NSString *VendorMaintanceDay;
 
 @end
 

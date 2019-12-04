@@ -105,7 +105,7 @@
     
     self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
     
-    self.txtOfGongdanjihuari.text = [NSString stringWithFormat:@"工单计划日：%@", data.PlanDate];
+    self.txtOfGongdanjihuari.text = [NSString stringWithFormat:@"工单计划日：%@", data.WorkOrderPlanDate1];
     
     self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.WorkOrderState1];
     

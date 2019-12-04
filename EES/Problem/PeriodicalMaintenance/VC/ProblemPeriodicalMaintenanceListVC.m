@@ -29,7 +29,7 @@
     if (self) {
         self.title = @"定期保养";
         
-        self.currentPage = 1;
+        
     }
     return self;
 }
@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.currentPage = 10;
     
     ProblemSearchBar *searchBar = [[ProblemSearchBar alloc] init];
     searchBar.backgroundColor = UIColor.whiteColor;
@@ -73,7 +75,7 @@
 - (void)getDataFromServer {
     [SVProgressHUD show];
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_LIST parameters:@{@"size":@(10), @"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_LIST parameters:@{@"size":@(self.currentPage), @"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"PERIODICAL_MAINTENANCE_GET_LIST: %@", responseJson);
         NSArray *arr = [PeriodicalMaintenanceItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
@@ -102,6 +104,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ProblemPeriodicalMaintenanceDetailVC *vc = [[ProblemPeriodicalMaintenanceDetailVC alloc] init];
+    vc.data = self.arrOfData[indexPath.row];
     [self pushVC:vc];
 }
 

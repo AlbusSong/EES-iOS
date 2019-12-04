@@ -27,4 +27,8 @@
     self.txtOfTitle.text = @"设备：GDWYJ0J09409|上法蓝内圆磨床#";
 }
 
+- (void)resetSubviewsWithTitle:(NSString *)title {
+    self.txtOfTitle.text = title;
+}
+
 @end

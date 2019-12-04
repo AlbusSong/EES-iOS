@@ -7,6 +7,7 @@
 //
 
 #import "ProblemPeriodicalMaintenanceDetailInfoCell.h"
+#import "PeriodicalMaintenanceDetailModel.h"
 
 @interface ProblemPeriodicalMaintenanceDetailInfoCell ()
 
@@ -50,7 +51,7 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo1.text = @"产线名称：上法兰线";
+    
     
     self.txtOfInfo2 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,7 +59,7 @@
         make.top.equalTo(self.txtOfInfo1.mas_bottom).offset(5);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfInfo2.text = @"计划日期：2019-11-16";
+    
     
     self.txtOfStatus = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfStatus.textAlignment = NSTextAlignmentRight;
@@ -69,7 +70,6 @@
         make.right.equalTo(self.contentView).offset(-10);
         make.left.equalTo(self.txtOfInfo2.mas_right).offset(3);
     }];
-    self.txtOfStatus.text = @"状态：待进行";
     
     self.txtOfInfo3 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,7 +78,7 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo3.text = @"保养类型：保全保养";
+    
     
     self.txtOfInfo4 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,7 +87,7 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo4.text = @"保养项目：确保电机旋转正常";
+    
     
     self.txtOfInfo5 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo5 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,7 +96,7 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo5.text = @"保养方法：目视有无裂痕，按压张紧度是否正常，异常时更换";
+    
     
     self.txtOfInfo6 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo6 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,7 +105,7 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.offset(-10);
     }];
-    self.txtOfInfo6.text = @"保养内容：确保电机旋转正常";
+    
     
     self.txtOfInfo7 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo7 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,7 +114,7 @@
         make.right.offset(-10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfInfo7.text = @"保养标准：皮带完好张紧度合适";
+    
     
     self.txtOfInfo8 = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo8 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -124,7 +124,26 @@
         make.right.offset(-10);
         make.bottom.offset(-20);
     }];
-    self.txtOfInfo8.text = @"实际日期：";
+}
+
+- (void)resetSubviewsWithData:(PeriodicalMaintenanceDetailModel *)data {
+    self.txtOfInfo1.text = [NSString stringWithFormat:@"产线名称：%@", data.LineName];
+    
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"计划日期：%@", data.WorkOrderPlanDate1];
+    
+    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.WorkOrderState1];
+    
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"保养类型：%@", data.PMTypeName];
+    
+    self.txtOfInfo4.text = [NSString stringWithFormat:@"保养项目：%@", data.Item];
+    
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"保养方法：%@", data.Method];
+    
+    self.txtOfInfo6.text = [NSString stringWithFormat:@"保养内容：%@", data.Detail];
+    
+    self.txtOfInfo7.text = [NSString stringWithFormat:@"保养标准：%@", data.Stardard];
+    
+    self.txtOfInfo8.text = [NSString stringWithFormat:@"实际日期：%@", data.VendorMaintanceDay];
 }
 
 @end

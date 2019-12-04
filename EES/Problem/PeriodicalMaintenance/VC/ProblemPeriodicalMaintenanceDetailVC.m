@@ -11,7 +11,12 @@
 #import "ProblemPeriodicalMaintenanceDetailInfoCell.h"
 #import "ProblemPeriodicalMaintenanceDetailAttachmentCell.h"
 
+#import "PeriodicalMaintenanceItemModel.h"
+#import "PeriodicalMaintenanceDetailModel.h"
+
 @interface ProblemPeriodicalMaintenanceDetailVC ()
+
+@property (nonatomic, strong) PeriodicalMaintenanceDetailModel *detailData;
 
 @end
 
@@ -58,6 +63,23 @@
             }
         }];
     }
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_DETAIL parameters:@{@"workOrderNo":self.data.PMWorkOrderNo} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"PERIODICAL_MAINTENANCE_GET_DETAIL: %@", responseJson);
+        
+        weakSelf.detailData = [PeriodicalMaintenanceDetailModel mj_objectWithKeyValues:responseJson];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark gestures
@@ -99,9 +121,13 @@
     if (indexPath.row == 0) {
         ProblemPeriodicalMaintenanceDetailTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemPeriodicalMaintenanceDetailTitleCell.cellIdentifier forIndexPath:indexPath];
         
+        [cell resetSubviewsWithTitle:[NSString stringWithFormat:@"%@|%@", self.detailData.EquipCode, self.detailData.EquipName]];
+        
         return cell;
     } else if (indexPath.row == 1) {
         ProblemPeriodicalMaintenanceDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemPeriodicalMaintenanceDetailInfoCell.cellIdentifier forIndexPath:indexPath];
+        
+        [cell resetSubviewsWithData:self.detailData];
         
         return cell;
     } else {

@@ -80,6 +80,8 @@
 
 // 　定期保养列表
 #define PERIODICAL_MAINTENANCE_GET_LIST @"PMWorkOrder/LoadList"
+// 根据工单编号查询工单信息
+#define PERIODICAL_MAINTENANCE_GET_DETAIL @"PMWorkOrder/LoadWorkOrder"
 
 
 // 故障报修
