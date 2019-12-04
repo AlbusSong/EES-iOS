@@ -75,6 +75,15 @@
 		4EB808BA239728F0009A3B91 /* NewReportProblemDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B9239728F0009A3B91 /* NewReportProblemDescModel.m */; };
 		4EB808BD23972A3D009A3B91 /* NewReportShebeiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808BC23972A3D009A3B91 /* NewReportShebeiModel.m */; };
 		4EB808C223972F6C009A3B91 /* MaintenanceItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808C123972F6C009A3B91 /* MaintenanceItemModel.m */; };
+		4EB808C5239734CF009A3B91 /* MaintenanceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808C4239734CF009A3B91 /* MaintenanceDetailModel.m */; };
+		4EB808C823973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808C723973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m */; };
+		4EB808CB239749CA009A3B91 /* MaintenanceEditInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808CA239749CA009A3B91 /* MaintenanceEditInfoCell.m */; };
+		4EB808CE239749F9009A3B91 /* MaintenanceEditInputSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808CD239749F9009A3B91 /* MaintenanceEditInputSelectionCell.m */; };
+		4EB808D123974A0E009A3B91 /* MaintenanceEditInputContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808D023974A0E009A3B91 /* MaintenanceEditInputContentCell.m */; };
+		4EB808D423974B73009A3B91 /* UIView+Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808D323974B73009A3B91 /* UIView+Candy.m */; };
+		4EB808D7239755F9009A3B91 /* MaintenanceEditInfoLevelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808D6239755F9009A3B91 /* MaintenanceEditInfoLevelModel.m */; };
+		4EB808DA2397591A009A3B91 /* MaintenanceEditInfoRoleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808D92397591A009A3B91 /* MaintenanceEditInfoRoleModel.m */; };
+		4EB808DD23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808DC23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.m */; };
 		4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29023964E2900906FE4 /* EESHttpDigger.m */; };
 		4EBCB29423969D6A00906FE4 /* HomeFunctionModuleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB29323969D6A00906FE4 /* HomeFunctionModuleModel.m */; };
 		4EBCB29A2396A1D800906FE4 /* NewReportChanxianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBCB2992396A1D800906FE4 /* NewReportChanxianModel.m */; };
@@ -241,6 +250,24 @@
 		4EB808BC23972A3D009A3B91 /* NewReportShebeiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportShebeiModel.m; sourceTree = "<group>"; };
 		4EB808C023972F6C009A3B91 /* MaintenanceItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceItemModel.h; sourceTree = "<group>"; };
 		4EB808C123972F6C009A3B91 /* MaintenanceItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceItemModel.m; sourceTree = "<group>"; };
+		4EB808C3239734CF009A3B91 /* MaintenanceDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceDetailModel.h; sourceTree = "<group>"; };
+		4EB808C4239734CF009A3B91 /* MaintenanceDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceDetailModel.m; sourceTree = "<group>"; };
+		4EB808C623973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemMaintenanceEditInfoVC.h; sourceTree = "<group>"; };
+		4EB808C723973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemMaintenanceEditInfoVC.m; sourceTree = "<group>"; };
+		4EB808C9239749CA009A3B91 /* MaintenanceEditInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceEditInfoCell.h; sourceTree = "<group>"; };
+		4EB808CA239749CA009A3B91 /* MaintenanceEditInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceEditInfoCell.m; sourceTree = "<group>"; };
+		4EB808CC239749F9009A3B91 /* MaintenanceEditInputSelectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceEditInputSelectionCell.h; sourceTree = "<group>"; };
+		4EB808CD239749F9009A3B91 /* MaintenanceEditInputSelectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceEditInputSelectionCell.m; sourceTree = "<group>"; };
+		4EB808CF23974A0E009A3B91 /* MaintenanceEditInputContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceEditInputContentCell.h; sourceTree = "<group>"; };
+		4EB808D023974A0E009A3B91 /* MaintenanceEditInputContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceEditInputContentCell.m; sourceTree = "<group>"; };
+		4EB808D223974B73009A3B91 /* UIView+Candy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Candy.h"; sourceTree = "<group>"; };
+		4EB808D323974B73009A3B91 /* UIView+Candy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Candy.m"; sourceTree = "<group>"; };
+		4EB808D5239755F9009A3B91 /* MaintenanceEditInfoLevelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceEditInfoLevelModel.h; sourceTree = "<group>"; };
+		4EB808D6239755F9009A3B91 /* MaintenanceEditInfoLevelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceEditInfoLevelModel.m; sourceTree = "<group>"; };
+		4EB808D82397591A009A3B91 /* MaintenanceEditInfoRoleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceEditInfoRoleModel.h; sourceTree = "<group>"; };
+		4EB808D92397591A009A3B91 /* MaintenanceEditInfoRoleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceEditInfoRoleModel.m; sourceTree = "<group>"; };
+		4EB808DB23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceEditInfoFailCodeModel.h; sourceTree = "<group>"; };
+		4EB808DC23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceEditInfoFailCodeModel.m; sourceTree = "<group>"; };
 		4EBCB28F23964E2900906FE4 /* EESHttpDigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EESHttpDigger.h; sourceTree = "<group>"; };
 		4EBCB29023964E2900906FE4 /* EESHttpDigger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EESHttpDigger.m; sourceTree = "<group>"; };
 		4EBCB29223969D6A00906FE4 /* HomeFunctionModuleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFunctionModuleModel.h; sourceTree = "<group>"; };
@@ -392,6 +419,8 @@
 				4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */,
 				4EDA8285238FD340009B0C79 /* NSString+JSON.h */,
 				4EDA8286238FD340009B0C79 /* NSString+JSON.m */,
+				4EB808D223974B73009A3B91 /* UIView+Candy.h */,
+				4EB808D323974B73009A3B91 /* UIView+Candy.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -659,6 +688,12 @@
 				4E5A35FC2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m */,
 				4E5A35FE2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.h */,
 				4E5A35FF2385E49F00ECB3B6 /* ProblemMaintenanceDetailInfoCell.m */,
+				4EB808C9239749CA009A3B91 /* MaintenanceEditInfoCell.h */,
+				4EB808CA239749CA009A3B91 /* MaintenanceEditInfoCell.m */,
+				4EB808CC239749F9009A3B91 /* MaintenanceEditInputSelectionCell.h */,
+				4EB808CD239749F9009A3B91 /* MaintenanceEditInputSelectionCell.m */,
+				4EB808CF23974A0E009A3B91 /* MaintenanceEditInputContentCell.h */,
+				4EB808D023974A0E009A3B91 /* MaintenanceEditInputContentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -743,6 +778,8 @@
 				4E30827F2385530100AF28D2 /* ProblemMaintenanceListVC.m */,
 				4E5A35F42385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.h */,
 				4E5A35F52385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m */,
+				4EB808C623973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.h */,
+				4EB808C723973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -752,6 +789,14 @@
 			children = (
 				4EB808C023972F6C009A3B91 /* MaintenanceItemModel.h */,
 				4EB808C123972F6C009A3B91 /* MaintenanceItemModel.m */,
+				4EB808C3239734CF009A3B91 /* MaintenanceDetailModel.h */,
+				4EB808C4239734CF009A3B91 /* MaintenanceDetailModel.m */,
+				4EB808D5239755F9009A3B91 /* MaintenanceEditInfoLevelModel.h */,
+				4EB808D6239755F9009A3B91 /* MaintenanceEditInfoLevelModel.m */,
+				4EB808D82397591A009A3B91 /* MaintenanceEditInfoRoleModel.h */,
+				4EB808D92397591A009A3B91 /* MaintenanceEditInfoRoleModel.m */,
+				4EB808DB23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.h */,
+				4EB808DC23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1037,6 +1082,7 @@
 				4E552F9C2387126300FC198B /* ProblemWholeCheckItemCell.m in Sources */,
 				4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */,
 				4E0F9E0C2382F57B0093BF86 /* ASView.m in Sources */,
+				4EB808D7239755F9009A3B91 /* MaintenanceEditInfoLevelModel.m in Sources */,
 				4EB808B4239726C2009A3B91 /* NewReportWeihuJuesheModel.m in Sources */,
 				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
 				4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */,
@@ -1060,12 +1106,14 @@
 				4EBCB29123964E2900906FE4 /* EESHttpDigger.m in Sources */,
 				4E552FA2238714E100FC198B /* ProblemWholeCheckDetailVC.m in Sources */,
 				4E3DE0002396A9E500332B47 /* ReportListItemModel.m in Sources */,
+				4EB808CB239749CA009A3B91 /* MaintenanceEditInfoCell.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
 				4E5A361C2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m in Sources */,
 				4E552FBA23873CB700FC198B /* ProblemWholeCheckSubmitSegmentControlCell.m in Sources */,
 				4E552FB4238738C700FC198B /* ProblemWholeCheckSubmitTitleCell.m in Sources */,
 				4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */,
+				4EB808D423974B73009A3B91 /* UIView+Candy.m in Sources */,
 				4E5D9A252387E0DE00B42D2A /* UIButton+HDTool.m in Sources */,
 				4ECDAACF23852F030063FFF9 /* ProblemSearchBar.m in Sources */,
 				4E0F9E122382F5CB0093BF86 /* ASTableViewCell.m in Sources */,
@@ -1096,11 +1144,14 @@
 				4E552F952387065C00FC198B /* ProblemGroupCheckDetailItemCell.m in Sources */,
 				4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */,
 				4E5A36092385FB3500ECB3B6 /* ProblemPeriodicalMaintenanceListVC.m in Sources */,
+				4EB808DD23975A17009A3B91 /* MaintenanceEditInfoFailCodeModel.m in Sources */,
 				4E9100B523829E6900DD195A /* main.m in Sources */,
 				4EDB75402384400800A0BC84 /* ProblemNewReportVC.m in Sources */,
 				4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */,
+				4EB808C5239734CF009A3B91 /* MaintenanceDetailModel.m in Sources */,
 				4E5A35F62385BF0800ECB3B6 /* ProblemMaintenanceDetailVC.m in Sources */,
 				4E552F982387115000FC198B /* ProblemWholeCheckListVC.m in Sources */,
+				4EB808DA2397591A009A3B91 /* MaintenanceEditInfoRoleModel.m in Sources */,
 				4EB808BD23972A3D009A3B91 /* NewReportShebeiModel.m in Sources */,
 				4EDA8287238FD340009B0C79 /* NSString+JSON.m in Sources */,
 				4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */,
@@ -1111,7 +1162,10 @@
 				4EDB75312383F86A00A0BC84 /* MeInfo.m in Sources */,
 				4E5D9A222387D59900B42D2A /* UIView+Kit.m in Sources */,
 				4E5A361923867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m in Sources */,
+				4EB808D123974A0E009A3B91 /* MaintenanceEditInputContentCell.m in Sources */,
+				4EB808CE239749F9009A3B91 /* MaintenanceEditInputSelectionCell.m in Sources */,
 				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
+				4EB808C823973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
 				4E552FB123871CFB00FC198B /* ProblemWholeCheckSubmitVC.m in Sources */,
 				4EB808C223972F6C009A3B91 /* MaintenanceItemModel.m in Sources */,

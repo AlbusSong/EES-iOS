@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MaintenanceDetailModel;
+
 @interface ProblemMaintenanceDetailTitleCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(MaintenanceDetailModel *)data;
 
 @end
 

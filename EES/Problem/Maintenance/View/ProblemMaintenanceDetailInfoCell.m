@@ -7,6 +7,7 @@
 //
 
 #import "ProblemMaintenanceDetailInfoCell.h"
+#import "MaintenanceDetailModel.h"
 
 @interface ProblemMaintenanceDetailInfoCell ()
 
@@ -57,7 +58,7 @@
         make.top.equalTo(self.txtOfTitle.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo1.text = @"工单编号：BMPO2019112043";
+    
     
     self.txtOfInfo2 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,7 +66,7 @@
         make.top.equalTo(self.txtOfInfo1.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo2.text = @"工单状态：维修中";
+    
     
     self.txtOfInfo3 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +74,7 @@
         make.top.equalTo(self.txtOfInfo2.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo3.text = @"开始时间：2019/11/11 13:39";
+    
     
     self.txtOfInfo4 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,7 +82,7 @@
         make.top.equalTo(self.txtOfInfo3.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo4.text = @"故障等级：保全员上报";
+    
     
     self.txtOfInfo5 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo5 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -89,7 +90,7 @@
         make.top.equalTo(self.txtOfInfo4.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo5.text = @"维修角色：保全员";
+    
     
     self.txtOfInfo6 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo6 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,7 +98,6 @@
         make.top.equalTo(self.txtOfInfo5.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo6.text = @"委外状态：";
     
     self.txtOfInfo7 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo7 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,7 +105,6 @@
         make.top.equalTo(self.txtOfInfo6.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfInfo7.text = @"是否驳回：";
     
     self.txtOfInfo8 = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfInfo8 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -115,7 +114,25 @@
         make.height.mas_equalTo(21);
         make.bottom.offset(-10);
     }];
-    self.txtOfInfo8.text = @"驳回原因：";
+    
+}
+
+- (void)resetSubviewsWithData:(MaintenanceDetailModel *)data {
+    self.txtOfInfo1.text = [NSString stringWithFormat:@"工单编号：%@", data.BMRequestNO];
+    
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"工单状态：%@", data.BMEBoardStateDesc];
+    
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"开始时间：%@", data.WorkOrderStarTime];
+    
+    self.txtOfInfo4.text = [NSString stringWithFormat:@"故障等级：%@", data.LevelDesc];
+    
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"维修角色：%@", data.RoleName];
+    
+    self.txtOfInfo6.text = [NSString stringWithFormat:@"委外状态：%@", data.VendorRquestState];
+    
+    self.txtOfInfo7.text = [NSString stringWithFormat:@"是否驳回：%@", data.QCRefuse];
+    
+    self.txtOfInfo8.text = [NSString stringWithFormat:@"驳回原因：%@", data.QCRejectReason];
 }
 
 @end

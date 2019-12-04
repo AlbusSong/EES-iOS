@@ -61,7 +61,7 @@ static EESHttpDigger *instance = nil;
     
     NSLog(@"NetworkRequest Url：%@", url);
     NSString *cacheKey = [NSString stringWithFormat:@"%@%@%@", url, (mDict.allKeys.count > 0 ? @"?" : @""), [self generateUrlQueryStringByParameters:mDict]];
-    NSLog(@"cacheKey: %@, %i", cacheKey, shouldCache);
+    NSLog(@"cacheKey: %@", cacheKey);
     if (shouldCache) {
         NSData *cacheData = (NSData *)[self.cache objectForKey:cacheKey];
         if (cacheData) {

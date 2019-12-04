@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIView *navigationView;
 
+@property (nonatomic, copy) void (^backBlock) (void);
 
 
 - (void)back;

@@ -1,5 +1,5 @@
 //
-//  MaintenanceItemModel.h
+//  MaintenanceDetailModel.h
 //  EES
 //
 //  Created by Albus on 2019-12-04.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MaintenanceItemModel : NSObject
+@interface MaintenanceDetailModel : NSObject
 
 @property (nonatomic, copy) NSString *EquipCode;
 
@@ -27,6 +27,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *BMWorkOrderStateName;
 
 @property (nonatomic, copy) NSString *BMWorkOrder;
+
+@property (nonatomic, copy) NSString *BMTypeName;
+
+@property (nonatomic, copy) NSString *RequestOperatorDesc;
+
+@property (nonatomic, copy) NSString *ItemDesc;
+
+@property (nonatomic, copy) NSString *RoleName;
+
+@property (nonatomic, copy) NSString *QCRefuse;
+
+@property (nonatomic, copy) NSString *QCRejectReason;
+
+@property (nonatomic, copy) NSString *WorkOrderStarTime;
+
+@property (nonatomic, copy) NSString *BMEBoardStateDesc;
+
+@property (nonatomic, copy) NSString *LevelDesc;
+
+@property (nonatomic, copy) NSString *VendorRquestState;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "ProblemMaintenanceDetailTitleCell.h"
+#import "MaintenanceDetailModel.h"
 
 @interface ProblemMaintenanceDetailTitleCell ()
 
@@ -21,10 +22,15 @@
     [self.txtOfTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_greaterThanOrEqualTo(25);
         make.left.offset(10);
+        make.right.offset(-10);
         make.top.offset(10);
         make.bottom.offset(-10);
     }];
-    self.txtOfTitle.text = @"设备：GDWYJ0J09409|上法蓝内圆磨床#";
+    
+}
+
+- (void)resetSubviewsWithData:(MaintenanceDetailModel *)data {
+    self.txtOfTitle.text = [NSString stringWithFormat:@"设备：%@|%@", data.EquipCode, data.EquipName];
 }
 
 @end

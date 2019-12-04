@@ -24,7 +24,7 @@
         make.left.equalTo(self.bgView.mas_left).offset(15);
         make.height.mas_equalTo(23);
         make.top.equalTo(self.bgView.mas_top).offset(8);
-    }];
+    }];        
     
     self.txvOfContent = [[UITextView alloc] init];
     self.txvOfContent.textColor = HexColor(MAIN_COLOR_BLACK);

@@ -11,7 +11,14 @@
 #import "ProblemMaintenanceDetailReportInfoCell.h"
 #import "ProblemMaintenanceDetailInfoCell.h"
 
+#import "MaintenanceItemModel.h"
+#import "MaintenanceDetailModel.h"
+
+#import "ProblemMaintenanceEditInfoVC.h"
+
 @interface ProblemMaintenanceDetailVC ()
+
+@property (nonatomic, strong) MaintenanceDetailModel *detailData;
 
 @end
 
@@ -30,6 +37,26 @@
     // Do any additional setup after loading the view.
     
     [self initSubviews];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    if (self.data == nil || self.data.BMWorkOrder.length == 0) {
+        return;
+    }
+    
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_GET_ITEM_DETAIL parameters:@{@"workOrderNo":self.data.BMWorkOrder} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"MAINTENANCE_GET_ITEM_DETAIL: %@", responseJson);
+        weakSelf.detailData = [MaintenanceDetailModel mj_objectWithKeyValues:responseJson[@"Extend"][0]];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark init subviews
@@ -72,6 +99,48 @@
     NSInteger index = sender.tag % 10;
     
     NSLog(@"btnFunctionClicked: %li", index);
+    
+    WS(weakSelf)
+    if (index == 0) {
+        [GlobalTool popAlertWithTitle:@"确定开始工单？" message:nil yesStr:@"确定" yesActionBlock:^{
+            [weakSelf tryToStartMaintenance];
+        }];
+        return;
+    }
+    
+    ProblemMaintenanceEditInfoVC *vc = [[ProblemMaintenanceEditInfoVC alloc] init];
+    vc.detailData = self.detailData;
+    vc.backBlock = ^{
+        [weakSelf getDataFromServer];
+    };
+    if (index == 1) {
+        vc.editInfoType = MaintenanceEditInfoType_ChangeLevel;
+        [self pushVC:vc];
+    } else if (index == 2) {
+        vc.editInfoType = MaintenanceEditInfoType_ChangeRole;
+        [self pushVC:vc];
+    } else if (index == 3) {
+        vc.editInfoType = MaintenanceEditInfoType_WeiwaiApply;
+        [self pushVC:vc];
+    } else if (index == 4) {
+        vc.editInfoType = MaintenanceEditInfoType_Report;
+        [self pushVC:vc];
+    }
+}
+
+#pragma mark private actions
+
+- (void)tryToStartMaintenance {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_ACTION_START parameters:@{@"workOrderNo":self.data.BMWorkOrder} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"开始成功"];
+        NSLog(@"MAINTENANCE_ACTION_START: %@", responseJson);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf getDataFromServer];
+        });
+    }];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -105,13 +174,19 @@
     if (indexPath.row == 0) {
         ProblemMaintenanceDetailTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenanceDetailTitleCell.cellIdentifier forIndexPath:indexPath];
         
+        [cell resetSubviewsWithData:self.detailData];
+        
         return cell;
     } else if (indexPath.row == 1) {
         ProblemMaintenanceDetailReportInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenanceDetailReportInfoCell.cellIdentifier forIndexPath:indexPath];
         
+        [cell resetSubviewsWithData:self.detailData];                
+        
         return cell;
     } else {
         ProblemMaintenanceDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenanceDetailInfoCell.cellIdentifier forIndexPath:indexPath];
+        
+        [cell resetSubviewsWithData:self.detailData];
         
         return cell;
     }

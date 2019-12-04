@@ -50,6 +50,7 @@
 #import "UIImageView+SetImage.h"
 #import "UITextField+QuickTextField.h"
 #import "UIView+Kit.h"
+#import "UIView+Candy.h"
 #import "UIButton+HDTool.h"
 #import "NSString+JSON.h"
 

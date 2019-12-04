@@ -24,6 +24,8 @@
     self = [super init];
     if (self) {
         self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        self.selectedIndex = 0;
     }
     return self;
 }
@@ -116,6 +118,10 @@
 
 - (void)btnConfirmClicked {
     [self hideAnimated];
+    
+    if (self.arrOfData.count == 0) {
+        return;
+    }
     
     if (self.confirmationBlock) {
         self.confirmationBlock(self.selectedIndex, [self.arrOfData objectAtIndex:self.selectedIndex]);

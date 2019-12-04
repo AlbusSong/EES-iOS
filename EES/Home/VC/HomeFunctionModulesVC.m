@@ -75,7 +75,7 @@
         [SVProgressHUD dismiss];
         NSLog(@"HOME_FUNCTION_MODULES: %@", responseJson);
         NSArray *extend = responseJson[@"Extend"];
-        if (extend.count == 0) {
+        if ([extend isKindOfClass:[NSArray class]] == NO || extend.count == 0) {
             return ;
         }
         

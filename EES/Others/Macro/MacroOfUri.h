@@ -36,6 +36,25 @@
 
 // 加载故障工单列表
 #define MAINTENANCE_GET_LIST @"WorkOrderState/LoadList"
+// 加载故障工单明细
+#define MAINTENANCE_GET_ITEM_DETAIL @"WorkOrderState/Detailed"
+//  故障工单-工单开始
+#define MAINTENANCE_ACTION_START @"WorkOrderState/Start"
+// 故障工单-故障等级修改
+#define MAINTENANCE_ACTION_CHANGE_LEVEL @"WorkOrderState/Level"
+// 故障工单-维修角色修改
+#define MAINTENANCE_ACTION_CHANGE_ROLE @"WorkOrderState/Role"
+// 故障工单-委外申请
+#define MAINTENANCE_ACTION_WEIWAI_APPLY @"WorkOrderState/Vendor"
+//  故障工单-报工
+#define MAINTENANCE_ACTION_REPORT @"WorkOrderState/End"
+// 报修呼叫-加载故障等级
+#define MAINTENANCE_GET_LEVEL_LIST @"BMRequestStateList/LoadLevel"
+// 报修呼叫-加载维修角色
+#define MAINTENANCE_GET_ROLE_LIST @"BMRequestStateList/LoadRole"
+// 报修呼叫-加载FailCode
+#define MAINTENANCE_GET_FAILCODE_LIST @"BMRequestStateList/LoadFailCode"
+
 
 // 报修接受
 #define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"

@@ -85,6 +85,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ProblemMaintenanceDetailVC *vc = [[ProblemMaintenanceDetailVC alloc] init];
+    vc.data = [self.arrOfData objectAtIndex:indexPath.row];
     [self pushVC:vc];
 }
 
