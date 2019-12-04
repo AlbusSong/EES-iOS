@@ -11,6 +11,8 @@
 
 #import "ProblemMaintenancePlanDetailVC.h"
 
+#import "MaintenancePlanItemModel.h"
+
 @interface ProblemMaintenancePlanListVC ()
 
 @end
@@ -33,6 +35,30 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServerShouldShowHUD:(BOOL)shouldShow {
+    if (shouldShow) {
+        [SVProgressHUD show];
+    }
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        if (shouldShow) {
+            [SVProgressHUD dismiss];
+        }
+        NSLog(@"MAINTENANCE_PLAN_GET_LIST: %@", responseJson);
+        weakSelf.arrOfData = [MaintenancePlanItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
+    }];
+}
+
+- (void)getDataFromServer {
+    [self getDataFromServerShouldShowHUD:YES];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -49,7 +75,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,6 +93,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProblemMaintenancePlanItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenancePlanItemCell.cellIdentifier forIndexPath:indexPath];
+    
+    [cell resetSubviewsWithData:self.arrOfData[indexPath.row]];
     
     return cell;
 }

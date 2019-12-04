@@ -89,6 +89,13 @@
 // 根据工单编号结束工单
 #define PERIODICAL_MAINTENANCE_ACTION_END @"PMWorkOrder/EndWork"
 
+
+
+// 　计划维修
+// 查询工单集合
+#define MAINTENANCE_PLAN_GET_LIST @"SMWorkOrder/LoadList"
+
+
 // 故障报修
 // 报修呼叫-加载产线
 #define PROBLEM_REPORT_CHANXIAN_LIST @"BMRequestStateList/LoadLine"

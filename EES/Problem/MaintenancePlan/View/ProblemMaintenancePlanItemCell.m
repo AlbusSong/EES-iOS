@@ -7,6 +7,7 @@
 //
 
 #import "ProblemMaintenancePlanItemCell.h"
+#import "MaintenancePlanItemModel.h"
 
 @interface ProblemMaintenancePlanItemCell ()
 
@@ -20,7 +21,7 @@
 
 @property (nonatomic, strong) UILabel *txtOfStatus;
 
-@property (nonatomic, strong) UILabel *txtOfBaoyangxiangmu;
+@property (nonatomic, strong) UILabel *txtOfWeixiuxiangmu;
 
 @property (nonatomic, strong) UIView *grayLine;
 
@@ -79,15 +80,15 @@
     }];
     self.txtOfStatus.text = @"状态：维修中";
     
-    self.txtOfBaoyangxiangmu = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
-    [self.txtOfBaoyangxiangmu mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.txtOfWeixiuxiangmu = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    [self.txtOfWeixiuxiangmu mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle);
         make.top.equalTo(self.txtOfStatus.mas_bottom).offset(0);
         make.height.mas_greaterThanOrEqualTo(21);
         make.right.equalTo(self.contentView).offset(-5);
         make.bottom.offset(-10);
     }];
-    self.txtOfBaoyangxiangmu.text = @"保养项目：确保电机旋转正常";
+    self.txtOfWeixiuxiangmu.text = @"保养项目：确保电机旋转正常";
     
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");
@@ -96,6 +97,20 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)resetSubviewsWithData:(MaintenancePlanItemModel *)data {
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    
+    self.txtOfGongdan.text = [NSString stringWithFormat:@"工单：%@", data.WorkOrderNo];
+    
+    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
+    
+    self.txtOfGongdanjihuari.text = [NSString stringWithFormat:@"工单计划日：%@", data.PlanDate1];
+    
+    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.WorkOrderState];
+    
+    self.txtOfWeixiuxiangmu.text = [NSString stringWithFormat:@"维修项目：%@", data.SMItem];
 }
 
 @end
