@@ -103,6 +103,11 @@
 
 
 
+// 班组点检
+// 根据设备名称查询工单集合
+#define GROUP_CHECK_GET_LIST @"CMSWorkOrder/LoadList"
+
+
 // 故障报修
 // 报修呼叫-加载产线
 #define PROBLEM_REPORT_CHANXIAN_LIST @"BMRequestStateList/LoadLine"

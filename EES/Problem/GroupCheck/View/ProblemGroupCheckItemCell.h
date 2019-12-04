@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class GroupCheckItemModel;
+
 @interface ProblemGroupCheckItemCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(GroupCheckItemModel *)data;
 
 @end
 

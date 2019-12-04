@@ -7,6 +7,7 @@
 //
 
 #import "ProblemGroupCheckItemCell.h"
+#import "GroupCheckItemModel.h"
 
 @interface ProblemGroupCheckItemCell ()
 
@@ -83,6 +84,18 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)resetSubviewsWithData:(GroupCheckItemModel *)data {
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    
+    self.txtOfGongdan.text = [NSString stringWithFormat:@"工单：%@", data.CMSWorkOrderNo];
+    
+    self.txtOfStartTime.text = [NSString stringWithFormat:@"开始时间：%@", data.StartTimeApp];
+    
+    self.txtOfEndTime.text = [NSString stringWithFormat:@"工结束时间：%@", data.EndTimeApp];
+    
+    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.WorkOrderState];
 }
 
 @end

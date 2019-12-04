@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0B05E223986C900027BDBB /* GroupCheckItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */; };
 		4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9DFC2382F32F0093BF86 /* BaseVC.m */; };
 		4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E032382F4830093BF86 /* UIColor+HexString.m */; };
 		4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E062382F5200093BF86 /* BaseTableVC.m */; };
@@ -118,6 +119,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0B05E023986C900027BDBB /* GroupCheckItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckItemModel.h; sourceTree = "<group>"; };
+		4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckItemModel.m; sourceTree = "<group>"; };
 		4E0F9DFB2382F32F0093BF86 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		4E0F9DFC2382F32F0093BF86 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		4E0F9DFE2382F3810093BF86 /* EES.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EES.pch; sourceTree = "<group>"; };
@@ -524,6 +527,28 @@
 			path = CDZQRScaniew;
 			sourceTree = "<group>";
 		};
+		4E3B315223986C3000EB77D9 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4E5A362A2386A02700ECB3B6 /* ProblemGroupCheckListVC.h */,
+				4E5A362B2386A02700ECB3B6 /* ProblemGroupCheckListVC.m */,
+				4E5A36312386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.h */,
+				4E5A36322386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m */,
+				4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */,
+				4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4E3B315323986C5700EB77D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E0B05E023986C900027BDBB /* GroupCheckItemModel.h */,
+				4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4E3DDFFB2396A96800332B47 /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,12 +613,9 @@
 		4E552FAA23871BCC00FC198B /* GroupCheck */ = {
 			isa = PBXGroup;
 			children = (
-				4E5A362A2386A02700ECB3B6 /* ProblemGroupCheckListVC.h */,
-				4E5A362B2386A02700ECB3B6 /* ProblemGroupCheckListVC.m */,
-				4E5A36312386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.h */,
-				4E5A36322386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m */,
-				4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */,
-				4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */,
+				4E3B315323986C5700EB77D9 /* Model */,
+				4E5A362D2386A07700ECB3B6 /* View */,
+				4E3B315223986C3000EB77D9 /* VC */,
 			);
 			path = GroupCheck;
 			sourceTree = "<group>";
@@ -725,7 +747,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4E5A362D2386A07700ECB3B6 /* GroupCheck */ = {
+		4E5A362D2386A07700ECB3B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				4E5A362E2386A1E100ECB3B6 /* ProblemGroupCheckItemCell.h */,
@@ -737,7 +759,7 @@
 				4E552F932387065C00FC198B /* ProblemGroupCheckDetailItemCell.h */,
 				4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */,
 			);
-			path = GroupCheck;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4E796D06239769E700C14D5C /* VC */ = {
@@ -994,6 +1016,7 @@
 		4EDB753B23843FD100A0BC84 /* Problem */ = {
 			isa = PBXGroup;
 			children = (
+				4E552FAA23871BCC00FC198B /* GroupCheck */,
 				4E552FAB23871BE200FC198B /* MaintenancePlan */,
 				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
 				4E552FAE23871C4600FC198B /* MaintenanceConfirmation */,
@@ -1009,7 +1032,6 @@
 		4EDB753C23843FD900A0BC84 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				4E552FAA23871BCC00FC198B /* GroupCheck */,
 				4E552FA923871BB700FC198B /* WholeCheck */,
 				4E552FBF2387490F00FC198B /* SeasoningManagement */,
 			);
@@ -1021,7 +1043,6 @@
 			children = (
 				4E552FC323874A4800FC198B /* SeasoningManagement */,
 				4E552F992387124B00FC198B /* WholeCheck */,
-				4E5A362D2386A07700ECB3B6 /* GroupCheck */,
 				4ECDAACC23852EE40063FFF9 /* Global */,
 			);
 			path = View;
@@ -1252,6 +1273,7 @@
 				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
 				4EB808C823973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
+				4E0B05E223986C900027BDBB /* GroupCheckItemModel.m in Sources */,
 				4E552FB123871CFB00FC198B /* ProblemWholeCheckSubmitVC.m in Sources */,
 				4EB808C223972F6C009A3B91 /* MaintenanceItemModel.m in Sources */,
 				4EDDAD7C23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m in Sources */,
