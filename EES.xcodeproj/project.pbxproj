@@ -107,6 +107,7 @@
 		4EDB75432384415200A0BC84 /* ProblemNewReportSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75422384415200A0BC84 /* ProblemNewReportSelectionCell.m */; };
 		4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */; };
 		4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */; };
+		4EDDAD7C23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDDAD7B23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m */; };
 		4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */; };
 		4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */; };
 		4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */; };
@@ -319,6 +320,8 @@
 		4EDB75452384417E00A0BC84 /* ProblemNewReportContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemNewReportContentCell.m; sourceTree = "<group>"; };
 		4EDB75472384528C00A0BC84 /* ProblemAnswerSelectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemAnswerSelectionVC.h; sourceTree = "<group>"; };
 		4EDB75482384528C00A0BC84 /* ProblemAnswerSelectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemAnswerSelectionVC.m; sourceTree = "<group>"; };
+		4EDDAD7A23976ABF00E42762 /* PeriodicalMaintenanceItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeriodicalMaintenanceItemModel.h; sourceTree = "<group>"; };
+		4EDDAD7B23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeriodicalMaintenanceItemModel.m; sourceTree = "<group>"; };
 		4EE72F9B23849E0800A569E4 /* ProblemReportListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemReportListVC.h; sourceTree = "<group>"; };
 		4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemReportListVC.m; sourceTree = "<group>"; };
 		4EE72F9E23849ECD00A569E4 /* ProblemReportItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemReportItemCell.h; sourceTree = "<group>"; };
@@ -597,17 +600,6 @@
 			path = MaintenancePlan;
 			sourceTree = "<group>";
 		};
-		4E552FAC23871BFB00FC198B /* PeriodicalMaintenance */ = {
-			isa = PBXGroup;
-			children = (
-				4E5A36072385FB3500ECB3B6 /* ProblemPeriodicalMaintenanceListVC.h */,
-				4E5A36082385FB3500ECB3B6 /* ProblemPeriodicalMaintenanceListVC.m */,
-				4E5A360D238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.h */,
-				4E5A360E238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.m */,
-			);
-			path = PeriodicalMaintenance;
-			sourceTree = "<group>";
-		};
 		4E552FAD23871C0C00FC198B /* Maintenance */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,14 +697,9 @@
 		4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */ = {
 			isa = PBXGroup;
 			children = (
-				4E5A360A2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.h */,
-				4E5A360B2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m */,
-				4E5A361123867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.h */,
-				4E5A361223867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.m */,
-				4E5A361423867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.h */,
-				4E5A361523867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.m */,
-				4E5A361723867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.h */,
-				4E5A361823867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m */,
+				4E796D0923976A4000C14D5C /* Model */,
+				4E796D0823976A2300C14D5C /* View */,
+				4E796D06239769E700C14D5C /* VC */,
 			);
 			path = PeriodicalMaintenance;
 			sourceTree = "<group>";
@@ -743,6 +730,41 @@
 				4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */,
 			);
 			path = GroupCheck;
+			sourceTree = "<group>";
+		};
+		4E796D06239769E700C14D5C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4E5A36072385FB3500ECB3B6 /* ProblemPeriodicalMaintenanceListVC.h */,
+				4E5A36082385FB3500ECB3B6 /* ProblemPeriodicalMaintenanceListVC.m */,
+				4E5A360D238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.h */,
+				4E5A360E238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4E796D0823976A2300C14D5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E5A360A2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.h */,
+				4E5A360B2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m */,
+				4E5A361123867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.h */,
+				4E5A361223867BA000ECB3B6 /* ProblemPeriodicalMaintenanceDetailTitleCell.m */,
+				4E5A361423867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.h */,
+				4E5A361523867BE000ECB3B6 /* ProblemPeriodicalMaintenanceDetailInfoCell.m */,
+				4E5A361723867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.h */,
+				4E5A361823867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E796D0923976A4000C14D5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EDDAD7A23976ABF00E42762 /* PeriodicalMaintenanceItemModel.h */,
+				4EDDAD7B23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4E91009623829E6800DD195A = {
@@ -940,6 +962,7 @@
 		4EDB753B23843FD100A0BC84 /* Problem */ = {
 			isa = PBXGroup;
 			children = (
+				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
 				4E552FAE23871C4600FC198B /* MaintenanceConfirmation */,
 				4E552FAD23871C0C00FC198B /* Maintenance */,
 				4EF360BE2391D03500B63571 /* ReportList */,
@@ -953,7 +976,6 @@
 		4EDB753C23843FD900A0BC84 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				4E552FAC23871BFB00FC198B /* PeriodicalMaintenance */,
 				4E552FAB23871BE200FC198B /* MaintenancePlan */,
 				4E552FAA23871BCC00FC198B /* GroupCheck */,
 				4E552FA923871BB700FC198B /* WholeCheck */,
@@ -969,7 +991,6 @@
 				4E552F992387124B00FC198B /* WholeCheck */,
 				4E5A362D2386A07700ECB3B6 /* GroupCheck */,
 				4E5A361D238696D000ECB3B6 /* MaintenancePlan */,
-				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
 				4ECDAACC23852EE40063FFF9 /* Global */,
 			);
 			path = View;
@@ -1199,6 +1220,7 @@
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,
 				4E552FB123871CFB00FC198B /* ProblemWholeCheckSubmitVC.m in Sources */,
 				4EB808C223972F6C009A3B91 /* MaintenanceItemModel.m in Sources */,
+				4EDDAD7C23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m in Sources */,
 				4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */,
 				4E552F9F238713F900FC198B /* ProblemWholeCheckItemVC.m in Sources */,
 				4E552FD8238753BE00FC198B /* LoginTimeoutVC.m in Sources */,

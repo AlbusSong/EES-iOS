@@ -12,9 +12,13 @@
 
 #import "ProblemPeriodicalMaintenanceDetailVC.h"
 
+#import "PeriodicalMaintenanceItemModel.h"
+
 @interface ProblemPeriodicalMaintenanceListVC ()<ProblemSearchBarDelegate>
 
 @property (nonatomic, copy) NSString *searchContent;
+
+@property (nonatomic) NSInteger currentPage;
 
 @end
 
@@ -24,6 +28,8 @@
     self = [super init];
     if (self) {
         self.title = @"定期保养";
+        
+        self.currentPage = 1;
     }
     return self;
 }
@@ -46,6 +52,33 @@
     [self.tableView registerClass:[ProblemPeriodicalMaintenanceItemCell class] forCellReuseIdentifier:ProblemPeriodicalMaintenanceItemCell.cellIdentifier];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(45, 0, 0, 0));
+    }];
+    
+    WS(weakSelf)
+//    self.clv.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        weakSelf.currentPage = 1;
+//        [weakSelf getDataFromServer];
+//    }];
+//    
+//    self.clv.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        weakSelf.currentPage++;
+//        [weakSelf getDataFromServer];
+//    }];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_LIST parameters:@{@"size":@(10), @"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"PERIODICAL_MAINTENANCE_GET_LIST: %@", responseJson);
+        NSArray *arr = [PeriodicalMaintenanceItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.arrOfData addObjectsFromArray:arr];
+        [weakSelf.tableView reloadData];
     }];
 }
 
@@ -77,7 +110,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,6 +128,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProblemPeriodicalMaintenanceItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemPeriodicalMaintenanceItemCell.cellIdentifier forIndexPath:indexPath];
+    
+    [cell resetSubviewsWithData:self.arrOfData[indexPath.row]];
     
     return cell;
 }

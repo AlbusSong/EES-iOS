@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class PeriodicalMaintenanceItemModel;
+
 @interface ProblemPeriodicalMaintenanceItemCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(PeriodicalMaintenanceItemModel *)data;
 
 @end
 

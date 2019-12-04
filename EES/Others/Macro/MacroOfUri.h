@@ -20,8 +20,16 @@
 // 首页各功能条数
 #define HOME_FUNCTION_MODULES @"MainPage/LoadCount"
 
+
+
 // 加载报修呼叫列表
 #define PROBLEM_REPORT_LIST @"BMRequestStateList/LoadList"
+// 报修接受
+#define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"
+// 报修拒绝
+#define REPORT_ITEM_DECLINE @"BMRequestStateList/Refuse"
+
+
 
 // 加载报修呼叫列表
 #define GET_REPORT_LIST @"BMRequestStateList/LoadList"
@@ -33,6 +41,8 @@
 #define GET_PROBLEM_LEVEL_LIST @"BMRequestStateList/LoadLevel"
 // 报修呼叫-加载故障现象代码
 #define GET_PROBLEM_DESC_LIST @"BMRequestStateList/LoadItemCode"
+
+
 
 // 加载故障工单列表
 #define MAINTENANCE_GET_LIST @"WorkOrderState/LoadList"
@@ -65,11 +75,11 @@
 #define MAINTENANCE_CONFIRMATION_ACTION_REJECT @"WorkOrderStateQC/Refuse"
 
 
-// 报修接受
-#define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"
 
-// 报修拒绝
-#define REPORT_ITEM_DECLINE @"BMRequestStateList/Refuse"
+
+
+// 　定期保养列表
+#define PERIODICAL_MAINTENANCE_GET_LIST @"PMWorkOrder/LoadList"
 
 
 // 故障报修

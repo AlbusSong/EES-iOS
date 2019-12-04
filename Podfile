@@ -7,6 +7,7 @@ target 'EES' do
 
   # Pods for EES
   pod 'Masonry'
+  pod 'MJRefresh'
   pod 'AFNetworking'
   pod 'MJExtension'
   pod 'SDWebImage'
