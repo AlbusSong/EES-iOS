@@ -7,6 +7,7 @@
 //
 
 #import "ProblemMaintenanceConfirmationItemCell.h"
+#import "MaintenanceConfirmationItemModel.h"
 
 @interface ProblemMaintenanceConfirmationItemCell ()
 
@@ -58,7 +59,7 @@
         make.top.offset(10);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfTime.text = @"16:09";
+    
     
     self.txtOfTitle = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:17] textColor:HexColor(MAIN_COLOR_BLACK) parentView:self.contentView];
     [self.txtOfTitle mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,7 +67,7 @@
         make.left.offset(10);
         make.right.equalTo(self.txtOfTime.mas_left).offset(-5);
     }];
-    self.txtOfTitle.text = @"GDWY4H09201|压缩机称重设备";
+    
     
     self.txtOfChanxian = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfChanxian mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,7 +75,6 @@
         make.top.equalTo(self.txtOfTitle.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfChanxian.text = @"产线：上法兰线";
     
     self.txtOfBaogongrenyuan = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfBaogongrenyuan.textAlignment = NSTextAlignmentRight;
@@ -85,7 +85,6 @@
         make.right.equalTo(self.txtOfTime);
         make.left.equalTo(self.txtOfChanxian.mas_right).offset(3);
     }];
-    self.txtOfBaogongrenyuan.text = @"报工人员：张强";
     
     self.txtOfRole = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfRole mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,7 +92,7 @@
         make.top.equalTo(self.txtOfChanxian.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfRole.text = @"角色：管理员角色";
+    
     
     self.txtOfBaogongshijian = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfBaogongshijian.textAlignment = NSTextAlignmentRight;
@@ -104,7 +103,6 @@
         make.right.equalTo(self.txtOfTime);
         make.left.equalTo(self.txtOfRole.mas_right).offset(3);
     }];
-    self.txtOfBaogongshijian.text = @"报工时间：17:32";
     
     self.txtOfOrderNumber = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfOrderNumber mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,7 +110,6 @@
         make.top.equalTo(self.txtOfRole.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfOrderNumber.text = @"工单：BMPO2019112043";
     
     self.txtOfStrategy = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfStrategy mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +119,6 @@
         make.right.equalTo(self.txtOfTime);
         make.bottom.offset(-10);
     }];
-    self.txtOfStrategy.text = @"对策：A88";
     
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");
@@ -131,6 +127,28 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)showSelected:(BOOL)ifSelected {
+    self.imgvOfSelection.hidden = (!ifSelected);
+}
+
+- (void)resetSubviewsWithData:(MaintenanceConfirmationItemModel *)data {
+    self.txtOfTime.text = data.ReuqestTimeFormat;
+    
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    
+    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
+    
+    self.txtOfBaogongrenyuan.text = [NSString stringWithFormat:@"报工人员：%@", data.RequestOperatorDesc];
+    
+    self.txtOfRole.text = [NSString stringWithFormat:@"角色：%@", data.RoleName];
+    
+    self.txtOfBaogongshijian.text = [NSString stringWithFormat:@"报工时间：%@", data.WorkOrderEndTime];
+    
+    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"单号：%@", data.BMRequestNO];
+    
+    self.txtOfStrategy.text = [NSString stringWithFormat:@"对策：%@", data.PrestRemark];
 }
 
 @end

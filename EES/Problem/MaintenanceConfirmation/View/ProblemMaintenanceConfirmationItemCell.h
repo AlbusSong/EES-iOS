@@ -10,7 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MaintenanceConfirmationItemModel;
+
 @interface ProblemMaintenanceConfirmationItemCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(MaintenanceConfirmationItemModel *)data;
+
+- (void)showSelected:(BOOL)ifSelected;
 
 @end
 

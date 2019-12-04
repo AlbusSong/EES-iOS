@@ -56,6 +56,15 @@
 #define MAINTENANCE_GET_FAILCODE_LIST @"BMRequestStateList/LoadFailCode"
 
 
+
+// 加载故障工单审核列表
+#define MAINTENANCE_CONFIRMATION_GET_LIST @"WorkOrderStateQC/LoadList"
+// 通过
+#define MAINTENANCE_CONFIRMATION_ACTION_APPROVE @"WorkOrderStateQC/Accept"
+// 驳回
+#define MAINTENANCE_CONFIRMATION_ACTION_REJECT @"WorkOrderStateQC/Refuse"
+
+
 // 报修接受
 #define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"
 

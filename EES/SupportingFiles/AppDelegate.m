@@ -43,7 +43,7 @@
 - (void)configSVGProgressHUD {
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setBackgroundColor: [[UIColor blackColor] colorWithAlphaComponent:0.8]];
 }

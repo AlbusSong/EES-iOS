@@ -1,19 +1,18 @@
 //
-//  ProblemReportListVC.m
+//  ProblemMaintenanceConfirmationListVC.m
 //  EES
 //
-//  Created by Albus on 20/11/2019.
+//  Created by Albus on 2019-11-21.
 //  Copyright © 2019 Zivos. All rights reserved.
 //
 
-#import "ProblemReportListVC.h"
-#import "ProblemReportItemCell.h"
-
+#import "ProblemMaintenanceConfirmationListVC.h"
+#import "ProblemMaintenanceConfirmationItemCell.h"
 #import "ProblemSearchBar.h"
 
-#import "ReportListItemModel.h"
+#import "MaintenanceConfirmationItemModel.h"
 
-@interface ProblemReportListVC () <ProblemSearchBarDelegate>
+@interface ProblemMaintenanceConfirmationListVC () <ProblemSearchBarDelegate>
 
 @property (nonatomic, copy) NSString *searchContent;
 
@@ -21,13 +20,12 @@
 
 @end
 
-@implementation ProblemReportListVC
+@implementation ProblemMaintenanceConfirmationListVC
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"报修清单";
-        
+        self.title = @"维修确认";
         self.selectedIndex = -1;
     }
     return self;
@@ -48,7 +46,7 @@
         make.height.mas_equalTo(45);
     }];
     
-    [self.tableView registerClass:[ProblemReportItemCell class] forCellReuseIdentifier:ProblemReportItemCell.cellIdentifier];
+    [self.tableView registerClass:[ProblemMaintenanceConfirmationItemCell class] forCellReuseIdentifier:ProblemMaintenanceConfirmationItemCell.cellIdentifier];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(45, 0, 50, 0));
     }];
@@ -56,7 +54,7 @@
     UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
     btnConfirm.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnConfirm setTitle:@"接受" forState:UIControlStateNormal];
+    [btnConfirm setTitle:@"通过" forState:UIControlStateNormal];
     [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
     [btnConfirm addTarget:self action:@selector(btnConfirmClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnConfirm];
@@ -69,7 +67,7 @@
     UIButton *btnReject = [UIButton buttonWithType:UIButtonTypeCustom];
     btnReject.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [btnReject setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
+    [btnReject setTitle:@"驳回" forState:UIControlStateNormal];
     [btnReject setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
     [btnReject addTarget:self action:@selector(btnRejectClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnReject];
@@ -90,7 +88,7 @@
         return;
     }
     
-    [GlobalTool popAlertWithTitle:@"确定接受？" message:nil yesStr:@"确定" yesActionBlock:^{
+    [GlobalTool popAlertWithTitle:@"确定通过？" message:nil yesStr:@"确定" yesActionBlock:^{
         [self confirmAction];
     }];
 }
@@ -98,13 +96,10 @@
 - (void)confirmAction {
     [SVProgressHUD show];
     
-    ReportListItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
-    WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:REPORT_ITEM_ACCEPT parameters:@{@"no":selectedModel.BMRequestNO} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD dismiss];
-        NSLog(@"REPORT_ITEM_ACCEPT: %@", responseJson);
-        weakSelf.arrOfData = [ReportListItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
-        [weakSelf.tableView reloadData];
+    MaintenanceConfirmationItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_APPROVE parameters:@{@"no":selectedModel.BMRequestNO} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        NSLog(@"MAINTENANCE_CONFIRMATION_ACTION_APPROVE: %@", responseJson);
     }];
 }
 
@@ -115,7 +110,7 @@
         return;
     }
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定拒绝？" message:@"请输入拒绝原因" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定拒绝？" message:@"请输入驳回原因" preferredStyle:UIAlertControllerStyleAlert];
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
         textField.placeholder = @"原因";
     }];
@@ -139,13 +134,10 @@
     
     [SVProgressHUD show];
     
-    ReportListItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
-    WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:REPORT_ITEM_DECLINE parameters:@{@"no":selectedModel.BMRequestNO, @"reason":reason} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD dismiss];
-        NSLog(@"REPORT_ITEM_DECLINE: %@", responseJson);
-        weakSelf.arrOfData = [ReportListItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
-        [weakSelf.tableView reloadData];
+    MaintenanceConfirmationItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_REJECT parameters:@{@"no":selectedModel.BMRequestNO, @"reason":reason} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"驳回成功"];
+        NSLog(@"MAINTENANCE_CONFIRMATION_ACTION_REJECT: %@", responseJson);
     }];
 }
 
@@ -155,12 +147,14 @@
     [SVProgressHUD show];
     
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:YES success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_GET_LIST parameters:@{@"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:YES success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
-        NSLog(@"PROBLEM_REPORT_LIST: %@", responseJson);
+        NSLog(@"MAINTENANCE_CONFIRMATION_GET_LIST: %@", responseJson);
         
-        weakSelf.arrOfData = [ReportListItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        weakSelf.arrOfData = [MaintenanceConfirmationItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
         [weakSelf.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"MAINTENANCE_CONFIRMATION_GET_LIST error: %@", error);
     }];
 }
 
@@ -170,7 +164,7 @@
     self.searchContent = newSearchContent;
 }
 
-- (void)tryToSearch {    
+- (void)tryToSearch {
     [self getDataFromServer];
     
     [self.view endEditing:YES];
@@ -211,7 +205,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProblemReportItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemReportItemCell.cellIdentifier forIndexPath:indexPath];
+    ProblemMaintenanceConfirmationItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenanceConfirmationItemCell.cellIdentifier forIndexPath:indexPath];
     
     [cell resetSubviewsWithData:self.arrOfData[indexPath.row]];
     [cell showSelected:(indexPath.row == self.selectedIndex)];
