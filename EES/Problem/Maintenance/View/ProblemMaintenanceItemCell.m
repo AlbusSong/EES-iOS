@@ -38,15 +38,17 @@
         make.top.offset(10);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfTime.text = @"16:09";
     
     self.txtOfTitle = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:17] textColor:HexColor(MAIN_COLOR_BLACK) parentView:self.contentView];
+    self.txtOfTitle.numberOfLines = 0;
     [self.txtOfTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.txtOfTime);
+//        make.centerY.equalTo(self.txtOfTime);
+        make.top.offset(10);
+        make.height.mas_greaterThanOrEqualTo(25);
         make.left.offset(10);
         make.right.equalTo(self.txtOfTime.mas_left).offset(-5);
     }];
-    self.txtOfTitle.text = @"GDWY4H09201|压缩机称重设备";
+    
     
     self.txtOfChanxian = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfChanxian mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,7 +56,6 @@
         make.top.equalTo(self.txtOfTitle.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfChanxian.text = @"产线：上法兰线";
     
     self.txtOfDuration = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfDuration.textAlignment = NSTextAlignmentRight;
@@ -65,7 +66,6 @@
         make.right.equalTo(self.txtOfTime);
         make.left.equalTo(self.txtOfChanxian.mas_right).offset(3);
     }];
-    self.txtOfDuration.text = @"耗时：30分钟";
     
     self.txtOfOrderNumber = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfOrderNumber mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +73,6 @@
         make.top.equalTo(self.txtOfChanxian.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfOrderNumber.text = @"工单：BMPO2019112043";
     
     self.txtOfStatus = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     self.txtOfStatus.textAlignment = NSTextAlignmentRight;
@@ -85,7 +84,6 @@
         make.left.equalTo(self.txtOfOrderNumber.mas_right).offset(3);
         make.bottom.offset(-10);
     }];
-    self.txtOfStatus.text = @"状态：维修中";
     
     
     self.grayLine = [[UIView alloc] init];
@@ -95,6 +93,20 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)resetSubviewsWithData:(MaintenanceItemModel *)data {
+    self.txtOfTime.text = data.ReuqestTimeFormat;
+    
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    
+    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
+    
+    self.txtOfDuration.text = [NSString stringWithFormat:@"耗时：%@", data.ResponseTimeLength];
+    
+    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"工单：%@", data.BMRequestNO];
+    
+    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.BMWorkOrderStateName];
 }
 
 @end

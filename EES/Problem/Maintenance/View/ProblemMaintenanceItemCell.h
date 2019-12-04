@@ -7,10 +7,13 @@
 //
 
 #import "ASTableViewCell.h"
+#import "MaintenanceItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProblemMaintenanceItemCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(MaintenanceItemModel *)data;
 
 @end
 

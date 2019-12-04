@@ -12,6 +12,8 @@
 
 #import "ProblemMaintenanceDetailVC.h"
 
+#import "MaintenanceItemModel.h"
+
 @interface ProblemMaintenanceListVC ()<ProblemSearchBarDelegate>
 
 @property (nonatomic, copy) NSString *searchContent;
@@ -47,6 +49,22 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(45, 0, 0, 0));
     }];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_GET_LIST parameters:@{@"equipCode":self.searchContent ? self.searchContent : @""} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"MAINTENANCE_GET_LIST: %@", responseJson);
+        weakSelf.arrOfData = [MaintenanceItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark ProblemSearchBarDelegate
@@ -56,9 +74,7 @@
 }
 
 - (void)tryToSearch {
-    if (self.searchContent.length == 0) {
-        return;
-    }
+    [self getDataFromServer];
     
     [self.view endEditing:YES];
 }
@@ -77,12 +93,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
-//    return 100;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -95,6 +110,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProblemMaintenanceItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemMaintenanceItemCell.cellIdentifier forIndexPath:indexPath];
+    
+    [cell resetSubviewsWithData:[self.arrOfData objectAtIndex:indexPath.row]];
     
     return cell;
 }

@@ -149,7 +149,7 @@
     [SVProgressHUD show];
     
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode":@""} shouldCache:YES success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_REPORT_LIST parameters:@{@"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:YES success:^(int code, NSString * _Nonnull msg, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"PROBLEM_REPORT_LIST: %@", responseJson);
         
@@ -164,10 +164,8 @@
     self.searchContent = newSearchContent;
 }
 
-- (void)tryToSearch {
-    if (self.searchContent.length == 0) {
-        return;
-    }
+- (void)tryToSearch {    
+    [self getDataFromServer];
     
     [self.view endEditing:YES];
 }

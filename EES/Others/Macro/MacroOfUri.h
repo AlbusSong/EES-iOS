@@ -34,6 +34,9 @@
 // 报修呼叫-加载故障现象代码
 #define GET_PROBLEM_DESC_LIST @"BMRequestStateList/LoadItemCode"
 
+// 加载故障工单列表
+#define MAINTENANCE_GET_LIST @"WorkOrderState/LoadList"
+
 // 报修接受
 #define REPORT_ITEM_ACCEPT @"BMRequestStateList/Accept"
 
