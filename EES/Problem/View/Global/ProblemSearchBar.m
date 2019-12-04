@@ -36,7 +36,8 @@
     }];
     
     self.imgvOfSearch = [[UIImageView alloc] init];
-    self.imgvOfSearch.backgroundColor = RANDOM_COLOR;
+//    self.imgvOfSearch.backgroundColor = RANDOM_COLOR;
+    self.imgvOfSearch.image = [UIImage imageNamed:@"search_bar_icon"];
     [self.viewOfInputBackground addSubview:self.imgvOfSearch];
     [self.imgvOfSearch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(7);
@@ -52,7 +53,7 @@
     self.tfdOfContent.delegate = self;
     [self.viewOfInputBackground addSubview:self.tfdOfContent];
     [self.tfdOfContent mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.imgvOfSearch.mas_right).offset(10);
+        make.left.equalTo(self.imgvOfSearch.mas_right).offset(5);
         make.right.offset(-5);
         make.top.bottom.equalTo(self.viewOfInputBackground);
     }];
