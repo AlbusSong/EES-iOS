@@ -82,7 +82,12 @@
 #define PERIODICAL_MAINTENANCE_GET_LIST @"PMWorkOrder/LoadList"
 // 根据工单编号查询工单信息
 #define PERIODICAL_MAINTENANCE_GET_DETAIL @"PMWorkOrder/LoadWorkOrder"
-
+// 根据计划编号查询附件
+#define PERIODICAL_MAINTENANCE_GET_ATTACHMENT @"PMWorkOrder/LoadFiles"
+// 根据工单编号开始工单
+#define PERIODICAL_MAINTENANCE_ACTION_START @"PMWorkOrder/StartWork"
+// 根据工单编号结束工单
+#define PERIODICAL_MAINTENANCE_ACTION_END @"PMWorkOrder/EndWork"
 
 // 故障报修
 // 报修呼叫-加载产线

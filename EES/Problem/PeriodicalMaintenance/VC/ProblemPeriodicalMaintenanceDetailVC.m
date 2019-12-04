@@ -80,6 +80,10 @@
         weakSelf.detailData = [PeriodicalMaintenanceDetailModel mj_objectWithKeyValues:responseJson];
         [weakSelf.tableView reloadData];
     }];
+    
+    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_ATTACHMENT parameters:@{@"planNo":self.data.PMPlanNO} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"PERIODICAL_MAINTENANCE_GET_ATTACHMENT: %@", responseJson);
+    }];
 }
 
 #pragma mark gestures
@@ -88,6 +92,42 @@
     NSInteger index = sender.tag % 10;
     
     NSLog(@"btnFunctionClicked: %li", index);
+    WS(weakSelf)
+    [GlobalTool popAlertWithTitle:[NSString stringWithFormat:@"确定%@？", index == 0 ? @"开始" : @"结束"] message:nil yesStr:@"确定" yesActionBlock:^{
+        if (index == 0) {
+            [weakSelf tryToStart];
+        } else if (index == 1) {
+            [weakSelf tryToTerminate];
+        }
+    }];
+}
+
+- (void)tryToStart {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_ACTION_START parameters:@{@"workOrderNo":self.detailData.PMWorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        NSLog(@"PERIODICAL_MAINTENANCE_ACTION_START: %@", responseJson);
+        [weakSelf back];
+        if (weakSelf.backBlock) {
+            weakSelf.backBlock();
+        }
+    }];
+}
+
+- (void)tryToTerminate {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_ACTION_END parameters:@{@"workOrderNo":self.detailData.PMWorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        NSLog(@"PERIODICAL_MAINTENANCE_ACTION_END: %@", responseJson);
+        [weakSelf back];
+        if (weakSelf.backBlock) {
+            weakSelf.backBlock();
+        }
+    }];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource

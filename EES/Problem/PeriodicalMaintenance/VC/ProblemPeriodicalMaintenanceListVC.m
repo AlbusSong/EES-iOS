@@ -72,16 +72,25 @@
 
 #pragma mark network
 
-- (void)getDataFromServer {
-    [SVProgressHUD show];
+- (void)getDataFromServerShouldShowHUD:(BOOL)shouldShow {
+    if (shouldShow) {
+        [SVProgressHUD show];
+    }
+    
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_LIST parameters:@{@"size":@(self.currentPage), @"equipCode": self.searchContent ? self.searchContent : @""} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD dismiss];
+        if (shouldShow) {
+            [SVProgressHUD dismiss];
+        }
         NSLog(@"PERIODICAL_MAINTENANCE_GET_LIST: %@", responseJson);
         NSArray *arr = [PeriodicalMaintenanceItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
         [weakSelf.arrOfData addObjectsFromArray:arr];
         [weakSelf.tableView reloadData];
     }];
+}
+
+- (void)getDataFromServer {
+    [self getDataFromServerShouldShowHUD:YES];
 }
 
 #pragma mark ProblemSearchBarDelegate
@@ -103,8 +112,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    WS(weakSelf)
     ProblemPeriodicalMaintenanceDetailVC *vc = [[ProblemPeriodicalMaintenanceDetailVC alloc] init];
     vc.data = self.arrOfData[indexPath.row];
+    vc.backBlock = ^{
+        [weakSelf getDataFromServerShouldShowHUD:NO];
+    };
     [self pushVC:vc];
 }
 

@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *PMWorkOrderNo;
 
+@property (nonatomic, copy) NSString *PMPlanNO;
+
 
 @end
 

@@ -42,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *VendorMaintanceDay;
 
+@property (nonatomic, copy) NSString *PMPlanNO;
+
 @end
 
 NS_ASSUME_NONNULL_END

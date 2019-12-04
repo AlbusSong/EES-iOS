@@ -764,8 +764,8 @@
 		4E796D0923976A4000C14D5C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4EDDAD7B23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m */,
 				4EDDAD7A23976ABF00E42762 /* PeriodicalMaintenanceItemModel.h */,
+				4EDDAD7B23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m */,
 				4EDDAD7D2397AF0400E42762 /* PeriodicalMaintenanceDetailModel.h */,
 				4EDDAD7E2397AF0400E42762 /* PeriodicalMaintenanceDetailModel.m */,
 			);
