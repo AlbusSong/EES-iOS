@@ -91,7 +91,7 @@
     
     self.txtOfInfo4.text = [NSString stringWithFormat:@"结果：%@", data.AppResult];
     
-    self.txtOfInfo5.text = [NSString stringWithFormat:@"处理进度：%@", @""];
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"处理进度：%@", data.AppResult];
 }
 
 - (void)shouldShowProgressInfo:(BOOL)shouldShow {

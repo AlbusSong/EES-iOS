@@ -52,7 +52,30 @@
 #pragma mark gestures
 
 - (void)btnSubmitClicked {
+    if (self.arrOfData.count == 0) {
+        [SVProgressHUD showInfoWithStatus:@"无数据可提交"];
+        return;
+    }
     
+    WS(weakSelf)
+    [GlobalTool popAlertWithTitle:@"确定提交？" message:nil yesStr:@"确定" yesActionBlock:^{
+        [weakSelf realSubmitAction];
+    }];
+}
+
+- (void)realSubmitAction {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_SUBMIT parameters:@{@"arrayResult":@"", @"isPrest":@""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        if (code == 1) {
+            [SVProgressHUD showInfoWithStatus:@"操作成功"];
+            [weakSelf back];
+        } else if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+        }
+        NSLog(@"GROUP_CHECK_ACTION_SUBMIT: %@", responseJson);
+    }];
 }
 
 #pragma mark network

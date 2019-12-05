@@ -85,6 +85,7 @@
     
     
     self.tfdOfInput = [UITextField quickTextFieldWithFont:[UIFont systemFontOfSize:18] textColor:HexColor(MAIN_COLOR_BLACK)];
+    self.tfdOfInput.keyboardType = UIKeyboardTypeDecimalPad;
     self.tfdOfInput.placeholder = @"请输入数值";
     [self.contentView addSubview:self.tfdOfInput];
     [self.tfdOfInput mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -106,15 +107,6 @@
         make.bottom.offset(-10);
     }];
     
-    int choose = arc4random()%2;
-    if (choose == 0) {
-        self.tfdOfInput.hidden = YES;
-        self.smcOfDecision.hidden = NO;
-    } else {
-        self.tfdOfInput.hidden = NO;
-        self.smcOfDecision.hidden = YES;
-    }
-    
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");
     [self.contentView addSubview:self.grayLine];
@@ -134,11 +126,21 @@
     self.txtOfMethod.text = [NSString stringWithFormat:@"方法工具：%@", data.MethodTool];
     
     if (data.AttachName.length == 0) {
+        self.txtOfAttachment.userInteractionEnabled = NO;
         self.txtOfAttachment.text = @"无图片";
         self.txtOfAttachment.textColor = HexColor(@"999999");
     } else {
+        self.txtOfAttachment.userInteractionEnabled = YES;
         self.txtOfAttachment.text = @"点击查看图片";
         self.txtOfAttachment.textColor = HexColor(MAIN_COLOR);
+    }
+    
+    if ([data.JudgeType isEqualToString:@"数值判断"]) {
+        self.tfdOfInput.hidden = NO;
+        self.smcOfDecision.hidden = YES;
+    } else if ([data.JudgeType isEqualToString:@"人为判断"]) {
+        self.tfdOfInput.hidden = YES;
+        self.smcOfDecision.hidden = NO;
     }
 }
 

@@ -106,8 +106,13 @@
     [SVProgressHUD show];
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT parameters:@{} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         NSLog(@"GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         [weakSelf back];
         if (weakSelf.backBlock) {
             weakSelf.backBlock();

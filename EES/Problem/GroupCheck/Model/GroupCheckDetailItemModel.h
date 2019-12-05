@@ -28,11 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
 //
 @property (nonatomic, copy) NSString *AppResult;
 
+@property (nonatomic, copy) NSString *Result;
+
 @property (nonatomic, copy) NSString *Unit;
 
 @property (nonatomic, copy) NSString *Comment;
 
-//@property (nonatomic, copy) NSString *WorkOrderNoApp;
+@property (nonatomic, copy) NSString *AppIsSolve;
 
 @end
 

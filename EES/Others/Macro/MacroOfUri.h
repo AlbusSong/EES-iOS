@@ -117,6 +117,8 @@
 #define GROUP_CHECK_GET_DETAIL_ITEM_ATTACHMENT @"CMSWorkOrder/LoadFiles"
 // 根据填入的数据处理异常点检
 #define GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT @"CMSWorkOrder/Deal"
+// 报工
+#define GROUP_CHECK_ACTION_SUBMIT @"CMSWorkOrder/Commit"
 
 
 
