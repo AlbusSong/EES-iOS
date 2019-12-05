@@ -49,10 +49,15 @@
 #pragma mark private actions
 
 - (void)logout {
+    [MeInfo sharedInstance].isLogined = NO;
+    
     WS(weakSelf)
     [self hideAnimatedWithCompletion:^{
         LoginVC *vcOfLogin = [[LoginVC alloc] init];
-        [weakSelf presentViewController:vcOfLogin animated:YES completion:nil];
+        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vcOfLogin];
+        nav.navigationBar.hidden = YES;
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:nav animated:YES completion:nil];
     }];
 }
 

@@ -81,6 +81,8 @@
         
         weakSelf.moduleData = [HomeFunctionModuleModel mj_objectWithKeyValues:extend.firstObject];
         [weakSelf.clv reloadData];
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"HOME_FUNCTION_MODULES error: %@", error);
     }];
 }
 

@@ -32,7 +32,7 @@
     
     [self.tableView registerClass:[LoginTimeoutHintCell class] forCellReuseIdentifier:LoginTimeoutHintCell.cellIdentifier];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.insets(UIEdgeInsetsMake(0, 0, 50, 0));
+        make.edges.insets(UIEdgeInsetsMake(STATUS_BAR_HEIGHT, 0, 50, 0));
     }];
     
     UIButton *btnRelogin = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -52,10 +52,10 @@
 
 - (void)tryToRelogin {
     LoginVC *vcOfLogin = [[LoginVC alloc] init];
-    WS(weakSelf)
-    [self presentViewController:vcOfLogin animated:YES completion:^{
-        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-    }];
+    [self pushVC:vcOfLogin];
+//    [self presentViewController:vcOfLogin animated:YES completion:^{
+//        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+//    }];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -88,6 +88,12 @@
     LoginTimeoutHintCell *cell = [tableView dequeueReusableCellWithIdentifier:LoginTimeoutHintCell.cellIdentifier forIndexPath:indexPath];
     
     return cell;
+}
+
+#pragma mark Status bar
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
 }
 
 @end

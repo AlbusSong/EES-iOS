@@ -13,6 +13,7 @@
 //#import "YYCache.h"
 //#endif
 #import <YYCache/YYCache.h>
+#import "LoginTimeoutVC.h"
 
 //YYCache
 NSString * const EESHttpDiggerCache = @"EESHttpDiggerCache";
@@ -66,6 +67,7 @@ static EESHttpDigger *instance = nil;
         NSData *cacheData = (NSData *)[self.cache objectForKey:cacheKey];
         if (cacheData) {
             id cachedResponseJson = [NSJSONSerialization JSONObjectWithData:cacheData options:NSJSONReadingAllowFragments error:nil];
+            
             if (success) {
                 int code = [cachedResponseJson[@"Success"] intValue];
                 NSString *msg = [NSString stringWithFormat:@"%@", cachedResponseJson[@"Message"]];
@@ -80,6 +82,11 @@ static EESHttpDigger *instance = nil;
     [self.networkMgr POST:url parameters:mDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id responseJson = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
+        if ([uri isEqualToString:HOME_FUNCTION_MODULES] == NO &&
+            [self checkIfLoginAvailableBy:responseJson] == NO) {
+            return ;
+        }
+        
         if (success) {
             int code = [responseJson[@"Success"] intValue];
             success(code, responseJson[@"Message"], responseJson);
@@ -88,11 +95,33 @@ static EESHttpDigger *instance = nil;
         if (shouldCache) {
             [weakSelf.cache setObject:responseObject forKey:cacheKey];
         }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {
             failure(error);
         }
     }];
+}
+
+#pragma mark 登陆状态检测
+
+- (BOOL)checkIfLoginAvailableBy:(NSDictionary *)responseJson {
+    NSLog(@"checkIfLoginAvailableBy: %@", responseJson);
+    int code = [responseJson[@"Success"] intValue];
+    NSString *Message = [responseJson objectForKey:@"Message"];
+    if (code == 0 && [Message isEqualToString:@"ErrorCodeSys001:登录超时"]) {
+        [MeInfo sharedInstance].isLogined = NO;
+        
+        LoginTimeoutVC *vcOfTimeout = [[LoginTimeoutVC alloc] init];
+        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vcOfTimeout];
+        nav.navigationBar.hidden = YES;
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [ROOT_VC presentViewController:nav animated:YES completion:nil];
+        
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark private methods

@@ -11,6 +11,8 @@
 #ifndef MacroOfTool_h
 #define MacroOfTool_h
 
+#define ROOT_VC (BaseNavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController
+
 
 #define ScreenW     [[UIScreen mainScreen] bounds].size.width
 #define ScreenH    [[UIScreen mainScreen] bounds].size.height

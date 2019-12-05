@@ -49,6 +49,18 @@
     self.tfdOfInput.placeholder = placeholder;
 }
 
+- (void)setContent:(NSString *)content {
+    self.tfdOfInput.text = content;
+}
+
+- (void)setKeyboardType:(UIKeyboardType)keyboardType {
+    self.tfdOfInput.keyboardType = keyboardType;
+}
+
+- (void)setIsSecureTextEntry:(BOOL)isSecureTextEntry {
+    self.tfdOfInput.secureTextEntry = isSecureTextEntry;
+}
+
 - (void)setIconImage:(UIImage *)image {
     self.imgvOfIcon.image = image;
 }

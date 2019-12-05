@@ -43,7 +43,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundViewClicked)]];
+    
     [self initSubviews];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.navigationController.viewControllers = @[self];
 }
 
 - (void)initSubviews {
@@ -94,6 +102,7 @@
     
     self.inputViewOfPassword = [[LoginInputView alloc] init];
     [self.inputViewOfPassword setPlaceholder:@"密码"];
+    [self.inputViewOfPassword setIsSecureTextEntry:YES];
     self.inputViewOfPassword.delegate = self;
     [self.wrapperView addSubview:self.inputViewOfPassword];
     [self.inputViewOfPassword mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,12 +112,21 @@
         make.height.mas_equalTo(40);
     }];
     
+    if ([MeInfo sharedInstance].shouldRememberMe == YES) {
+        [self.inputViewOfUsername setContent:[MeInfo sharedInstance].username];
+        [self.inputViewOfPassword setContent:[MeInfo sharedInstance].password];
+        
+        self.username = [MeInfo sharedInstance].username;
+        self.password = [MeInfo sharedInstance].password;
+    }
+    
     self.btnToRememberMe = [UIButton buttonWithType:UIButtonTypeSystem];
     self.btnToRememberMe.tintColor = HexColor(MAIN_COLOR_BLACK);
     self.btnToRememberMe.titleLabel.font = [UIFont systemFontOfSize:15];
     [self.btnToRememberMe setTitle:@"记住账户" forState:UIControlStateNormal];
-    [self.btnToRememberMe setImage:[UIImage imageNamed:@"Login-RememberMe-Check"] forState:UIControlStateNormal];
+    [self.btnToRememberMe setImage:[UIImage imageNamed:([MeInfo sharedInstance].shouldRememberMe ? @"Login-RememberMe-Check" : @"Login-RememberMe-Uncheck")] forState:UIControlStateNormal];
     [self.btnToRememberMe setImagePosition:ButtonImagePositionLeft spacing:5];
+    [self.btnToRememberMe addTarget:self action:@selector(btnToRememberMeClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.wrapperView addSubview:self.btnToRememberMe];
     [self.btnToRememberMe mas_makeConstraints:^(MASConstraintMaker *make) {
        make.left.offset(25);
@@ -123,6 +141,7 @@
     [self.btnLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.btnLogin setTitle:@"登陆" forState:UIControlStateNormal];
     [self.btnLogin setBackgroundImage:[GlobalTool imageWithColor:HexColor(@"e68073")] forState:UIControlStateNormal];
+    [self.btnLogin addTarget:self action:@selector(btnLoginClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.wrapperView addSubview:self.btnLogin];
     [self.btnLogin mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(25);
@@ -136,6 +155,50 @@
     [self.wrapperView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(self.btnLogin.bottom + 80);
     }];
+}
+
+#pragma mark gestures
+
+- (void)btnLoginClicked {
+    if (self.username.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请输入用户名"];
+        return;
+    }
+    
+    if (self.password.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请输入密码"];
+        return;
+    }
+    
+    [SVProgressHUD show];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":self.username, @"Password":self.password} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"LOGIN responseJson: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:message];
+        [MeInfo sharedInstance].isLogined = YES;
+        [MeInfo sharedInstance].username = weakSelf.username;
+        [MeInfo sharedInstance].password = weakSelf.password;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStatusChanged" object:nil];
+        [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+        
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"LOGIN error: %@", error);
+    }];
+}
+
+- (void)btnToRememberMeClicked {
+    [MeInfo sharedInstance].shouldRememberMe = ![MeInfo sharedInstance].shouldRememberMe;
+    [self.btnToRememberMe setImage:[UIImage imageNamed:([MeInfo sharedInstance].shouldRememberMe ? @"Login-RememberMe-Check" : @"Login-RememberMe-Uncheck")] forState:UIControlStateNormal];
+}
+
+- (void)backgroundViewClicked {
+    [self.view endEditing:YES];
 }
 
 #pragma mark LoginInputViewDelegate

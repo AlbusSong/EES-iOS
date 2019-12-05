@@ -33,11 +33,35 @@ static MeInfo *instance = nil;
 - (void)initSomeVars {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
+    self.isLogined = [userDefaults boolForKey:@"isLogined"];
+    self.username = [userDefaults objectForKey:@"username"];
+    self.password = [userDefaults objectForKey:@"password"];
     self.shouldRememberMe = [userDefaults boolForKey:@"shouldRememberMe"];
     self.cookie = [userDefaults objectForKey:@"cookie"];
 }
 
 #pragma mark setter
+
+- (void)setIsLogined:(BOOL)isLogined {
+    _isLogined = isLogined;
+    
+    [[NSUserDefaults standardUserDefaults] setBool:isLogined forKey:@"isLogined"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setUsername:(NSString *)username {
+    _username = username;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setPassword:(NSString *)password {
+    _password = password;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (void)setShouldRememberMe:(BOOL)shouldRememberMe {
     if (_shouldRememberMe == shouldRememberMe) {
@@ -48,21 +72,18 @@ static MeInfo *instance = nil;
     [[NSUserDefaults standardUserDefaults] setBool:shouldRememberMe forKey:@"shouldRememberMe"];
     
     if (shouldRememberMe == NO) {
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"cookie"];
+        self.username = @"";
+        self.password = @"";
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)setCookie:(NSString *)cookie {
-    _cookie = cookie;
-    
-    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-//    if (_shouldRememberMe) {
+//- (void)setCookie:(NSString *)cookie {
+//    _cookie = cookie;
 //
-//    }
-}
+//    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//}
 
 @end

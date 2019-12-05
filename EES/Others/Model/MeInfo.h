@@ -15,6 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype _Nullable )sharedInstance;
 
 
+@property (nonatomic) BOOL isLogined;
+
+@property (nonatomic, copy) NSString *username;
+
+@property (nonatomic, copy) NSString *password;
+
 @property (nonatomic) BOOL shouldRememberMe;
 
 @property (nonatomic, copy) NSString *cookie;

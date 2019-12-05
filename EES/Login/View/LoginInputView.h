@@ -26,6 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setPlaceholder:(NSString *)placeholder;
 
+- (void)setContent:(NSString *)content;
+
+- (void)setKeyboardType:(UIKeyboardType)keyboardType;
+
+- (void)setIsSecureTextEntry:(BOOL)isSecureTextEntry;
+
 - (void)setIconImage:(UIImage *)image;
 
 @end

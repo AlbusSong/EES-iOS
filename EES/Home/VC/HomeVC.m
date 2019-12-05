@@ -9,6 +9,7 @@
 #import "HomeVC.h"
 #import "HomeMenuVC.h"
 #import "HomeFunctionModulesVC.h"
+#import "LoginVC.h"
 
 @interface HomeVC ()
 
@@ -22,20 +23,22 @@
         self.title = @"智无形云MES";
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"M" style:UIBarButtonItemStyleDone target:self action:@selector(gotoMenu)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"S" style:UIBarButtonItemStyleDone target:self action:@selector(gotoSearch)];
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"S" style:UIBarButtonItemStyleDone target:self action:@selector(gotoSearch)];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:@"loginStatusChanged" object:nil];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+#pragma mark notification
+
+- (void)loginStatusChanged:(NSNotification *)notif {
+    NSLog(@"loginStatusChanged");
     
-//    if (@available(iOS 11.0, *)) {
-//        self.navigationController.navigationBar.prefersLargeTitles = YES;
-//    } else {
-//
-//    }
+    [self getDataFromServer];
 }
+
+#pragma mark life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,8 +47,24 @@
     self.view.backgroundColor = HexColor(@"f0eff5");
     
     [self initSubviews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     [self getDataFromServer];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if ([MeInfo sharedInstance].isLogined == NO) {
+        LoginVC *vcOfLogin = [[LoginVC alloc] init];
+        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vcOfLogin];
+        nav.navigationBar.hidden = YES;
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 #pragma mark init subviews
@@ -68,7 +87,12 @@
 #pragma mark network
 
 - (void)getDataFromServer {
-    [[EESHttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":@"zq", @"Password":@"123456"} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    if ([MeInfo sharedInstance].username.length == 0 ||
+        [MeInfo sharedInstance].password.length == 0) {
+        return;
+    }
+    
+    [[EESHttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":[MeInfo sharedInstance].username, @"Password":[MeInfo sharedInstance].password} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"LOGIN responseJson: %@", responseJson);
         
     } failure:^(NSError * _Nonnull error) {
