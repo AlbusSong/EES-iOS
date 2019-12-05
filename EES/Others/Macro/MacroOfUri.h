@@ -114,6 +114,13 @@
 #define GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT @"CMSWorkOrder/Deal"
 
 
+
+// 　保全点检
+// 根据设备名称查询工单集合
+#define WHOLE_CHECK_GET_LIST @"CMAWorkOrder/LoadList"
+
+
+
 // 故障报修
 // 报修呼叫-加载产线
 #define PROBLEM_REPORT_CHANXIAN_LIST @"BMRequestStateList/LoadLine"

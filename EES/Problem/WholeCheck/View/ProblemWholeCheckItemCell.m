@@ -7,6 +7,7 @@
 //
 
 #import "ProblemWholeCheckItemCell.h"
+#import "WholeCheckItemModel.h"
 
 @interface ProblemWholeCheckItemCell ()
 
@@ -35,7 +36,6 @@
         make.right.equalTo(self.contentView).offset(-5);
         make.height.mas_equalTo(23);
     }];
-    self.txtOfTitle.text = @"GDWY4H09201|压缩机称重设备";
     
     self.txtOfGongdan = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfGongdan mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,7 +43,6 @@
         make.top.equalTo(self.txtOfTitle.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfGongdan.text = @"工单：BMPO2019112043";
     
     self.txtOfTime = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfTime mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,7 +50,6 @@
         make.top.equalTo(self.txtOfGongdan.mas_bottom).offset(0);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfTime.text = @"点检时间：11月16日";
     
     self.txtOfType = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfType mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -61,7 +59,6 @@
         make.right.equalTo(self.contentView).offset(-5);
         make.bottom.offset(-10);
     }];
-    self.txtOfType.text = @"点检类型：基本点检";
     
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");
@@ -70,6 +67,16 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)resetSubviewsWithData:(WholeCheckItemModel *)data {
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    
+    self.txtOfGongdan.text = [NSString stringWithFormat:@"工单：%@", data.CMAWorkOrderNo];
+    
+    self.txtOfTime.text = [NSString stringWithFormat:@"点检时间：%@", data.PlanTimeApp];
+    
+    self.txtOfType.text = [NSString stringWithFormat:@"工点检类型：%@", data.CMTypeApp];
 }
 
 @end

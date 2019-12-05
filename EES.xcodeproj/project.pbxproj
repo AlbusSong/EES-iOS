@@ -120,6 +120,7 @@
 		4EE72F9D23849E0800A569E4 /* ProblemReportListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE72F9C23849E0800A569E4 /* ProblemReportListVC.m */; };
 		4EE72FA023849ECD00A569E4 /* ProblemReportItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */; };
 		4EE8A06E23831EB8000BC409 /* HomeMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */; };
+		4EF2E9662398969D00B64AEC /* WholeCheckItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2E9652398969D00B64AEC /* WholeCheckItemModel.m */; };
 		F6360284B686D3B9C7399DD6 /* Pods_EES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */; };
 /* End PBXBuildFile section */
 
@@ -355,6 +356,8 @@
 		4EE72F9F23849ECD00A569E4 /* ProblemReportItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemReportItemCell.m; sourceTree = "<group>"; };
 		4EE8A06C23831EB8000BC409 /* HomeMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMenuVC.h; sourceTree = "<group>"; };
 		4EE8A06D23831EB8000BC409 /* HomeMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMenuVC.m; sourceTree = "<group>"; };
+		4EF2E9642398969D00B64AEC /* WholeCheckItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WholeCheckItemModel.h; sourceTree = "<group>"; };
+		4EF2E9652398969D00B64AEC /* WholeCheckItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WholeCheckItemModel.m; sourceTree = "<group>"; };
 		5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD0FBF5C6C7432BCD728E97 /* Pods-EES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EES.release.xcconfig"; path = "Target Support Files/Pods-EES/Pods-EES.release.xcconfig"; sourceTree = "<group>"; };
 		96617527CF7E0E0F4067AF24 /* Pods-EES.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EES.debug.xcconfig"; path = "Target Support Files/Pods-EES/Pods-EES.debug.xcconfig"; sourceTree = "<group>"; };
@@ -378,6 +381,30 @@
 				5FEED5B62B17C97C013F5E08 /* Pods_EES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E0B05F2239894D60027BDBB /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				4E552F962387115000FC198B /* ProblemWholeCheckListVC.h */,
+				4E552F972387115000FC198B /* ProblemWholeCheckListVC.m */,
+				4E552F9D238713F900FC198B /* ProblemWholeCheckItemVC.h */,
+				4E552F9E238713F900FC198B /* ProblemWholeCheckItemVC.m */,
+				4E552FA0238714E100FC198B /* ProblemWholeCheckDetailVC.h */,
+				4E552FA1238714E100FC198B /* ProblemWholeCheckDetailVC.m */,
+				4E552FAF23871CFB00FC198B /* ProblemWholeCheckSubmitVC.h */,
+				4E552FB023871CFB00FC198B /* ProblemWholeCheckSubmitVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		4E0B05F3239894F40027BDBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EF2E9642398969D00B64AEC /* WholeCheckItemModel.h */,
+				4EF2E9652398969D00B64AEC /* WholeCheckItemModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4E0F9DF82382F22A0093BF86 /* SupportingFiles */ = {
@@ -595,7 +622,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4E552F992387124B00FC198B /* WholeCheck */ = {
+		4E552F992387124B00FC198B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				4E552F9A2387126300FC198B /* ProblemWholeCheckItemCell.h */,
@@ -611,20 +638,15 @@
 				4E552FBB2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.h */,
 				4E552FBC2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.m */,
 			);
-			path = WholeCheck;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4E552FA923871BB700FC198B /* WholeCheck */ = {
 			isa = PBXGroup;
 			children = (
-				4E552F962387115000FC198B /* ProblemWholeCheckListVC.h */,
-				4E552F972387115000FC198B /* ProblemWholeCheckListVC.m */,
-				4E552F9D238713F900FC198B /* ProblemWholeCheckItemVC.h */,
-				4E552F9E238713F900FC198B /* ProblemWholeCheckItemVC.m */,
-				4E552FA0238714E100FC198B /* ProblemWholeCheckDetailVC.h */,
-				4E552FA1238714E100FC198B /* ProblemWholeCheckDetailVC.m */,
-				4E552FAF23871CFB00FC198B /* ProblemWholeCheckSubmitVC.h */,
-				4E552FB023871CFB00FC198B /* ProblemWholeCheckSubmitVC.m */,
+				4E0B05F3239894F40027BDBB /* Model */,
+				4E552F992387124B00FC198B /* View */,
+				4E0B05F2239894D60027BDBB /* VC */,
 			);
 			path = WholeCheck;
 			sourceTree = "<group>";
@@ -1041,6 +1063,7 @@
 		4EDB753B23843FD100A0BC84 /* Problem */ = {
 			isa = PBXGroup;
 			children = (
+				4E552FA923871BB700FC198B /* WholeCheck */,
 				4E552FAA23871BCC00FC198B /* GroupCheck */,
 				4E552FAB23871BE200FC198B /* MaintenancePlan */,
 				4E5A361023867B6800ECB3B6 /* PeriodicalMaintenance */,
@@ -1057,7 +1080,6 @@
 		4EDB753C23843FD900A0BC84 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				4E552FA923871BB700FC198B /* WholeCheck */,
 				4E552FBF2387490F00FC198B /* SeasoningManagement */,
 			);
 			path = VC;
@@ -1067,7 +1089,6 @@
 			isa = PBXGroup;
 			children = (
 				4E552FC323874A4800FC198B /* SeasoningManagement */,
-				4E552F992387124B00FC198B /* WholeCheck */,
 				4ECDAACC23852EE40063FFF9 /* Global */,
 			);
 			path = View;
@@ -1298,6 +1319,7 @@
 				4E5A361923867C3300ECB3B6 /* ProblemPeriodicalMaintenanceDetailAttachmentCell.m in Sources */,
 				4EB808D123974A0E009A3B91 /* MaintenanceEditInputContentCell.m in Sources */,
 				4EB808CE239749F9009A3B91 /* MaintenanceEditInputSelectionCell.m in Sources */,
+				4EF2E9662398969D00B64AEC /* WholeCheckItemModel.m in Sources */,
 				4E5A35F32385BC3600ECB3B6 /* ProblemMaintenanceItemCell.m in Sources */,
 				4EB808C823973DE7009A3B91 /* ProblemMaintenanceEditInfoVC.m in Sources */,
 				4E0F9E182382F6A50093BF86 /* BaseNavigationController.m in Sources */,

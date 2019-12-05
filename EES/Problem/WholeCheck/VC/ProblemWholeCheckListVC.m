@@ -12,6 +12,8 @@
 
 #import "ProblemWholeCheckItemVC.h"
 
+#import "WholeCheckItemModel.h"
+
 @interface ProblemWholeCheckListVC ()<ProblemSearchBarDelegate>
 
 @property (nonatomic, copy) NSString *searchContent;
@@ -47,6 +49,21 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(45, 0, 0, 0));
     }];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    WeakSelf(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"WHOLE_CHECK_GET_LIST: %@", responseJson);
+        weakSelf.arrOfData = [WholeCheckItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark ProblemSearchBarDelegate
@@ -77,12 +94,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
-//    return 150;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -95,6 +111,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProblemWholeCheckItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckItemCell.cellIdentifier forIndexPath:indexPath];
+    
+    [cell resetSubviewsWithData:self.arrOfData[indexPath.row]];
     
     return cell;
 }

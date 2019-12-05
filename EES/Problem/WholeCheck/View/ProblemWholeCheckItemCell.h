@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WholeCheckItemModel;
+
 @interface ProblemWholeCheckItemCell : ASTableViewCell
+
+- (void)resetSubviewsWithData:(WholeCheckItemModel *)data;
 
 @end
 
