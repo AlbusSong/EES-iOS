@@ -91,6 +91,7 @@
     
     self.inputViewOfUsername = [[LoginInputView alloc] init];
     [self.inputViewOfUsername setPlaceholder:@"用户名"];
+    [self.inputViewOfUsername setIconImage:[UIImage imageNamed:@"login_inputview_icon_username"]];
     self.inputViewOfUsername.delegate = self;
     [self.wrapperView addSubview:self.inputViewOfUsername];
     [self.inputViewOfUsername mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,6 +103,7 @@
     
     self.inputViewOfPassword = [[LoginInputView alloc] init];
     [self.inputViewOfPassword setPlaceholder:@"密码"];
+    [self.inputViewOfPassword setIconImage:[UIImage imageNamed:@"login_inputview_icon_password"]];
     [self.inputViewOfPassword setIsSecureTextEntry:YES];
     self.inputViewOfPassword.delegate = self;
     [self.wrapperView addSubview:self.inputViewOfPassword];

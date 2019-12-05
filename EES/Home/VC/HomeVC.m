@@ -22,7 +22,7 @@
     if (self) {
         self.title = @"智无形云MES";
         
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"M" style:UIBarButtonItemStyleDone target:self action:@selector(gotoMenu)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_navigationbar_action_menu"] style:UIBarButtonItemStyleDone target:self action:@selector(gotoMenu)];
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"S" style:UIBarButtonItemStyleDone target:self action:@selector(gotoSearch)];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:@"loginStatusChanged" object:nil];
