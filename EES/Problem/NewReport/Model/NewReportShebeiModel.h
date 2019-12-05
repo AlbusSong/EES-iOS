@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NewReportShebeiModel : NSObject
 
+@property (nonatomic, copy) NSString *EquipName;
+
+@property (nonatomic, copy) NSString *EquipCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

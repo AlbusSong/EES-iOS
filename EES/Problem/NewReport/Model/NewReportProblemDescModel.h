@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *BMTypeName;
 
+@property (nonatomic, copy) NSString *BMTypeID;
+
+@property (nonatomic, copy) NSString *BMTypeCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -41,6 +41,11 @@
 #define GET_PROBLEM_LEVEL_LIST @"BMRequestStateList/LoadLevel"
 // 报修呼叫-加载故障现象代码
 #define GET_PROBLEM_DESC_LIST @"BMRequestStateList/LoadItemCode"
+// 故障报修
+// 报修呼叫-加载产线
+#define PROBLEM_REPORT_CHANXIAN_LIST @"BMRequestStateList/LoadLine"
+// 报修呼叫-提交呼叫信息
+#define PROBLEM_NEW_REPORT_SUBMIT_NEW_ITEM @"BMRequestStateList/CallComit"
 
 
 
@@ -122,9 +127,5 @@
 #define WHOLE_CHECK_GET_DETAIL_ITEM_LIST @"CMAWorkOrder/LoadWorkOrderProject"
 
 
-
-// 故障报修
-// 报修呼叫-加载产线
-#define PROBLEM_REPORT_CHANXIAN_LIST @"BMRequestStateList/LoadLine"
 
 #endif /* MacroOfUri_h */

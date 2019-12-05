@@ -90,8 +90,65 @@
 #pragma mark gestures
 
 - (void)btnSubmitClicked {
+    if (self.selectedChanxian == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择产线"];
+        return;
+    }
+    
+    if (self.selectedShebei == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择设备"];
+        return;
+    }
+    
+    if (self.selectedGuzhangleixing == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择故障类型"];
+        return;
+    }
+    
+    if (self.selectedWeihuJueshe == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择维护角色"];
+        return;
+    }
+    
+    if (self.selectedProblemLevel == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择故障等级"];
+        return;
+    }
+    
+    if (self.selectedProblemDesc == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择故障现象代码"];
+        return;
+    }
+    
+    if (self.problemContent.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请填写故障现象"];
+        return;
+    }
+    
+    WS(weakSelf)
+    [GlobalTool popAlertWithTitle:@"确定提交？" message:nil yesStr:@"确定" yesActionBlock:^{
+        [weakSelf realSubmitAction];
+    }];
+}
+
+- (void)realSubmitAction {
     NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
-//    [mDict setValue: forKey:@"bmtype"];
+    [mDict setValue:self.selectedGuzhangleixing[@"value"] forKey:@"bmtype"];
+    [mDict setValue:self.selectedShebei.EquipCode forKey:@"equipcode"];
+    [mDict setValue:self.selectedChanxian.LineCode forKey:@"linecode"];
+    [mDict setValue:self.selectedWeihuJueshe.Code forKey:@"maintancerole"];
+    [mDict setValue:self.selectedProblemLevel.Code forKey:@"bmlevel"];
+    [mDict setValue:self.problemContent forKey:@"item"];
+    [mDict setValue:self.selectedProblemDesc.BMTypeCode forKey:@"itemcode"];
+    
+    NSLog(@"PROBLEM_NEW_REPORT_SUBMIT_NEW_ITEM mDict: %@", mDict);
+    [SVProgressHUD show];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:PROBLEM_NEW_REPORT_SUBMIT_NEW_ITEM parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD showInfoWithStatus:@"提交成功"];
+        NSLog(@"PROBLEM_NEW_REPORT_SUBMIT_NEW_ITEM: %@", responseJson);
+        [weakSelf back];
+    }];
 }
 
 #pragma mark network
@@ -105,16 +162,12 @@
         NSLog(@"PROBLEM_REPORT_CHANXIAN_LIST: %@", responseJson);
         NSArray *extend = responseJson[@"Extend"];
         weakSelf.arrOfChanxian = [NewReportChanxianModel mj_objectArrayWithKeyValuesArray:extend];
+        
+        if (weakSelf.arrOfChanxian.count > 0) {
+            NewReportChanxianModel *firstChanxian = [weakSelf.arrOfChanxian firstObject];
+            [weakSelf getDeviceListDataFromServerByLinecode:firstChanxian.LineCode];
+        }
     }];
-    
-    // 报修呼叫-加载设备
-    [[EESHttpDigger sharedInstance] postWithUri:GET_DEVICE_LIST parameters:@{@"linecode":@""} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        NSLog(@"GET_DEVICE_LIST: %@", responseJson);
-        NSArray *extend = responseJson[@"Extend"];
-        weakSelf.arrOfShebei = [NewReportShebeiModel mj_objectArrayWithKeyValuesArray:extend];
-        NSLog(@"arrOfShebei: %@", weakSelf.arrOfShebei);
-    }];
-    
     
     // 报修呼叫-加载维修角色
     [[EESHttpDigger sharedInstance] postWithUri:GET_MAINTENANCE_ROLE_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
@@ -135,6 +188,17 @@
         NSLog(@"GET_PROBLEM_DESC_LIST: %@", responseJson);
         NSArray *extend = responseJson[@"Extend"];
         weakSelf.arrOfProblemDesc = [NewReportProblemDescModel mj_objectArrayWithKeyValuesArray:extend];
+    }];
+}
+
+- (void)getDeviceListDataFromServerByLinecode:(NSString *)lineCode {
+    // 报修呼叫-加载设备
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:GET_DEVICE_LIST parameters:@{@"linecode":lineCode ? lineCode : @""} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"GET_DEVICE_LIST: %@", responseJson);
+        NSArray *extend = responseJson[@"Extend"];
+        weakSelf.arrOfShebei = [NewReportShebeiModel mj_objectArrayWithKeyValuesArray:extend];
+        NSLog(@"arrOfShebei: %@", weakSelf.arrOfShebei);
     }];
 }
 
@@ -197,7 +261,7 @@
         }
     } else if (self.selectedIndex == 1) {
         for (NewReportShebeiModel *m in self.arrOfShebei) {
-//            [arrOfSelectionTitle addObject:m];
+            [arrOfSelectionTitle addObject:m.EquipName];
         }
     } else if (self.selectedIndex == 2) {
         for (NSDictionary *dict in self.arrOfGuzhangleixing) {
@@ -228,7 +292,13 @@
         vcOfAnswerSelection.confirmationBlock = ^(NSInteger index, NSString * _Nonnull title) {
             [weakSelf fillAnswerForSelectedCellByAnswer:title];
             if (weakSelf.selectedIndex == 0) {
+                if (weakSelf.selectedChanxian &&
+                    (index == [weakSelf.arrOfChanxian indexOfObject:weakSelf.selectedChanxian])) {
+                    return ;
+                }
                 weakSelf.selectedChanxian = [weakSelf.arrOfChanxian objectAtIndex:index];
+                weakSelf.selectedShebei = nil;
+                [weakSelf getDeviceListDataFromServerByLinecode:weakSelf.selectedChanxian.LineCode];
             } else if (weakSelf.selectedIndex == 1) {
                 weakSelf.selectedShebei = [weakSelf.arrOfShebei objectAtIndex:index];
             } else if (weakSelf.selectedIndex == 2) {
@@ -283,7 +353,7 @@
         
         cell.delegate = self;
         
-        [cell resetTitle:@"故障现象代码"];
+        [cell resetTitle:@"故障现象"];
         
         return cell;
     }
