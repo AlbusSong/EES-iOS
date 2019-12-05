@@ -25,7 +25,7 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_navigationbar_action_menu"] style:UIBarButtonItemStyleDone target:self action:@selector(gotoMenu)];
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"S" style:UIBarButtonItemStyleDone target:self action:@selector(gotoSearch)];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:@"loginStatusChanged" object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:@"loginStatusChanged" object:nil];
     }
     return self;
 }
@@ -47,12 +47,12 @@
     self.view.backgroundColor = HexColor(@"f0eff5");
     
     [self initSubviews];
+    
+    [self getDataFromServer];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self getDataFromServer];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

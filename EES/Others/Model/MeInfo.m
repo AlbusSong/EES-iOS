@@ -79,11 +79,11 @@ static MeInfo *instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-//- (void)setCookie:(NSString *)cookie {
-//    _cookie = cookie;
-//
-//    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-//}
+- (void)setCookie:(NSString *)cookie {
+    _cookie = cookie;
+
+    [[NSUserDefaults standardUserDefaults] setObject:cookie forKey:@"cookie"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 @end

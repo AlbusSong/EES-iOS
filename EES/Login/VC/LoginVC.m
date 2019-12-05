@@ -186,7 +186,7 @@
         [MeInfo sharedInstance].username = weakSelf.username;
         [MeInfo sharedInstance].password = weakSelf.password;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStatusChanged" object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStatusChanged" object:nil];
         [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
         
     } failure:^(NSError * _Nonnull error) {
