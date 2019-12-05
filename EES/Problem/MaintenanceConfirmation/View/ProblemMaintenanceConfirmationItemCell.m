@@ -45,12 +45,13 @@
 - (void)initSubviews {
     self.imgvOfSelection = [[UIImageView alloc] init];
     self.imgvOfSelection.contentMode = UIViewContentModeScaleAspectFit;
-    self.imgvOfSelection.backgroundColor = RANDOM_COLOR;
+//    self.imgvOfSelection.backgroundColor = RANDOM_COLOR;
+    self.imgvOfSelection.image = [UIImage imageNamed:@"selected_icon"];
     [self.contentView addSubview:self.imgvOfSelection];
     [self.imgvOfSelection mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-8);
         make.centerY.equalTo(self.contentView);
-        make.width.height.mas_equalTo(10);
+        make.width.height.mas_equalTo(15);
     }];
     
     self.txtOfTime = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
