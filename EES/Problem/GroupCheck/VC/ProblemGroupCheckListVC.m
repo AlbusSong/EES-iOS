@@ -84,6 +84,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ProblemGroupCheckItemVC *vc = [[ProblemGroupCheckItemVC alloc] init];
+    vc.data = [self.arrOfData objectAtIndex:indexPath.row];
     [self pushVC:vc];
 }
 

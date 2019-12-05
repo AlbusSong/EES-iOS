@@ -11,6 +11,8 @@
 
 #import "ProblemGroupCheckDetailVC.h"
 
+#import "GroupCheckItemModel.h"
+
 @interface ProblemGroupCheckItemVC () <ProblemCheckTitleViewDelegate, BasePageVCDelegate>
 
 @property (nonatomic, strong) ProblemCheckTitleView *titleView;
@@ -44,29 +46,18 @@
     
     NSMutableArray *arrOfContentVC = [NSMutableArray array];
     for (int i = 0; i < 3; i++) {
-        ProblemGroupCheckDetailVC *vcOfContnt = [[ProblemGroupCheckDetailVC alloc] init];
-        vcOfContnt.state = i;
-        [arrOfContentVC addObject:vcOfContnt];
+        ProblemGroupCheckDetailVC *vcOfContent = [[ProblemGroupCheckDetailVC alloc] init];
+        vcOfContent.state = i;
+        vcOfContent.data = self.data;
+        [arrOfContentVC addObject:vcOfContent];
     }
     
     self.pageVC = [[BasePageVC alloc] initWithArrOfContentVC:arrOfContentVC];
     self.pageVC.view.backgroundColor = HexColor(@"f1f1f1");
     self.pageVC.scrollDelegate = self;
-    self.pageVC.view.frame = CGRectMake(0, 40, ScreenW, ScreenH - XBOTTOM_HEIGHT - 40 - 50);
+    self.pageVC.view.frame = CGRectMake(0, 40, ScreenW, ScreenH - XBOTTOM_HEIGHT - 40);
     [self.view addSubview:self.pageVC.view];
     [self addChildViewController:self.pageVC];
-    
-    UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnConfirm.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnConfirm setTitle:@"提交" forState:UIControlStateNormal];
-    [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
-    [self.view addSubview:btnConfirm];
-    [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.equalTo(self.view);
-        make.right.mas_equalTo(self.view).offset(0);
-        make.height.mas_equalTo(50);
-    }];
 }
 
 #pragma mark ProblemCheckTitleViewDelegate

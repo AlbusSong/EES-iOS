@@ -106,6 +106,12 @@
 // 班组点检
 // 根据设备名称查询工单集合
 #define GROUP_CHECK_GET_LIST @"CMSWorkOrder/LoadList"
+// 根据计划号、工单号及点检状态（W表是未点检，P表示已点检，D表示异常）查询点检项目
+#define GROUP_CHECK_GET_DETAIL_ITEM_LIST @"CMSWorkOrder/LoadWorkOrderProject"
+// 根据计划号和工单号查询图片
+#define GROUP_CHECK_GET_DETAIL_ITEM_ATTACHMENT @"CMSWorkOrder/LoadFiles"
+// 根据填入的数据处理异常点检
+#define GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT @"CMSWorkOrder/Deal"
 
 
 // 故障报修

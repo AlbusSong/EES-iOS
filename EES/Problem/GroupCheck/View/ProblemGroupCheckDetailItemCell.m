@@ -7,6 +7,7 @@
 //
 
 #import "ProblemGroupCheckDetailItemCell.h"
+#import "GroupCheckDetailItemModel.h"
 
 @interface ProblemGroupCheckDetailItemCell ()
 
@@ -41,7 +42,7 @@
         make.left.offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfProject.text = @"项目：电极推出压力";
+    
     
     self.txtOfType = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfType mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,7 +50,6 @@
         make.top.equalTo(self.txtOfProject.mas_bottom).offset(0);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfType.text = @"判断类型：数值判断";
     
     self.txtOfStandard = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfStandard mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,7 +57,6 @@
         make.top.equalTo(self.txtOfType.mas_bottom).offset(0);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfStandard.text = @"基准：按下按钮设备停止";
     
     self.txtOfMethod = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfMethod mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,7 +64,6 @@
         make.top.equalTo(self.txtOfStandard.mas_bottom).offset(0);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfMethod.text = @"方法工具：目测";
     
     self.txtOfAttachmentTitle = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfAttachmentTitle mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,7 +81,7 @@
         make.top.equalTo(self.txtOfAttachmentTitle);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfAttachment.text = @"点击查看图片";
+    
     
     
     self.tfdOfInput = [UITextField quickTextFieldWithFont:[UIFont systemFontOfSize:18] textColor:HexColor(MAIN_COLOR_BLACK)];
@@ -124,6 +122,24 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)resetSubviewsWithData:(GroupCheckDetailItemModel *)data {
+    self.txtOfProject.text = [NSString stringWithFormat:@"项目：%@", data.Project];
+    
+    self.txtOfType.text = [NSString stringWithFormat:@"判断类型：%@", data.JudgeType];
+    
+    self.txtOfStandard.text = [NSString stringWithFormat:@"基准：%@", data.AppStandard];
+    
+    self.txtOfMethod.text = [NSString stringWithFormat:@"方法工具：%@", data.MethodTool];
+    
+    if (data.AttachName.length == 0) {
+        self.txtOfAttachment.text = @"无图片";
+        self.txtOfAttachment.textColor = HexColor(@"999999");
+    } else {
+        self.txtOfAttachment.text = @"点击查看图片";
+        self.txtOfAttachment.textColor = HexColor(MAIN_COLOR);
+    }
 }
 
 #pragma mark gestures

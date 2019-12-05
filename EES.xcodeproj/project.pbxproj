@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4E0B05E223986C900027BDBB /* GroupCheckItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */; };
+		4E0B05E5239872860027BDBB /* GroupCheckDetailItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E4239872860027BDBB /* GroupCheckDetailItemModel.m */; };
+		4E0B05E8239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E7239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m */; };
+		4E0B05EB23987C260027BDBB /* GroupCheckDetailEditUncheckedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05EA23987C260027BDBB /* GroupCheckDetailEditUncheckedVC.m */; };
+		4E0B05EE23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05ED23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.m */; };
+		4E0B05F123987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05F023987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.m */; };
 		4E0F9DFD2382F32F0093BF86 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9DFC2382F32F0093BF86 /* BaseVC.m */; };
 		4E0F9E042382F4830093BF86 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E032382F4830093BF86 /* UIColor+HexString.m */; };
 		4E0F9E072382F5200093BF86 /* BaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F9E062382F5200093BF86 /* BaseTableVC.m */; };
@@ -121,6 +126,16 @@
 /* Begin PBXFileReference section */
 		4E0B05E023986C900027BDBB /* GroupCheckItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckItemModel.h; sourceTree = "<group>"; };
 		4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckItemModel.m; sourceTree = "<group>"; };
+		4E0B05E3239872860027BDBB /* GroupCheckDetailItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckDetailItemModel.h; sourceTree = "<group>"; };
+		4E0B05E4239872860027BDBB /* GroupCheckDetailItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckDetailItemModel.m; sourceTree = "<group>"; };
+		4E0B05E6239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemGroupCheckDetailUncheckedItemCell.h; sourceTree = "<group>"; };
+		4E0B05E7239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemGroupCheckDetailUncheckedItemCell.m; sourceTree = "<group>"; };
+		4E0B05E923987C260027BDBB /* GroupCheckDetailEditUncheckedVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckDetailEditUncheckedVC.h; sourceTree = "<group>"; };
+		4E0B05EA23987C260027BDBB /* GroupCheckDetailEditUncheckedVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckDetailEditUncheckedVC.m; sourceTree = "<group>"; };
+		4E0B05EC23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckDetailEditUncheckedTitleCell.h; sourceTree = "<group>"; };
+		4E0B05ED23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckDetailEditUncheckedTitleCell.m; sourceTree = "<group>"; };
+		4E0B05EF23987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckDetailEditUncheckedInfoCell.h; sourceTree = "<group>"; };
+		4E0B05F023987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckDetailEditUncheckedInfoCell.m; sourceTree = "<group>"; };
 		4E0F9DFB2382F32F0093BF86 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		4E0F9DFC2382F32F0093BF86 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		4E0F9DFE2382F3810093BF86 /* EES.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EES.pch; sourceTree = "<group>"; };
@@ -536,6 +551,8 @@
 				4E5A36322386A3DC00ECB3B6 /* ProblemGroupCheckItemVC.m */,
 				4E552F8D2387038500FC198B /* ProblemGroupCheckDetailVC.h */,
 				4E552F8E2387038500FC198B /* ProblemGroupCheckDetailVC.m */,
+				4E0B05E923987C260027BDBB /* GroupCheckDetailEditUncheckedVC.h */,
+				4E0B05EA23987C260027BDBB /* GroupCheckDetailEditUncheckedVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -545,6 +562,8 @@
 			children = (
 				4E0B05E023986C900027BDBB /* GroupCheckItemModel.h */,
 				4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */,
+				4E0B05E3239872860027BDBB /* GroupCheckDetailItemModel.h */,
+				4E0B05E4239872860027BDBB /* GroupCheckDetailItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -758,6 +777,12 @@
 				4E5A36382386B64700ECB3B6 /* ProblemCheckTitleView.m */,
 				4E552F932387065C00FC198B /* ProblemGroupCheckDetailItemCell.h */,
 				4E552F942387065C00FC198B /* ProblemGroupCheckDetailItemCell.m */,
+				4E0B05E6239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.h */,
+				4E0B05E7239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m */,
+				4E0B05EC23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.h */,
+				4E0B05ED23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.m */,
+				4E0B05EF23987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.h */,
+				4E0B05F023987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1192,6 +1217,7 @@
 				4E552FBD2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.m in Sources */,
 				4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
+				4E0B05EB23987C260027BDBB /* GroupCheckDetailEditUncheckedVC.m in Sources */,
 				4E0F9E222382FA770093BF86 /* HomeVC.m in Sources */,
 				4EBCB29423969D6A00906FE4 /* HomeFunctionModuleModel.m in Sources */,
 				4E3082802385530100AF28D2 /* ProblemMaintenanceListVC.m in Sources */,
@@ -1214,6 +1240,7 @@
 				4EB808CB239749CA009A3B91 /* MaintenanceEditInfoCell.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
+				4E0B05E5239872860027BDBB /* GroupCheckDetailItemModel.m in Sources */,
 				4E5A361C2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m in Sources */,
 				4E552FBA23873CB700FC198B /* ProblemWholeCheckSubmitSegmentControlCell.m in Sources */,
 				4E552FB4238738C700FC198B /* ProblemWholeCheckSubmitTitleCell.m in Sources */,
@@ -1231,6 +1258,7 @@
 				4E5D9A1F2387CF1300B42D2A /* LoginInputView.m in Sources */,
 				4E5A360F238600AF00ECB3B6 /* ProblemPeriodicalMaintenanceDetailVC.m in Sources */,
 				4E0F9E1B2382F7790093BF86 /* BaseNavigationController+SVProgressHud.m in Sources */,
+				4E0B05F123987E8E0027BDBB /* GroupCheckDetailEditUncheckedInfoCell.m in Sources */,
 				4EDB75492384528C00A0BC84 /* ProblemAnswerSelectionVC.m in Sources */,
 				4E5A36032385F66500ECB3B6 /* ProblemMaintenanceConfirmationListVC.m in Sources */,
 				4E552FB723873A3100FC198B /* ProblemWholeCheckSubmitInfoCell.m in Sources */,
@@ -1276,8 +1304,10 @@
 				4E0B05E223986C900027BDBB /* GroupCheckItemModel.m in Sources */,
 				4E552FB123871CFB00FC198B /* ProblemWholeCheckSubmitVC.m in Sources */,
 				4EB808C223972F6C009A3B91 /* MaintenanceItemModel.m in Sources */,
+				4E0B05E8239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m in Sources */,
 				4EDDAD7C23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m in Sources */,
 				4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */,
+				4E0B05EE23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.m in Sources */,
 				4E552F9F238713F900FC198B /* ProblemWholeCheckItemVC.m in Sources */,
 				4E552FD8238753BE00FC198B /* LoginTimeoutVC.m in Sources */,
 				4E0F9E0F2382F5A60093BF86 /* ASTableView.m in Sources */,

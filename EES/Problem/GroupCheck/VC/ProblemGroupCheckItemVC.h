@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class GroupCheckItemModel;
+
 @interface ProblemGroupCheckItemVC : BaseVC
+
+@property (nonatomic, strong) GroupCheckItemModel *data;
 
 @end
 

@@ -10,9 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class GroupCheckItemModel;
+
 @interface ProblemGroupCheckDetailVC : BaseTableVC
 
 @property (nonatomic) NSInteger state;
+
+@property (nonatomic, strong) GroupCheckItemModel *data;
 
 @end
 

@@ -1,20 +1,22 @@
 //
-//  ProblemGroupCheckDetailItemCell.h
+//  ProblemGroupCheckDetailUncheckedItemCell.h
 //  EES
 //
-//  Created by Albus on 2019-11-21.
+//  Created by Albus on 2019-12-05.
 //  Copyright © 2019 Zivos. All rights reserved.
 //
 
-#import "ASTableViewCell.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class GroupCheckDetailItemModel;
 
-@interface ProblemGroupCheckDetailItemCell : ASTableViewCell
+@interface ProblemGroupCheckDetailUncheckedItemCell : ASTableViewCell
 
 - (void)resetSubviewsWithData:(GroupCheckDetailItemModel *)data;
+
+- (void)shouldShowProgressInfo:(BOOL)shouldShow;
 
 @end
 
