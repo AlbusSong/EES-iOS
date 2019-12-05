@@ -11,6 +11,9 @@
 
 #import "ProblemWholeCheckSubmitVC.h"
 
+#import "WholeCheckItemModel.h"
+#import "WholeCheckDetailItemModel.h"
+
 @interface ProblemWholeCheckDetailVC ()
 
 @end
@@ -25,6 +28,34 @@
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsZero);
+    }];
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    WS(weakSelf)
+    
+    NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
+    [mDict setValue:self.data.CMAPlanNo forKey:@"cmsPlanNo"];
+    [mDict setValue:self.data.CMAWorkOrderNo forKey:@"cmsWorkOrderNo"];
+    if (self.state == 0) {
+        [mDict setValue:@"P" forKey:@"State"];
+    } else if (self.state == 1) {
+        [mDict setValue:@"W" forKey:@"State"];
+    } else if (self.state == 2) {
+        [mDict setValue:@"D" forKey:@"State"];
+    }
+    
+    NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_LIST mDict: %@", mDict);
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_DETAIL_ITEM_LIST parameters:mDict shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_LIST: %@", responseJson);
+        weakSelf.arrOfData = [WholeCheckDetailItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [weakSelf.tableView reloadData];
     }];
 }
 

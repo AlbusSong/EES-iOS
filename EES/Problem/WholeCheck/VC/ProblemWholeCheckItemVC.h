@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WholeCheckItemModel;
+
 @interface ProblemWholeCheckItemVC : BaseVC
+
+@property (nonatomic, strong) WholeCheckItemModel *data;
 
 @end
 

@@ -63,7 +63,7 @@
     
     NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
     [mDict setValue:self.data.CMSPlanNo forKey:@"cmsPlanNo"];
-    [mDict setValue:self.data.CMSPlanNo forKey:@"cmsWorkOrderNo"];
+    [mDict setValue:self.data.CMSWorkOrderNo forKey:@"cmsWorkOrderNo"];
     if (self.state == 0) {
         [mDict setValue:@"P" forKey:@"State"];
     } else if (self.state == 1) {

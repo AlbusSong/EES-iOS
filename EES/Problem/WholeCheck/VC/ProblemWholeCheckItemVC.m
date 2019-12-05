@@ -11,6 +11,8 @@
 
 #import "ProblemWholeCheckDetailVC.h"
 
+#import "WholeCheckItemModel.h"
+
 @interface ProblemWholeCheckItemVC ()<BasePageVCDelegate, ProblemCheckTitleViewDelegate>
 
 @property (nonatomic, strong) ProblemCheckTitleView *titleView;
@@ -44,9 +46,10 @@
     
     NSMutableArray *arrOfContentVC = [NSMutableArray array];
     for (int i = 0; i < 3; i++) {
-        ProblemWholeCheckDetailVC *vcOfContnt = [[ProblemWholeCheckDetailVC alloc] init];
-        vcOfContnt.state = i;
-        [arrOfContentVC addObject:vcOfContnt];
+        ProblemWholeCheckDetailVC *vcOfContent = [[ProblemWholeCheckDetailVC alloc] init];
+        vcOfContent.state = i;
+        vcOfContent.data = self.data;
+        [arrOfContentVC addObject:vcOfContent];
     }
     
     self.pageVC = [[BasePageVC alloc] initWithArrOfContentVC:arrOfContentVC];

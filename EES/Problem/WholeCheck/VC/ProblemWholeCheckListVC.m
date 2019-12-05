@@ -58,7 +58,7 @@
 - (void)getDataFromServer {
     [SVProgressHUD show];
     WeakSelf(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @""} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"WHOLE_CHECK_GET_LIST: %@", responseJson);
         weakSelf.arrOfData = [WholeCheckItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
@@ -86,6 +86,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ProblemWholeCheckItemVC *vc = [[ProblemWholeCheckItemVC alloc] init];
+    vc.data = self.arrOfData[indexPath.row];
     [self pushVC:vc];
 }
 

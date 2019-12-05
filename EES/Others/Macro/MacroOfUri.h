@@ -118,6 +118,8 @@
 // 　保全点检
 // 根据设备名称查询工单集合
 #define WHOLE_CHECK_GET_LIST @"CMAWorkOrder/LoadList"
+// 根据计划号、工单号及点检状态（W表是未点检，P表示已点检，D表示异常）查询点检项目
+#define WHOLE_CHECK_GET_DETAIL_ITEM_LIST @"CMAWorkOrder/LoadWorkOrderProject"
 
 
 

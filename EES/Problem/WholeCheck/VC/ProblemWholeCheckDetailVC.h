@@ -10,9 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WholeCheckItemModel;
+
 @interface ProblemWholeCheckDetailVC : BaseTableVC
 
 @property (nonatomic) NSInteger state;
+
+@property (nonatomic, strong) WholeCheckItemModel *data;
 
 @end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E043A04239949920094F9D2 /* WholeCheckDetailItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E043A03239949920094F9D2 /* WholeCheckDetailItemModel.m */; };
 		4E0B05E223986C900027BDBB /* GroupCheckItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */; };
 		4E0B05E5239872860027BDBB /* GroupCheckDetailItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E4239872860027BDBB /* GroupCheckDetailItemModel.m */; };
 		4E0B05E8239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B05E7239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m */; };
@@ -125,6 +126,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E043A02239949920094F9D2 /* WholeCheckDetailItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WholeCheckDetailItemModel.h; sourceTree = "<group>"; };
+		4E043A03239949920094F9D2 /* WholeCheckDetailItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WholeCheckDetailItemModel.m; sourceTree = "<group>"; };
 		4E0B05E023986C900027BDBB /* GroupCheckItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckItemModel.h; sourceTree = "<group>"; };
 		4E0B05E123986C900027BDBB /* GroupCheckItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupCheckItemModel.m; sourceTree = "<group>"; };
 		4E0B05E3239872860027BDBB /* GroupCheckDetailItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCheckDetailItemModel.h; sourceTree = "<group>"; };
@@ -403,6 +406,8 @@
 			children = (
 				4EF2E9642398969D00B64AEC /* WholeCheckItemModel.h */,
 				4EF2E9652398969D00B64AEC /* WholeCheckItemModel.m */,
+				4E043A02239949920094F9D2 /* WholeCheckDetailItemModel.h */,
+				4E043A03239949920094F9D2 /* WholeCheckDetailItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1259,6 +1264,7 @@
 				4E3DE0002396A9E500332B47 /* ReportListItemModel.m in Sources */,
 				4E3B3151239845CE00EB77D9 /* MaintenancePlanDetailModel.m in Sources */,
 				4EB808CB239749CA009A3B91 /* MaintenanceEditInfoCell.m in Sources */,
+				4E043A04239949920094F9D2 /* WholeCheckDetailItemModel.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
 				4E0B05E5239872860027BDBB /* GroupCheckDetailItemModel.m in Sources */,
