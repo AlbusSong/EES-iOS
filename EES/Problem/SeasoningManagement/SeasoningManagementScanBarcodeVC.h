@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) BOOL isQRCode;
 
+@property (nonatomic, copy) void (^bacodeFoundBlock) (NSString *bacodeContent);
+
 @end
 
 NS_ASSUME_NONNULL_END

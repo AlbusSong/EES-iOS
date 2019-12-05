@@ -28,6 +28,14 @@
 #pragma mark - scanViewDelegate
 - (void)scanView:(CDZQRScanView *)scanView pickUpMessage:(NSString *)message {
     [scanView stopScanning];
+    
+    NSLog(@"barcodeMessage: %@", message);
+    
+    [self back];
+    
+    if (self.bacodeFoundBlock) {
+        self.bacodeFoundBlock(message);
+    }
 }
 
 #pragma mark getter

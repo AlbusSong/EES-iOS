@@ -12,7 +12,13 @@
 
 #import "SeasoningManagementScanBarcodeVC.h"
 
+#import "SeasoningManagementDeviceModel.h"
+
 @interface SeasoningManagementVC ()
+
+@property (nonatomic, copy) NSString *barcodeConntent;
+
+@property (nonatomic, copy) NSArray *arrOfDevice;
 
 @end
 
@@ -48,6 +54,45 @@
         make.right.mas_equalTo(self.view).offset(0);
         make.height.mas_equalTo(50);
     }];
+    
+    [self getDataFromServer];
+    
+    self.barcodeConntent = @"19004012_201911210001";
+    [self loadDetailByBarcode];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    WS(weakSelf)
+    // 查询工程集合
+    [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_GET_PROJECT_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"SEASONNING_MANAGEMENT_GET_PROJECT_LIST: %@", responseJson);
+    }];
+    
+    // 查询机型集合
+    [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_GET_JIXING_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"SEASONNING_MANAGEMENT_GET_JIXING_LIST: %@", responseJson);
+    }];
+    
+    // 查询设备集合
+    [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_GET_DEVICE_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"SEASONNING_MANAGEMENT_GET_DEVICE_LIST: %@", responseJson);
+        weakSelf.arrOfDevice = [SeasoningManagementDeviceModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+    }];
+}
+
+- (void)loadDetailByBarcode {
+    if (self.barcodeConntent.length == 0) {
+        return;
+    }
+    
+    [SVProgressHUD show];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_GET_DETAIL_BY_BARCODE parameters:@{@"asCode":self.barcodeConntent} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        [SVProgressHUD dismiss];
+        NSLog(@"SEASONNING_MANAGEMENT_GET_DETAIL_BY_BARCODE: %@", responseJson);
+    }];
 }
 
 #pragma mark actions
@@ -71,6 +116,12 @@
     } else {
         vc.isQRCode = YES;
     }
+    
+    WS(weakSelf)
+    vc.bacodeFoundBlock = ^(NSString * _Nonnull bacodeContent) {
+        weakSelf.barcodeConntent = bacodeContent;
+        [weakSelf loadDetailByBarcode];
+    };
     
     [self pushVC:vc];
 }

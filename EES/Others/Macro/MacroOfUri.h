@@ -128,4 +128,17 @@
 
 
 
+
+// 　保养辅料
+// 根据辅料编号查询详细信息（支持扫码）
+#define SEASONNING_MANAGEMENT_GET_DETAIL_BY_BARCODE @"ASAce/LoadDetail"
+// 查询工程集合
+#define SEASONNING_MANAGEMENT_GET_PROJECT_LIST @"ASAce/LoadSelProList"
+// 查询机型集合
+#define SEASONNING_MANAGEMENT_GET_JIXING_LIST @"ASAce/LoadSelItemList"
+// 查询设备集合
+#define SEASONNING_MANAGEMENT_GET_DEVICE_LIST @"ASAce/LoadSelList"
+
+
+
 #endif /* MacroOfUri_h */

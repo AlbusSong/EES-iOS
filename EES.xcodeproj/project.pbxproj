@@ -75,6 +75,8 @@
 		4E5D9A222387D59900B42D2A /* UIView+Kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A212387D59900B42D2A /* UIView+Kit.m */; };
 		4E5D9A252387E0DE00B42D2A /* UIButton+HDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */; };
 		4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A272387E2E600B42D2A /* LoginTimeoutHintCell.m */; };
+		4E74FC362399900A001B8FE8 /* SeasoningManagementDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E74FC352399900A001B8FE8 /* SeasoningManagementDeviceModel.m */; };
+		4E74FC39239990F0001B8FE8 /* SeasoningManagementDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -264,6 +266,10 @@
 		4E5D9A242387E0DE00B42D2A /* UIButton+HDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HDTool.m"; sourceTree = "<group>"; };
 		4E5D9A262387E2E600B42D2A /* LoginTimeoutHintCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTimeoutHintCell.h; sourceTree = "<group>"; };
 		4E5D9A272387E2E600B42D2A /* LoginTimeoutHintCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTimeoutHintCell.m; sourceTree = "<group>"; };
+		4E74FC342399900A001B8FE8 /* SeasoningManagementDeviceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementDeviceModel.h; sourceTree = "<group>"; };
+		4E74FC352399900A001B8FE8 /* SeasoningManagementDeviceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementDeviceModel.m; sourceTree = "<group>"; };
+		4E74FC37239990F0001B8FE8 /* SeasoningManagementDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementDetailModel.h; sourceTree = "<group>"; };
+		4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementDetailModel.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -699,6 +705,9 @@
 		4E552FBF2387490F00FC198B /* SeasoningManagement */ = {
 			isa = PBXGroup;
 			children = (
+				4EE14980239988AA006DDF06 /* Model */,
+				4E552FC323874A4800FC198B /* View */,
+				4EE1497F23998887006DDF06 /* VC */,
 				4E552FC02387493400FC198B /* SeasoningManagementVC.h */,
 				4E552FC12387493400FC198B /* SeasoningManagementVC.m */,
 				4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */,
@@ -707,7 +716,7 @@
 			path = SeasoningManagement;
 			sourceTree = "<group>";
 		};
-		4E552FC323874A4800FC198B /* SeasoningManagement */ = {
+		4E552FC323874A4800FC198B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				4E552FC423874A5F00FC198B /* SeasoningManagementFirstCell.h */,
@@ -715,7 +724,7 @@
 				4E552FC723874A7100FC198B /* SeasoningManagementSecondCell.h */,
 				4E552FC823874A7100FC198B /* SeasoningManagementSecondCell.m */,
 			);
-			path = SeasoningManagement;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4E552FD02387534600FC198B /* Login */ = {
@@ -1068,6 +1077,7 @@
 		4EDB753B23843FD100A0BC84 /* Problem */ = {
 			isa = PBXGroup;
 			children = (
+				4E552FBF2387490F00FC198B /* SeasoningManagement */,
 				4E552FA923871BB700FC198B /* WholeCheck */,
 				4E552FAA23871BCC00FC198B /* GroupCheck */,
 				4E552FAB23871BE200FC198B /* MaintenancePlan */,
@@ -1076,27 +1086,35 @@
 				4E552FAD23871C0C00FC198B /* Maintenance */,
 				4EF360BE2391D03500B63571 /* ReportList */,
 				4EDA8284238F3EDF009B0C79 /* NewReport */,
-				4EDB753C23843FD900A0BC84 /* VC */,
 				4EDB753D23843FDD00A0BC84 /* View */,
 			);
 			path = Problem;
 			sourceTree = "<group>";
 		};
-		4EDB753C23843FD900A0BC84 /* VC */ = {
+		4EDB753D23843FDD00A0BC84 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4E552FBF2387490F00FC198B /* SeasoningManagement */,
+				4ECDAACC23852EE40063FFF9 /* Global */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EE1497F23998887006DDF06 /* VC */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = VC;
 			sourceTree = "<group>";
 		};
-		4EDB753D23843FDD00A0BC84 /* View */ = {
+		4EE14980239988AA006DDF06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4E552FC323874A4800FC198B /* SeasoningManagement */,
-				4ECDAACC23852EE40063FFF9 /* Global */,
+				4E74FC342399900A001B8FE8 /* SeasoningManagementDeviceModel.h */,
+				4E74FC352399900A001B8FE8 /* SeasoningManagementDeviceModel.m */,
+				4E74FC37239990F0001B8FE8 /* SeasoningManagementDetailModel.h */,
+				4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */,
 			);
-			path = View;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4EF360BE2391D03500B63571 /* ReportList */ = {
@@ -1267,6 +1285,7 @@
 				4E043A04239949920094F9D2 /* WholeCheckDetailItemModel.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
 				4E5A35FA2385E44000ECB3B6 /* ProblemMaintenanceDetailTitleCell.m in Sources */,
+				4E74FC39239990F0001B8FE8 /* SeasoningManagementDetailModel.m in Sources */,
 				4E0B05E5239872860027BDBB /* GroupCheckDetailItemModel.m in Sources */,
 				4E5A361C2386962600ECB3B6 /* ProblemMaintenancePlanListVC.m in Sources */,
 				4E552FBA23873CB700FC198B /* ProblemWholeCheckSubmitSegmentControlCell.m in Sources */,
@@ -1299,6 +1318,7 @@
 				4ECB5A0A239760BC00E60400 /* MaintenanceConfirmationItemModel.m in Sources */,
 				4E552FC22387493400FC198B /* SeasoningManagementVC.m in Sources */,
 				4E552F922387042A00FC198B /* BasePageVC.m in Sources */,
+				4E74FC362399900A001B8FE8 /* SeasoningManagementDeviceModel.m in Sources */,
 				4E552FA52387183D00FC198B /* ProblemWholeCheckDetailItemCell.m in Sources */,
 				4E5A36362386B2EC00ECB3B6 /* SegmentTitlesView.m in Sources */,
 				4E5A35FD2385E48100ECB3B6 /* ProblemMaintenanceDetailReportInfoCell.m in Sources */,
