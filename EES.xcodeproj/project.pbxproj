@@ -81,6 +81,8 @@
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
+		4E98A7F6239A4F74007BE469 /* SeasoningManagementProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98A7F5239A4F74007BE469 /* SeasoningManagementProjectModel.m */; };
+		4E98A7F9239A4FB1007BE469 /* SeasoningManagementJixingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98A7F8239A4FB1007BE469 /* SeasoningManagementJixingModel.m */; };
 		4EB808B4239726C2009A3B91 /* NewReportWeihuJuesheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */; };
 		4EB808B7239727DA009A3B91 /* NewReportProblemLevelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B6239727DA009A3B91 /* NewReportProblemLevelModel.m */; };
 		4EB808BA239728F0009A3B91 /* NewReportProblemDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B9239728F0009A3B91 /* NewReportProblemDescModel.m */; };
@@ -277,6 +279,10 @@
 		4E9100B123829E6900DD195A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E9100B323829E6900DD195A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E9100B423829E6900DD195A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E98A7F4239A4F74007BE469 /* SeasoningManagementProjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementProjectModel.h; sourceTree = "<group>"; };
+		4E98A7F5239A4F74007BE469 /* SeasoningManagementProjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementProjectModel.m; sourceTree = "<group>"; };
+		4E98A7F7239A4FB1007BE469 /* SeasoningManagementJixingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementJixingModel.h; sourceTree = "<group>"; };
+		4E98A7F8239A4FB1007BE469 /* SeasoningManagementJixingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementJixingModel.m; sourceTree = "<group>"; };
 		4EB808B2239726C2009A3B91 /* NewReportWeihuJuesheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportWeihuJuesheModel.h; sourceTree = "<group>"; };
 		4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportWeihuJuesheModel.m; sourceTree = "<group>"; };
 		4EB808B5239727DA009A3B91 /* NewReportProblemLevelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportProblemLevelModel.h; sourceTree = "<group>"; };
@@ -1113,6 +1119,10 @@
 				4E74FC352399900A001B8FE8 /* SeasoningManagementDeviceModel.m */,
 				4E74FC37239990F0001B8FE8 /* SeasoningManagementDetailModel.h */,
 				4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */,
+				4E98A7F4239A4F74007BE469 /* SeasoningManagementProjectModel.h */,
+				4E98A7F5239A4F74007BE469 /* SeasoningManagementProjectModel.m */,
+				4E98A7F7239A4FB1007BE469 /* SeasoningManagementJixingModel.h */,
+				4E98A7F8239A4FB1007BE469 /* SeasoningManagementJixingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1281,6 +1291,7 @@
 				4E552FA2238714E100FC198B /* ProblemWholeCheckDetailVC.m in Sources */,
 				4E3DE0002396A9E500332B47 /* ReportListItemModel.m in Sources */,
 				4E3B3151239845CE00EB77D9 /* MaintenancePlanDetailModel.m in Sources */,
+				4E98A7F6239A4F74007BE469 /* SeasoningManagementProjectModel.m in Sources */,
 				4EB808CB239749CA009A3B91 /* MaintenanceEditInfoCell.m in Sources */,
 				4E043A04239949920094F9D2 /* WholeCheckDetailItemModel.m in Sources */,
 				4ECDAAD223852FE60063FFF9 /* UITextField+QuickTextField.m in Sources */,
@@ -1316,6 +1327,7 @@
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
 				4E552FC923874A7100FC198B /* SeasoningManagementSecondCell.m in Sources */,
 				4ECB5A0A239760BC00E60400 /* MaintenanceConfirmationItemModel.m in Sources */,
+				4E98A7F9239A4FB1007BE469 /* SeasoningManagementJixingModel.m in Sources */,
 				4E552FC22387493400FC198B /* SeasoningManagementVC.m in Sources */,
 				4E552F922387042A00FC198B /* BasePageVC.m in Sources */,
 				4E74FC362399900A001B8FE8 /* SeasoningManagementDeviceModel.m in Sources */,

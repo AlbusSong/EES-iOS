@@ -13,10 +13,17 @@
 #import "SeasoningManagementScanBarcodeVC.h"
 
 #import "SeasoningManagementDeviceModel.h"
+#import "SeasoningManagementProjectModel.h"
+#import "SeasoningManagementJixingModel.h"
 
 @interface SeasoningManagementVC ()
 
 @property (nonatomic, copy) NSString *barcodeConntent;
+
+
+@property (nonatomic, copy) NSArray *arrOfProject;
+
+@property (nonatomic, copy) NSArray *arrOfJixing;
 
 @property (nonatomic, copy) NSArray *arrOfDevice;
 
@@ -68,11 +75,13 @@
     // 查询工程集合
     [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_GET_PROJECT_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"SEASONNING_MANAGEMENT_GET_PROJECT_LIST: %@", responseJson);
+        weakSelf.arrOfProject = [SeasoningManagementProjectModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
     }];
     
     // 查询机型集合
     [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_GET_JIXING_LIST parameters:@{} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"SEASONNING_MANAGEMENT_GET_JIXING_LIST: %@", responseJson);
+        weakSelf.arrOfJixing = [SeasoningManagementJixingModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
     }];
     
     // 查询设备集合

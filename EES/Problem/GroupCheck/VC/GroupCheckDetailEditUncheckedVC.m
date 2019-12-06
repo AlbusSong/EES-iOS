@@ -103,6 +103,8 @@
     [mDict setValue:role.Code forKey:@"itemRole"];
     [mDict setValue:self.problemContent forKey:@"Comment"];
     
+    
+    NSLog(@"CMSWorkOrder/Deal mDict: %@", mDict);
     [SVProgressHUD show];
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT parameters:@{} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {

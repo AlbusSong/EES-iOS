@@ -34,6 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.currentPage = 10;
+    
     ProblemSearchBar *searchBar = [[ProblemSearchBar alloc] init];
     searchBar.backgroundColor = UIColor.whiteColor;
     searchBar.delegate = self;
@@ -50,20 +52,41 @@
         make.edges.insets(UIEdgeInsetsMake(45, 0, 0, 0));
     }];
     
+    WS(weakSelf)
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.currentPage += 10;
+        [weakSelf getDataFromServerShouldShowHUD:NO];
+    }];
+    self.tableView.mj_footer.hidden = YES;
+    
     [self getDataFromServer];
 }
 
 #pragma mark network
 
-- (void)getDataFromServer {
-    [SVProgressHUD show];
+- (void)getDataFromServerShouldShowHUD:(BOOL)shouldShow {
+    if (shouldShow) {
+        [SVProgressHUD show];
+    }
+    
     WeakSelf(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @""} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @"", @"size":@(self.currentPage)} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"WHOLE_CHECK_GET_LIST: %@", responseJson);
-        weakSelf.arrOfData = [WholeCheckItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        NSArray *arr = [WholeCheckItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
+        [self.arrOfData addObjectsFromArray:arr];
         [weakSelf.tableView reloadData];
+        
+        if (arr.count > 0) {
+            [weakSelf.tableView.mj_footer endRefreshing];
+        } else {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     }];
+}
+
+- (void)getDataFromServer {
+    [self getDataFromServerShouldShowHUD:YES];
 }
 
 #pragma mark ProblemSearchBarDelegate

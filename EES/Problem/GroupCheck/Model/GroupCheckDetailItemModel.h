@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *AppIsSolve;
 
+@property (nonatomic, copy) NSString *Actual;
+
 @end
 
 NS_ASSUME_NONNULL_END

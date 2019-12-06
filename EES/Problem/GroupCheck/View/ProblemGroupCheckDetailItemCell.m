@@ -87,6 +87,7 @@
     self.tfdOfInput = [UITextField quickTextFieldWithFont:[UIFont systemFontOfSize:18] textColor:HexColor(MAIN_COLOR_BLACK)];
     self.tfdOfInput.keyboardType = UIKeyboardTypeDecimalPad;
     self.tfdOfInput.placeholder = @"请输入数值";
+    [self.tfdOfInput addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:self.tfdOfInput];
     [self.tfdOfInput mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-20);
@@ -148,10 +149,22 @@
 
 - (void)smcOfDecisionClicked:(UISegmentedControl *)sender {
     NSLog(@"smcOfDecisionClicked: %li", sender.selectedSegmentIndex);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(decisionHasChangedTo:atIndexPath:)]) {
+        [self.delegate decisionHasChangedTo:(sender.selectedSegmentIndex == 0) atIndexPath:self.indexPath];
+    }
 }
 
 - (void)txtOfAttachmentClicked {
     NSLog(@"txtOfAttachmentClicked");
 }
+
+#pragma mark changed delegate
+
+- (void)textChanged:(UITextField *)textField {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(numberHasChangedTo:atIndexPath:)]) {
+        [self.delegate numberHasChangedTo:textField.text atIndexPath:self.indexPath];
+    }
+}
+
 
 @end

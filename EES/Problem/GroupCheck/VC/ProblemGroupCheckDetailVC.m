@@ -15,7 +15,7 @@
 
 #import "GroupCheckDetailEditUncheckedVC.h"
 
-@interface ProblemGroupCheckDetailVC ()
+@interface ProblemGroupCheckDetailVC () <ProblemGroupCheckDetailItemCellDelegate>
 
 @end
 
@@ -103,6 +103,18 @@
     }];
 }
 
+#pragma mark ProblemGroupCheckDetailItemCellDelegate
+
+- (void)numberHasChangedTo:(NSString *)numberString atIndexPath:(NSIndexPath *)indexPath {
+    GroupCheckDetailItemModel *model = [self.arrOfData objectAtIndex:indexPath.row];
+    model.Actual = numberString;
+}
+
+- (void)decisionHasChangedTo:(BOOL)isOkay atIndexPath:(NSIndexPath *)indexPath {
+    GroupCheckDetailItemModel *model = [self.arrOfData objectAtIndex:indexPath.row];
+    model.Actual = isOkay ? @"1" : @"0";
+}
+
 #pragma mark UITableViewDelegate, UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,6 +158,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.state == 0) {
         ProblemGroupCheckDetailItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemGroupCheckDetailItemCell.cellIdentifier forIndexPath:indexPath];
+        
+        cell.delegate = self;
+        cell.indexPath = indexPath;
         
         [cell resetSubviewsWithData:self.arrOfData[indexPath.row]];
         

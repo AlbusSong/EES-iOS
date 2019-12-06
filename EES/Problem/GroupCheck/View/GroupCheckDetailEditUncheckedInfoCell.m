@@ -72,9 +72,9 @@
 - (void)resetSubviewsWithData:(GroupCheckDetailItemModel *)data {
     self.txtOfInfo1.text = [NSString stringWithFormat:@"判断类别：%@", data.JudgeType];
     
-    self.txtOfInfo2.text = [NSString stringWithFormat:@"单位：%@", data.JudgeType];
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"单位：%@", data.Unit];
     
-    self.txtOfInfo3.text = [NSString stringWithFormat:@"结果：%@", data.Unit];
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"结果：%@", data.AppResult.length > 0 ? data.AppResult : @"NG"];
     
     self.txtOfInfo4.text = [NSString stringWithFormat:@"备注：%@", data.Comment];
 }
