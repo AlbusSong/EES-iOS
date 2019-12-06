@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SeasoningManagementProjectModel : NSObject
 
+@property (nonatomic, copy) NSString *ProcessName;
+
+@property (nonatomic, copy) NSString *ProcessID;
+
+@property (nonatomic, copy) NSString *ProcessCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

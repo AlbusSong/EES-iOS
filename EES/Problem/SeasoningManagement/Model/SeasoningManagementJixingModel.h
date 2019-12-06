@@ -12,6 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SeasoningManagementJixingModel : NSObject
 
+@property (nonatomic, copy) NSString *ProductName;
+
+@property (nonatomic, copy) NSString *ProductID;
+
+@property (nonatomic, copy) NSString *ProductCode;
+
+@property (nonatomic, copy) NSString *ProdType;
+
 @end
 
 NS_ASSUME_NONNULL_END

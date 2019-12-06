@@ -67,6 +67,10 @@
     self.txtOfTitle.text = title;
 }
 
+- (void)showInputArea:(BOOL)shouldShow {
+    self.bgView.hidden = (!shouldShow);
+}
+
 - (void)setContent:(NSString *)content {
     self.txtOfContent.text = content;
 }

@@ -140,6 +140,10 @@
 #define SEASONNING_MANAGEMENT_GET_JIXING_LIST @"ASAce/LoadSelItemList"
 // 查询设备集合
 #define SEASONNING_MANAGEMENT_GET_DEVICE_LIST @"ASAce/LoadSelList"
+// 根据辅料编号上料
+#define SEASONNING_MANAGEMENT_ACTION_SHANGLIAO @"ASAce/Loading"
+// 根据辅料编号上料
+#define SEASONNING_MANAGEMENT_ACTION_XIALIAO @"ASAce/Blanking"
 
 
 

@@ -18,13 +18,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *EquipName;
 
-//@property (nonatomic, copy) NSString *ASCode;
+@property (nonatomic, copy) NSString *Item;
 //
-//@property (nonatomic, copy) NSString *ASCode;
+@property (nonatomic, copy) NSString *Name;
 //
-//@property (nonatomic, copy) NSString *ASCode;
+@property (nonatomic, copy) NSString *VendorName;
 //
-//@property (nonatomic, copy) NSString *ASCode;
+@property (nonatomic, copy) NSString *Manufacturer;
+
+@property (nonatomic, copy) NSString *ActUseCount;
+
+@property (nonatomic, copy) NSString *UsePartType;
+
+@property (nonatomic, copy) NSString *UsePart;
+
+@property (nonatomic, copy) NSString *ASStatus;
 
 @end
 

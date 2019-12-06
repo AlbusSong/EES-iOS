@@ -83,6 +83,7 @@
 		4E9100B523829E6900DD195A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100B423829E6900DD195A /* main.m */; };
 		4E98A7F6239A4F74007BE469 /* SeasoningManagementProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98A7F5239A4F74007BE469 /* SeasoningManagementProjectModel.m */; };
 		4E98A7F9239A4FB1007BE469 /* SeasoningManagementJixingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98A7F8239A4FB1007BE469 /* SeasoningManagementJixingModel.m */; };
+		4E98A7FC239A642B007BE469 /* NSString+HandleNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98A7FB239A642B007BE469 /* NSString+HandleNull.m */; };
 		4EB808B4239726C2009A3B91 /* NewReportWeihuJuesheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */; };
 		4EB808B7239727DA009A3B91 /* NewReportProblemLevelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B6239727DA009A3B91 /* NewReportProblemLevelModel.m */; };
 		4EB808BA239728F0009A3B91 /* NewReportProblemDescModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB808B9239728F0009A3B91 /* NewReportProblemDescModel.m */; };
@@ -283,6 +284,8 @@
 		4E98A7F5239A4F74007BE469 /* SeasoningManagementProjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementProjectModel.m; sourceTree = "<group>"; };
 		4E98A7F7239A4FB1007BE469 /* SeasoningManagementJixingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementJixingModel.h; sourceTree = "<group>"; };
 		4E98A7F8239A4FB1007BE469 /* SeasoningManagementJixingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementJixingModel.m; sourceTree = "<group>"; };
+		4E98A7FA239A642B007BE469 /* NSString+HandleNull.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HandleNull.h"; sourceTree = "<group>"; };
+		4E98A7FB239A642B007BE469 /* NSString+HandleNull.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleNull.m"; sourceTree = "<group>"; };
 		4EB808B2239726C2009A3B91 /* NewReportWeihuJuesheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportWeihuJuesheModel.h; sourceTree = "<group>"; };
 		4EB808B3239726C2009A3B91 /* NewReportWeihuJuesheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewReportWeihuJuesheModel.m; sourceTree = "<group>"; };
 		4EB808B5239727DA009A3B91 /* NewReportProblemLevelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewReportProblemLevelModel.h; sourceTree = "<group>"; };
@@ -498,6 +501,8 @@
 				4EDA8286238FD340009B0C79 /* NSString+JSON.m */,
 				4EB808D223974B73009A3B91 /* UIView+Candy.h */,
 				4EB808D323974B73009A3B91 /* UIView+Candy.m */,
+				4E98A7FA239A642B007BE469 /* NSString+HandleNull.h */,
+				4E98A7FB239A642B007BE469 /* NSString+HandleNull.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1269,6 +1274,7 @@
 				4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */,
 				4EB808B7239727DA009A3B91 /* NewReportProblemLevelModel.m in Sources */,
 				4E552FBD2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.m in Sources */,
+				4E98A7FC239A642B007BE469 /* NSString+HandleNull.m in Sources */,
 				4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */,
 				4EDB75152383DCD900A0BC84 /* HomeMenuFunctionCell.m in Sources */,
 				4E0B05EB23987C260027BDBB /* GroupCheckDetailEditUncheckedVC.m in Sources */,

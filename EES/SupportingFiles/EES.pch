@@ -54,6 +54,7 @@
 #import "UIView+Candy.h"
 #import "UIButton+HDTool.h"
 #import "NSString+JSON.h"
+#import "NSString+HandleNull.h"
 
 
 #pragma mark Macro
