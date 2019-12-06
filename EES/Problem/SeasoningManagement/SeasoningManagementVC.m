@@ -77,8 +77,8 @@
     
     [self getDataFromServer];
     
-    self.barcodeConntent = @"19004012_201911210001";
-    [self loadDetailByBarcode];
+//    self.barcodeConntent = @"19004012_201911210001";
+//    [self loadDetailByBarcode];
 }
 
 #pragma mark gestures
