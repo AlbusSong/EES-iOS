@@ -76,11 +76,35 @@
     }];
     
     [self getDataFromServer];
+    
+    self.barcodeConntent = @"19004012_201911210001";
+    [self loadDetailByBarcode];
 }
 
 #pragma mark gestures
 
 - (void)btnConfirmClicked {
+    if (self.detailData == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请先扫码"];
+        return;
+    }
+    
+    if (self.selectedProject == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择上料工程"];
+        return;
+    }
+    
+    if (self.selectedJixing == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择上料机型"];
+        return;
+    }
+    
+    if (self.selectedDevice == nil) {
+        [SVProgressHUD showInfoWithStatus:@"请选择上料设备"];
+        return;
+    }
+        
+    
     WS(weakSelf)
     [GlobalTool popAlertWithTitle:@"确定操作？" message:nil yesStr:@"确定" yesActionBlock:^{
         [weakSelf realSubmitAction];
@@ -89,10 +113,18 @@
 
 - (void)realSubmitAction {
     [SVProgressHUD show];
-    
+        
+    NSString *uri = SEASONNING_MANAGEMENT_ACTION_SHANGLIAO;
+    if ([self.detailData.ASStatus isEqualToString:@"未使用"] == NO) {
+        uri = SEASONNING_MANAGEMENT_ACTION_XIALIAO;
+    }
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:SEASONNING_MANAGEMENT_ACTION_SHANGLIAO parameters:@{} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:uri parameters:@{@"asCode":self.detailData.ASCode, @"asEquip":self.selectedDevice.EquipCode, @"asPart":self.selectedJixing.ProductCode, @"asPro":self.selectedProject.ProcessCode} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"SEASONNING_MANAGEMENT_ACTION_SHANGLIAO: %@", responseJson);
+        [SVProgressHUD showInfoWithStatus:message];
+        if (code == 1) {
+            [weakSelf back];
+        }
     }];
 }
 
