@@ -106,7 +106,7 @@ static EESHttpDigger *instance = nil;
 #pragma mark 登陆状态检测
 
 - (BOOL)checkIfLoginAvailableBy:(NSDictionary *)responseJson {
-    NSLog(@"checkIfLoginAvailableBy: %@", responseJson);
+//    NSLog(@"checkIfLoginAvailableBy: %@", responseJson);
     int code = [responseJson[@"Success"] intValue];
     NSString *Message = [responseJson objectForKey:@"Message"];
     if (code == 0 && [Message isEqualToString:@"ErrorCodeSys001:登录超时"]) {
