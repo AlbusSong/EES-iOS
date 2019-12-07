@@ -44,7 +44,7 @@
         make.bottom.offset(-10);
     }];
     
-    self.txtOfContent = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:17] textColor:HexColor(MAIN_COLOR_BLACK) parentView:self.contentView];
+    self.txtOfContent = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:17] textColor:HexColor(MAIN_COLOR_BLACK) parentView:self.bgView];
     [self.txtOfContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bgView.mas_left).offset(15);
         make.height.mas_equalTo(23);
@@ -55,7 +55,7 @@
     self.imgvOfSmallTriangle = [[UIImageView alloc] init];
     self.imgvOfSmallTriangle.contentMode = UIViewContentModeScaleAspectFill;
     self.imgvOfSmallTriangle.image = [UIImage imageNamed:@"故障报修-下三角"];
-    [self.contentView addSubview:self.imgvOfSmallTriangle];
+    [self.bgView addSubview:self.imgvOfSmallTriangle];
     [self.imgvOfSmallTriangle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.bgView.mas_right).offset(-8);
         make.centerY.equalTo(self.bgView);
