@@ -13,6 +13,8 @@
 #import "ProblemNewReportContentCell.h"
 #import "ProblemWholeCheckSubmitAttachmentCell.h"
 
+#import "WholeCheckDetailItemModel.h"
+
 @interface ProblemWholeCheckSubmitVC ()
 
 @end
@@ -40,16 +42,33 @@
         make.edges.insets(UIEdgeInsetsMake(0, 0, 50, 0));
     }];
     
-    UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnConfirm.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnConfirm setTitle:@"提交" forState:UIControlStateNormal];
-    [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
-    [self.view addSubview:btnConfirm];
-    [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.equalTo(self.view);
-        make.right.mas_equalTo(self.view).offset(0);
-        make.height.mas_equalTo(50);
+    if (self.state != 1) {
+        UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
+        btnConfirm.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [btnConfirm setTitle:@"提交" forState:UIControlStateNormal];
+        [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
+        [self.view addSubview:btnConfirm];
+        [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.left.equalTo(self.view);
+            make.right.mas_equalTo(self.view).offset(0);
+            make.height.mas_equalTo(50);
+        }];
+    }
+    
+    [self getDataFromServer];
+}
+
+#pragma mark network
+
+- (void)getDataFromServer {
+    [SVProgressHUD show];
+    
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL parameters:@{@"cmaProjectNo":self.data.CMAProjectNo} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL: %@", responseJson);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL error: %@", error);
     }];
 }
 
@@ -62,6 +81,9 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.state == 1) {
+        return 1;
+    }
     return 2;
 }
 
@@ -69,12 +91,19 @@
     if (section == 0) {
         return 2;
     } else {
-        return 4;
+        if (self.state == 0) {
+             return 4;
+        } else {
+             return 1;
+        }
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1 && (indexPath.row == 1 || indexPath.row == 2)) {
+    if (self.state == 2 && indexPath.section == 1) {
+        return 140;
+    }
+    if (self.state == 0 && indexPath.section == 1 && (indexPath.row == 1 || indexPath.row == 2)) {
         return 140;
     }
     return UITableViewAutomaticDimension;
@@ -108,24 +137,32 @@
             return cell;
         }
     } else {
-        if (indexPath.row == 0) {
-            ProblemWholeCheckSubmitSegmentControlCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitSegmentControlCell.cellIdentifier forIndexPath:indexPath];
-            
-            return cell;
-        } else if (indexPath.row == 1) {
+        if (self.state == 0) {
+            if (indexPath.row == 0) {
+                ProblemWholeCheckSubmitSegmentControlCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitSegmentControlCell.cellIdentifier forIndexPath:indexPath];
+                
+                return cell;
+            } else if (indexPath.row == 1) {
+                ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
+                
+                [cell setPlaceholder:@"现象"];
+                
+                return cell;
+            } else if (indexPath.row == 2) {
+                ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
+                
+                [cell setPlaceholder:@"对策"];
+                
+                return cell;
+            } else {
+                ProblemWholeCheckSubmitAttachmentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitAttachmentCell.cellIdentifier forIndexPath:indexPath];
+                
+                return cell;
+            }
+        } else if (self.state == 2) {
             ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
             
-            [cell setPlaceholder:@"现象"];
-            
-            return cell;
-        } else if (indexPath.row == 2) {
-            ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
-            
-            [cell setPlaceholder:@"对策"];
-            
-            return cell;
-        } else {
-            ProblemWholeCheckSubmitAttachmentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitAttachmentCell.cellIdentifier forIndexPath:indexPath];
+            [cell setPlaceholder:@"异常处理备注"];
             
             return cell;
         }

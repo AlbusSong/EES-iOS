@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *EquipName;
 
-@property (nonatomic, copy) NSString *LineName;
+@property (nonatomic, copy) NSString *CMAProjectNo;
 
 @property (nonatomic, copy) NSString *CMAPlanNo;
 

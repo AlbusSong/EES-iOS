@@ -3,7 +3,7 @@
 //  EES
 //
 //  Created by Albus on 2019-12-05.
-//  Copyright © 2019 Zivos. All rights reserved.
+//  Copyright © 2019 ;. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WholeCheckItemModel : NSObject
+
+@property (nonatomic, copy) NSString *ID;
 
 @property (nonatomic, copy) NSString *EquipCode;
 

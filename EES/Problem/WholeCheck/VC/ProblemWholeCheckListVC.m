@@ -74,7 +74,12 @@
         [SVProgressHUD dismiss];
         NSLog(@"WHOLE_CHECK_GET_LIST: %@", responseJson);
         NSArray *arr = [WholeCheckItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
-        [self.arrOfData addObjectsFromArray:arr];
+        for (WholeCheckItemModel *m in arr) {
+            if ([weakSelf checkIfContainData:m] == YES) {
+                continue;
+            }
+            [weakSelf.arrOfData addObject:m];
+        }
         [weakSelf.tableView reloadData];
         
         if (arr.count > 0) {
@@ -87,6 +92,15 @@
 
 - (void)getDataFromServer {
     [self getDataFromServerShouldShowHUD:YES];
+}
+
+- (BOOL)checkIfContainData:(WholeCheckItemModel *)data {
+    for (WholeCheckItemModel *m in self.arrOfData) {
+        if ([m.CMAWorkOrderNo isEqualToString:data.CMAWorkOrderNo]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 #pragma mark ProblemSearchBarDelegate

@@ -64,6 +64,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     ProblemWholeCheckSubmitVC *vc = [[ProblemWholeCheckSubmitVC alloc] init];
+    vc.data = self.arrOfData[indexPath.row];
+    vc.state = self.state;
     [self pushVC:vc];
 }
 
