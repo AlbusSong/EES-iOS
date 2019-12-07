@@ -40,8 +40,8 @@
     WS(weakSelf)
     
     NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
-    [mDict setValue:self.data.CMAPlanNo forKey:@"cmsPlanNo"];
-    [mDict setValue:self.data.CMAWorkOrderNo forKey:@"cmsWorkOrderNo"];
+    [mDict setValue:self.data.CMAPlanNo forKey:@"cmaPlanNo"];
+    [mDict setValue:self.data.CMAWorkOrderNo forKey:@"cmaWorkOrderNo"];
     if (self.state == 0) {
         [mDict setValue:@"P" forKey:@"State"];
     } else if (self.state == 1) {
@@ -50,7 +50,6 @@
         [mDict setValue:@"D" forKey:@"State"];
     }
     
-    NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_LIST mDict: %@", mDict);
     [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_DETAIL_ITEM_LIST parameters:mDict shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_LIST: %@", responseJson);
@@ -73,7 +72,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return self.arrOfData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,6 +90,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProblemWholeCheckDetailItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckDetailItemCell.cellIdentifier forIndexPath:indexPath];
+    
+    [cell resetSubviewsWithData:[self.arrOfData objectAtIndex:indexPath.row]];
     
     return cell;
 }

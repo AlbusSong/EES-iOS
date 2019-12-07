@@ -101,7 +101,7 @@
     [mDict setValue:self.data.WorkOrderNoApp forKey:@"cmsWorkOrderNo"];
     MaintenanceEditInfoRoleModel *role = [self.arrOfData objectAtIndex:self.selectedIndex];
     [mDict setValue:role.Code forKey:@"itemRole"];
-    [mDict setValue:self.problemContent forKey:@"Comment"];
+    [mDict setValue:self.problemContent forKey:@"comment"];
     
     
     NSLog(@"CMSWorkOrder/Deal mDict: %@", mDict);

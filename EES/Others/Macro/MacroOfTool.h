@@ -60,6 +60,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define StrongSelf(strongSelf)  __strong __typeof(&*self) strongSelf = weakSelf;//强引用
 
 
+// NSString check
+#define AVOIDNULL(string) [NSString avoidNull:string]
+
 
 // Color
 #define DEFAULT_VIEW_BACKGROUND_COLOR [UIColor colorWithHexString:@"F4F3F8"]

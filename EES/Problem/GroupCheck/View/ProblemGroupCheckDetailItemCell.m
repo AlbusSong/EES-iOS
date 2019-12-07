@@ -139,9 +139,11 @@
     if ([data.JudgeType isEqualToString:@"数值判断"]) {
         self.tfdOfInput.hidden = NO;
         self.smcOfDecision.hidden = YES;
+        self.tfdOfInput.text = data.Actual;
     } else if ([data.JudgeType isEqualToString:@"人为判断"]) {
         self.tfdOfInput.hidden = YES;
         self.smcOfDecision.hidden = NO;
+        self.smcOfDecision.selectedSegmentIndex = ([data.Actual isEqualToString:@"1"] ? 0 : 1);
     }
 }
 

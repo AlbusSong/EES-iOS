@@ -7,6 +7,7 @@
 //
 
 #import "ProblemWholeCheckDetailItemCell.h"
+#import "WholeCheckDetailItemModel.h"
 
 @interface ProblemWholeCheckDetailItemCell ()
 
@@ -36,7 +37,7 @@
         make.left.offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfProject.text = @"点检项目：气缸";
+    
     
     self.txtOfEquipment = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfEquipment mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -45,7 +46,7 @@
         make.top.equalTo(self.txtOfProject.mas_bottom).offset(0);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfEquipment.text = @"部件：";
+    
     
     self.txtOfMethod = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfMethod mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,7 +55,7 @@
         make.top.equalTo(self.txtOfEquipment.mas_bottom).offset(0);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfMethod.text = @"方法：1.在气缸工作时，目测到位或复位传感器工作指示灯有无变化（例如红灯亮起）2.在气缸工作时，目测气缸杆有无位移变化";
+    
     
     self.txtOfResult = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfResult mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -64,7 +65,6 @@
         make.height.mas_greaterThanOrEqualTo(21);
         make.bottom.offset(-10);
     }];
-    self.txtOfResult.text = @"结果：无";
     
     self.grayLine = [[UIView alloc] init];
     self.grayLine.backgroundColor = HexColor(@"dddddd");
@@ -73,6 +73,16 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(1);
     }];
+}
+
+- (void)resetSubviewsWithData:(WholeCheckDetailItemModel *)data {
+    self.txtOfProject.text = [NSString stringWithFormat:@"点检项目：%@", data.Project];
+    
+    self.txtOfEquipment.text = [NSString stringWithFormat:@"部件：%@", [NSString avoidNull:data.Part]];
+    
+    self.txtOfMethod.text = [NSString stringWithFormat:@"方法：%@", [NSString avoidNull:data.Method]];
+    
+    self.txtOfResult.text = [NSString stringWithFormat:@"结果：%@", AVOIDNULL(data.AppResult)];
 }
 
 @end

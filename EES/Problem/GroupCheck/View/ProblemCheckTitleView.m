@@ -41,7 +41,7 @@
             } else if (i == 1) {
                 make.centerX.equalTo(self);
             } else if (i == 2) {
-                make.right.offset(-2);
+                make.right.offset(-10);
             }
             make.top.bottom.equalTo(self);
         }];

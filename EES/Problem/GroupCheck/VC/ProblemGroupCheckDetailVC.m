@@ -66,8 +66,16 @@
 - (void)realSubmitAction {
     [SVProgressHUD show];
     
+    NSMutableArray *arrayResult = [NSMutableArray array];
+    for (GroupCheckDetailItemModel *model in self.arrOfData) {
+        NSString *cmsProjectNo = model.CMSProjectNo;
+        NSString *actual = model.Actual;
+        NSDictionary *obj = @{@"CmsProjectNo":cmsProjectNo, @"Actual":actual};
+        [arrayResult addObject:obj];
+    }
+    
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_SUBMIT parameters:@{@"arrayResult":@"", @"isPrest":@""} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_SUBMIT parameters:@{@"arrayResult":arrayResult, @"isPrest":@"true"} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         if (code == 1) {
             [SVProgressHUD showInfoWithStatus:@"操作成功"];
             [weakSelf back];
