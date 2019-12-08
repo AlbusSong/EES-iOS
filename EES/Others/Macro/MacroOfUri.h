@@ -135,6 +135,8 @@
 #define WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT @"CMAWorkOrder/Deal"
 // 上传现场拍照附件
 #define WHOLE_CHECK_ACTION_UPLOAD_FILE @"CMAWorkOrder/Upload"
+// 提交点检内容
+#define WHOLE_CHECK_ACTION_SUBMIT_CHECK_CONTENT @"CMAWorkOrder/Commit"
 
 
 // 　保养辅料

@@ -10,7 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ProblemWholeCheckSubmitSegmentControlCellDelegate <NSObject>
+
+@optional
+- (void)segmentControlIndexHasChanged:(NSInteger)newIndex;
+
+@end
+
 @interface ProblemWholeCheckSubmitSegmentControlCell : ASTableViewCell
+
+@property (nonatomic, weak) id <ProblemWholeCheckSubmitSegmentControlCellDelegate> delegate;
 
 @end
 

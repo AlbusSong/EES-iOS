@@ -16,11 +16,14 @@
 #import "WholeCheckDetailItemModel.h"
 #import "WholeCheckDetailItemDetailModel.h"
 
-@interface ProblemWholeCheckSubmitVC () <ProblemNewReportContentCellDelegate, ProblemWholeCheckSubmitAttachmentCellDelegate>
+
+@interface ProblemWholeCheckSubmitVC () <ProblemNewReportContentCellDelegate, ProblemWholeCheckSubmitAttachmentCellDelegate, ProblemWholeCheckSubmitSegmentControlCellDelegate>
 
 @property (nonatomic, strong) WholeCheckDetailItemDetailModel *detailData;
 
 @property (nonatomic, copy) NSString *attachmentInfo;
+
+@property (nonatomic) NSInteger decisionIndex;
 
 @property (nonatomic, copy) NSString *exceptionComment;
 
@@ -45,6 +48,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.decisionIndex = -1;
     
     [self.tableView registerClass:[ProblemWholeCheckSubmitTitleCell class] forCellReuseIdentifier:ProblemWholeCheckSubmitTitleCell.cellIdentifier];
     [self.tableView registerClass:[ProblemWholeCheckSubmitInfoCell class] forCellReuseIdentifier:ProblemWholeCheckSubmitInfoCell.cellIdentifier];
@@ -76,32 +81,85 @@
 #pragma mark gestures
 
 - (void)btnConfirmClicked {
+    WS(weakSelf)
     if (self.state == 0) {
+        if (self.decisionIndex == -1) {
+            [SVProgressHUD showInfoWithStatus:@"请选择结果"];
+            return;
+        }
         
+        if (self.phenomenon.length == 0) {
+            [SVProgressHUD showInfoWithStatus:@"请填写现象"];
+            return;
+        }
+        
+        if (self.phenomenon.length == 0) {
+            [SVProgressHUD showInfoWithStatus:@"请填写策略"];
+            return;
+        }
+        
+        [GlobalTool popAlertWithTitle:@"确认提交？" message:nil yesStr:@"确认" yesActionBlock:^{
+            [weakSelf realCheckContentAction];
+        }];
     } else if (self.state == 2) {
         if (self.exceptionComment.length == 0) {
             [SVProgressHUD showInfoWithStatus:@"请填写异常处理备注"];
             return;
         }
         
-        NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
-        [mDict setValue:self.data.WorkOrderNoApp forKey:@"cmaWorkOrderNo"];
-        [mDict setValue:self.detailData.CMAProjectNo forKey:@"cmaProjectNo"];
-        [mDict setValue:self.exceptionComment forKey:@"Comment"];
-        
-        [SVProgressHUD show];
-        WS(weakSelf)
-        [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-            NSLog(@"WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT: %@", responseJson);
-            if (code == 0) {
-                [SVProgressHUD showInfoWithStatus:message];
-                return ;
-            }
-            
-            [SVProgressHUD showInfoWithStatus:@"提交成功"];
-            [weakSelf back];
+        [GlobalTool popAlertWithTitle:@"确认提交？" message:nil yesStr:@"确认" yesActionBlock:^{
+            [weakSelf realCheckExceptionAction];
         }];
     }
+}
+
+- (void)realCheckExceptionAction {
+    NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
+    [mDict setValue:self.data.WorkOrderNoApp forKey:@"cmaWorkOrderNo"];
+    [mDict setValue:self.detailData.CMAProjectNo forKey:@"cmaProjectNo"];
+    [mDict setValue:self.exceptionComment forKey:@"Comment"];
+    
+    [SVProgressHUD show];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"提交成功"];
+        [weakSelf back];
+    }];
+}
+
+- (void)realCheckContentAction {
+    NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
+    [mDict setValue:self.data.WorkOrderNoApp forKey:@"cmaWorkOrderNo"];
+    [mDict setValue:self.detailData.CMAProjectNo forKey:@"cmaProjectNo"];
+    [mDict setValue:self.detailData.CMPlanNo forKey:@"cmaPlanNo"];
+    [mDict setValue:self.phenomenon forKey:@"phenomenon"];
+    [mDict setValue:self.strategy forKey:@"countermeasure"];
+    NSString *commitResult = @"OK";
+    if (self.decisionIndex == 1) {
+        commitResult = @"NG";
+    } else if (self.decisionIndex == 2) {
+        commitResult = @"NN";
+    }
+    [mDict setValue:commitResult forKey:@"commitResult"];
+    
+    [SVProgressHUD show];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_SUBMIT_CHECK_CONTENT parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"WHOLE_CHECK_ACTION_SUBMIT_CHECK_CONTENT: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"提交成功"];
+        [weakSelf back];
+    }];
 }
 
 #pragma mark network
@@ -160,6 +218,12 @@
     [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_UPLOAD_FILE parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"WHOLE_CHECK_ACTION_UPLOAD_FILE: %@", responseJson);
     }];
+}
+
+#pragma mark ProblemWholeCheckSubmitSegmentControlCellDelegate
+
+- (void)segmentControlIndexHasChanged:(NSInteger)newIndex {
+    self.decisionIndex = newIndex;
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -236,6 +300,8 @@
         if (self.state == 0) {
             if (indexPath.row == 0) {
                 ProblemWholeCheckSubmitSegmentControlCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitSegmentControlCell.cellIdentifier forIndexPath:indexPath];
+                
+                cell.delegate = self;
                 
                 return cell;
             } else if (indexPath.row == 1) {

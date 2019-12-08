@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *CMAProjectNo;
 
+@property (nonatomic, copy) NSString *CMPlanNo;
+
 @property (nonatomic, copy) NSString *Mechanism;
 
 @property (nonatomic, copy) NSString *CMAWorkOrderNo;

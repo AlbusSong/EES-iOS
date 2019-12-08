@@ -28,6 +28,7 @@
     self.txtOfTitle.text = @"结果:";
     
     self.smcOfResult = [[UISegmentedControl alloc] initWithItems:@[@"OK", @"NG已改善", @"NG未改善"]];
+    [self.smcOfResult addTarget:self action:@selector(smcOfResultClicked:) forControlEvents:UIControlEventValueChanged];
     [self.contentView addSubview:self.smcOfResult];
     [self.smcOfResult mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
@@ -36,6 +37,14 @@
         make.top.mas_equalTo(self.txtOfTitle.mas_bottom).offset(10);
         make.bottom.offset(-10);
     }];
+}
+
+#pragma mark gestures
+
+- (void)smcOfResultClicked:(UISegmentedControl *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(segmentControlIndexHasChanged:)]) {
+        [self.delegate segmentControlIndexHasChanged:sender.selectedSegmentIndex];
+    }
 }
 
 @end
