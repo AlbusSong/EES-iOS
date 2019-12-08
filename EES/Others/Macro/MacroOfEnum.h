@@ -19,5 +19,12 @@ typedef NS_ENUM(NSInteger, NetworkStatus) {
     NetworkStatusUnavailable
 };
 
+// 相册选择数据类型
+typedef NS_ENUM(NSInteger, PhotoObtainingToolResourceType) {
+    PhotoObtainingToolResourceTypeBoth = 0,
+    PhotoObtainingToolResourceTypeImage,
+    PhotoObtainingToolResourceTypeVideo,
+};
+
 
 #endif /* MacroOfEnum_h */

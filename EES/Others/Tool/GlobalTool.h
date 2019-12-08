@@ -34,6 +34,8 @@ typedef void (^AlertActionBlock) (void);
 
 + (NSString *)md5String:(NSString *)string;
 
++ (UIImage *)fixOrientation:(UIImage *)aImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

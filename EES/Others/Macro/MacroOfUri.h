@@ -132,7 +132,7 @@
 // 获取附件信息
 #define WHOLE_CHECK_GET_DETAIL_ATTACHMENT_INFO @"CMAWorkOrder/LoadFiles"
 // 提交异常处理内容
-#define WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT @"CMAWorkOrder/CMADeal"
+#define WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT @"CMAWorkOrder/Deal"
 
 
 // 　保养辅料

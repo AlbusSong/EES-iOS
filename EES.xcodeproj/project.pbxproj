@@ -79,6 +79,7 @@
 		4E74FC39239990F0001B8FE8 /* SeasoningManagementDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */; };
 		4E7D685C239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D685B239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m */; };
 		4E7D685F239C7D790055A92C /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D685E239C7D790055A92C /* NSString+Util.m */; };
+		4E7D6862239C86960055A92C /* PhotoObtainingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D6861239C86960055A92C /* PhotoObtainingTool.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -279,6 +280,8 @@
 		4E7D685B239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WholeCheckDetailItemDetailModel.m; sourceTree = "<group>"; };
 		4E7D685D239C7D790055A92C /* NSString+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Util.h"; sourceTree = "<group>"; };
 		4E7D685E239C7D790055A92C /* NSString+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Util.m"; sourceTree = "<group>"; };
+		4E7D6860239C86960055A92C /* PhotoObtainingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoObtainingTool.h; sourceTree = "<group>"; };
+		4E7D6861239C86960055A92C /* PhotoObtainingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoObtainingTool.m; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1051,6 +1054,8 @@
 		4EDB75222383ED4E00A0BC84 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				4E7D6860239C86960055A92C /* PhotoObtainingTool.h */,
+				4E7D6861239C86960055A92C /* PhotoObtainingTool.m */,
 				4EDB75232383ED5F00A0BC84 /* GlobalTool.h */,
 				4EDB75242383ED5F00A0BC84 /* GlobalTool.m */,
 			);
@@ -1283,6 +1288,7 @@
 				4EDB75462384417E00A0BC84 /* ProblemNewReportContentCell.m in Sources */,
 				4E552FCC23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m in Sources */,
 				4EB808B7239727DA009A3B91 /* NewReportProblemLevelModel.m in Sources */,
+				4E7D6862239C86960055A92C /* PhotoObtainingTool.m in Sources */,
 				4E552FBD2387440800FC198B /* ProblemWholeCheckSubmitAttachmentCell.m in Sources */,
 				4E98A7FC239A642B007BE469 /* NSString+HandleNull.m in Sources */,
 				4E5A36392386B64700ECB3B6 /* ProblemCheckTitleView.m in Sources */,

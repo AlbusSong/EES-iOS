@@ -16,7 +16,7 @@
 #import "WholeCheckDetailItemModel.h"
 #import "WholeCheckDetailItemDetailModel.h"
 
-@interface ProblemWholeCheckSubmitVC () <ProblemNewReportContentCellDelegate>
+@interface ProblemWholeCheckSubmitVC () <ProblemNewReportContentCellDelegate, ProblemWholeCheckSubmitAttachmentCellDelegate>
 
 @property (nonatomic, strong) WholeCheckDetailItemDetailModel *detailData;
 
@@ -27,6 +27,8 @@
 @property (nonatomic, copy) NSString *phenomenon;
 
 @property (nonatomic, copy) NSString *strategy;
+
+@property (nonatomic, copy) NSString *imageLocalPath;
 
 @end
 
@@ -83,7 +85,7 @@
         }
         
         NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
-        [mDict setValue:self.detailData.CMAWorkOrderNo forKey:@"cmaWorkOrderNo"];
+        [mDict setValue:self.data.WorkOrderNoApp forKey:@"cmaWorkOrderNo"];
         [mDict setValue:self.detailData.CMAProjectNo forKey:@"cmaProjectNo"];
         [mDict setValue:self.exceptionComment forKey:@"Comment"];
         
@@ -98,8 +100,6 @@
             
             [SVProgressHUD showInfoWithStatus:@"提交成功"];
             [weakSelf back];
-        } failure:^(NSError * _Nonnull error) {
-            NSLog(@"WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT error: %@", error);
         }];
     }
 }
@@ -136,6 +136,14 @@
     } else if (self.state == 2) {
         self.exceptionComment = newContent;
     }
+}
+
+#pragma mark ProblemWholeCheckSubmitAttachmentCellDelegate
+
+- (void)tryToChooseFile {
+    [[PhotoObtainingTool sharedInstance] choosePhotoWithType:UIImagePickerControllerSourceTypePhotoLibrary completionHandler:^(NSString * _Nonnull imageLocalPath) {
+        NSLog(@"imageLocalPath: %@", imageLocalPath);
+    }];
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -230,6 +238,8 @@
                 return cell;
             } else {
                 ProblemWholeCheckSubmitAttachmentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitAttachmentCell.cellIdentifier forIndexPath:indexPath];
+                
+                cell.delegate = self;
                 
                 return cell;
             }

@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *CMAWorkOrderNo;
 
+@property (nonatomic, copy) NSString *WorkOrderNoApp;
+
 @property (nonatomic, copy) NSString *Project;
 
 @property (nonatomic, copy) NSString *Part;

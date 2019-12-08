@@ -10,7 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ProblemWholeCheckSubmitAttachmentCellDelegate <NSObject>
+
+@optional
+- (void)tryToChooseFile;
+
+@end
+
 @interface ProblemWholeCheckSubmitAttachmentCell : ASTableViewCell
+
+@property (nonatomic, weak) id <ProblemWholeCheckSubmitAttachmentCellDelegate> delegate;
 
 @end
 

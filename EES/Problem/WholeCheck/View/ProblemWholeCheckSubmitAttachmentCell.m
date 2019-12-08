@@ -35,6 +35,7 @@
     self.btnUploadAttachment.layer.borderColor = HexColor(MAIN_COLOR_BLACK).CGColor;
     self.btnUploadAttachment.tintColor = HexColor(MAIN_COLOR_BLACK);
     [self.btnUploadAttachment setTitle:@"Choose" forState:UIControlStateNormal];
+    [self.btnUploadAttachment addTarget:self action:@selector(btnUploadAttachmentClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.btnUploadAttachment];
     [self.btnUploadAttachment mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.txtOfTitle.mas_right).offset(10);
@@ -42,6 +43,14 @@
         make.centerY.equalTo(self.txtOfTitle);
         make.width.mas_equalTo(80);
     }];
+}
+
+#pragma mark gestures
+
+- (void)btnUploadAttachmentClicked {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tryToChooseFile)]) {
+        [self.delegate tryToChooseFile];
+    }
 }
 
 @end
