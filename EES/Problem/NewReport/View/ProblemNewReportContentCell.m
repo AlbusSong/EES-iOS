@@ -74,6 +74,10 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(contentHasChangedTo:)]) {
         [self.delegate contentHasChangedTo:textView.text];
     }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(contentHasChangedTo:atIndexPath:)]) {
+        [self.delegate contentHasChangedTo:textView.text atIndexPath:self.indexPath];
+    }
 }
 
 @end

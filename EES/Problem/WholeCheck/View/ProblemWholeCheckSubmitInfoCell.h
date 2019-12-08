@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ProblemWholeCheckSubmitInfoCell : ASTableViewCell
 
 - (void)resetSubviewsWithData:(WholeCheckDetailItemDetailModel *)data;
-
+- (void)resetAttachmentInfo:(NSString *)attachmentInfo;
 - (void)showPhenomenonAndStrategy:(BOOL)shouldShow;
 
 @end

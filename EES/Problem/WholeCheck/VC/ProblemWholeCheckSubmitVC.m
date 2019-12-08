@@ -16,9 +16,17 @@
 #import "WholeCheckDetailItemModel.h"
 #import "WholeCheckDetailItemDetailModel.h"
 
-@interface ProblemWholeCheckSubmitVC ()
+@interface ProblemWholeCheckSubmitVC () <ProblemNewReportContentCellDelegate>
 
 @property (nonatomic, strong) WholeCheckDetailItemDetailModel *detailData;
+
+@property (nonatomic, copy) NSString *attachmentInfo;
+
+@property (nonatomic, copy) NSString *exceptionComment;
+
+@property (nonatomic, copy) NSString *phenomenon;
+
+@property (nonatomic, copy) NSString *strategy;
 
 @end
 
@@ -51,6 +59,7 @@
         [btnConfirm setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btnConfirm setTitle:@"提交" forState:UIControlStateNormal];
         [btnConfirm setBackgroundImage:[GlobalTool imageWithColor:HexColor(MAIN_COLOR)] forState:UIControlStateNormal];
+        [btnConfirm addTarget:self action:@selector(btnConfirmClicked) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btnConfirm];
         [btnConfirm mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.left.equalTo(self.view);
@@ -60,6 +69,39 @@
     }
     
     [self getDataFromServer];
+}
+
+#pragma mark gestures
+
+- (void)btnConfirmClicked {
+    if (self.state == 0) {
+        
+    } else if (self.state == 2) {
+        if (self.exceptionComment.length == 0) {
+            [SVProgressHUD showInfoWithStatus:@"请填写异常处理备注"];
+            return;
+        }
+        
+        NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
+        [mDict setValue:self.detailData.CMAWorkOrderNo forKey:@"cmaWorkOrderNo"];
+        [mDict setValue:self.detailData.CMAProjectNo forKey:@"cmaProjectNo"];
+        [mDict setValue:self.exceptionComment forKey:@"Comment"];
+        
+        [SVProgressHUD show];
+        WS(weakSelf)
+        [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+            NSLog(@"WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT: %@", responseJson);
+            if (code == 0) {
+                [SVProgressHUD showInfoWithStatus:message];
+                return ;
+            }
+            
+            [SVProgressHUD showInfoWithStatus:@"提交成功"];
+            [weakSelf back];
+        } failure:^(NSError * _Nonnull error) {
+            NSLog(@"WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT error: %@", error);
+        }];
+    }
 }
 
 #pragma mark network
@@ -74,6 +116,26 @@
         weakSelf.detailData = [WholeCheckDetailItemDetailModel mj_objectWithKeyValues:responseJson];
         [weakSelf.tableView reloadData];
     }];
+    
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_DETAIL_ATTACHMENT_INFO parameters:@{@"projectNo":self.data.CMAProjectNo, @"Type":@"CMA"} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"WHOLE_CHECK_GET_DETAIL_ATTACHMENT_INFO: %@", responseJson);
+        weakSelf.attachmentInfo = responseJson[@"Extend"];
+        [weakSelf.tableView reloadData];
+    }];
+}
+
+#pragma mark ProblemNewReportContentCellDelegate
+
+- (void)contentHasChangedTo:(NSString *)newContent atIndexPath:(NSIndexPath *)indexPath {
+    if (self.state == 0) {
+        if (indexPath.row == 1) {
+            self.phenomenon = newContent;
+        } else if (indexPath.row == 2) {
+            self.strategy = newContent;
+        }
+    } else if (self.state == 2) {
+        self.exceptionComment = newContent;
+    }
 }
 
 #pragma mark UITableViewDelegate, UITableViewDataSource
@@ -141,6 +203,7 @@
             ProblemWholeCheckSubmitInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitInfoCell.cellIdentifier forIndexPath:indexPath];
             
             [cell resetSubviewsWithData:self.detailData];
+            [cell resetAttachmentInfo:self.attachmentInfo];
             [cell showPhenomenonAndStrategy:(self.state != 0)];
             
             return cell;
@@ -153,13 +216,15 @@
                 return cell;
             } else if (indexPath.row == 1) {
                 ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
-                
+                cell.delegate = self;
+                cell.indexPath = indexPath;
                 [cell setPlaceholder:@"现象"];
                 
                 return cell;
             } else if (indexPath.row == 2) {
                 ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
-                
+                cell.delegate = self;
+                cell.indexPath = indexPath;
                 [cell setPlaceholder:@"对策"];
                 
                 return cell;
@@ -170,7 +235,8 @@
             }
         } else if (self.state == 2) {
             ProblemNewReportContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemNewReportContentCell.cellIdentifier forIndexPath:indexPath];
-            
+            cell.delegate = self;
+            cell.indexPath = indexPath;
             [cell setPlaceholder:@"异常处理备注"];
             
             return cell;

@@ -13,11 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol ProblemNewReportContentCellDelegate <NSObject>
 
 @optional
+- (void)contentHasChangedTo:(NSString *)newContent atIndexPath:(NSIndexPath *)indexPath;
 - (void)contentHasChangedTo:(NSString *)newContent;
 
 @end
 
 @interface ProblemNewReportContentCell : ProblemNewReportSelectionCell
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @property (nonatomic, weak) id<ProblemNewReportContentCellDelegate> delegate;
 

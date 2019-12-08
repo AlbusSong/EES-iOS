@@ -129,7 +129,10 @@
 #define WHOLE_CHECK_GET_DETAIL_ITEM_LIST @"CMAWorkOrder/LoadWorkOrderProject"
 // 根据项目号查询当前点检项目情况
 #define WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL @"CMAWorkOrder/LoadWorkOrderProjectModel"
-
+// 获取附件信息
+#define WHOLE_CHECK_GET_DETAIL_ATTACHMENT_INFO @"CMAWorkOrder/LoadFiles"
+// 提交异常处理内容
+#define WHOLE_CHECK_ACTION_SUBMIT_EXCEPTION_CONTENT @"CMAWorkOrder/CMADeal"
 
 
 // 　保养辅料

@@ -133,6 +133,18 @@
     self.txtOfStrategy.text = [NSString stringWithFormat:@"策略：%@", AVOIDNULL(data.Phenomenon)];
 }
 
+- (void)resetAttachmentInfo:(NSString *)attachmentInfo {
+    self.txtOfAttachment.text = [NSString stringWithFormat:@"附件：%@", AVOIDNULL(attachmentInfo)];
+    
+    if ([attachmentInfo isEqualToString:@"未上传附件"]) {
+        self.txtOfAttachment.textColor = HexColor(@"999999");
+        self.txtOfAttachment.userInteractionEnabled = NO;
+    } else {
+        self.txtOfAttachment.textColor = HexColor(MAIN_COLOR);
+        self.txtOfAttachment.userInteractionEnabled = YES;
+    }
+}
+
 - (void)showPhenomenonAndStrategy:(BOOL)shouldShow {
     if (shouldShow) {
         self.txtOfPhenomenon.hidden = NO;
