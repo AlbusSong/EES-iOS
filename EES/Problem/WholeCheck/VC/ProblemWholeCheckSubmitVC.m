@@ -141,8 +141,24 @@
 #pragma mark ProblemWholeCheckSubmitAttachmentCellDelegate
 
 - (void)tryToChooseFile {
+    WS(weakSelf)
     [[PhotoObtainingTool sharedInstance] choosePhotoWithType:UIImagePickerControllerSourceTypePhotoLibrary completionHandler:^(NSString * _Nonnull imageLocalPath) {
         NSLog(@"imageLocalPath: %@", imageLocalPath);
+        weakSelf.imageLocalPath = imageLocalPath;
+        
+        [weakSelf tryToUploadFile:imageLocalPath];
+    }];
+}
+
+- (void)tryToUploadFile:(NSString *)imageLocalPath {
+    NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
+    [mDict setValue:self.data.WorkOrderNoApp forKey:@"cmaProjectNo"];
+    [mDict setValue:self.detailData.CMAProjectNo forKey:@"cmaProjectNo"];
+    [mDict setValue:@"CMAPP" forKey:@"doctype"];
+    NSData *data = [NSData dataWithContentsOfFile:imageLocalPath];
+    [mDict setValue:[data base64EncodedStringWithOptions:0] forKey:@"Picture"];
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_UPLOAD_FILE parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"WHOLE_CHECK_ACTION_UPLOAD_FILE: %@", responseJson);
     }];
 }
 
