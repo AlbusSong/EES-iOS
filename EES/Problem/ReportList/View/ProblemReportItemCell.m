@@ -135,6 +135,8 @@
 - (void)resetSubviewsWithData:(ReportListItemModel *)data {
     self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
     
+    self.txtOfTime.text = AVOIDNULL(data.ReuqestTimeFormat);
+    
     self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
     
     self.txtOfBaoxiu.text = [NSString stringWithFormat:@"报修：%@", data.ApprovalState];

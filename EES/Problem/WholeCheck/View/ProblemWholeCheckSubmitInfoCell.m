@@ -7,8 +7,12 @@
 //
 
 #import "ProblemWholeCheckSubmitInfoCell.h"
+#import "WholeCheckDetailItemDetailModel.h"
 
 @interface ProblemWholeCheckSubmitInfoCell ()
+
+@property (nonatomic, strong) WholeCheckDetailItemDetailModel *data;
+
 
 @property (nonatomic, strong) UIView *grayLine;
 
@@ -19,11 +23,15 @@
 
 @property (nonatomic, strong) UILabel *txtOfStandard;
 
-@property (nonatomic, strong) UILabel *txtOfMethod;
+//@property (nonatomic, strong) UILabel *txtOfMethod;
 
 @property (nonatomic, strong) UILabel *txtOfTool;
 
 @property (nonatomic, strong) UILabel *txtOfAttachment;
+
+@property (nonatomic, strong) UILabel *txtOfPhenomenon;
+
+@property (nonatomic, strong) UILabel *txtOfStrategy;
 
 @end
 
@@ -45,7 +53,7 @@
         make.left.offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfInstitute.text = @"点检项目：气缸";
+    
     
     self.txtOfEquipment = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfEquipment mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,7 +62,7 @@
         make.top.equalTo(self.txtOfInstitute.mas_bottom).offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfEquipment.text = @"部件：";
+    
     
     self.txtOfStandard = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfStandard mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -63,35 +71,104 @@
         make.top.equalTo(self.txtOfEquipment.mas_bottom).offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfStandard.text = @"标准： 1.电机有转动；2.电机无异音；3.电机无震动；4.电机转动连贯；";
     
-    self.txtOfMethod = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
-    [self.txtOfMethod mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.offset(10);
-        make.right.offset(-10);
-        make.top.equalTo(self.txtOfStandard.mas_bottom).offset(10);
-        make.height.mas_greaterThanOrEqualTo(21);
-    }];
-    self.txtOfMethod.text = @"方法：1.在电机工作时，目测从动部分有无明显位移2.在电机工作时，耳听电机有无发出不规律噪音3.在电机工作时，手触摸电机安装支架部分感触有无明显振动，在电机不工作时，用六角扳手测量紧固情况4.在电机工作时，目测电机从动部分或电机轴有无卡顿现象或明显加减速现象";
+    
+//    self.txtOfMethod = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+//    [self.txtOfMethod mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.offset(10);
+//        make.right.offset(-10);
+//        make.top.equalTo(self.txtOfStandard.mas_bottom).offset(10);
+//        make.height.mas_greaterThanOrEqualTo(21);
+//    }];
+    
     
     self.txtOfTool = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfTool mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.offset(-10);
-        make.top.equalTo(self.txtOfMethod.mas_bottom).offset(10);
+        make.top.equalTo(self.txtOfStandard.mas_bottom).offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
     }];
-    self.txtOfTool.text = @"工具：/";
     
-    self.txtOfAttachment = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    self.txtOfAttachment = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(MAIN_COLOR) parentView:self.contentView];
     [self.txtOfAttachment mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.offset(-10);
         make.top.equalTo(self.txtOfTool.mas_bottom).offset(10);
         make.height.mas_greaterThanOrEqualTo(21);
-        make.bottom.offset(-10);
     }];
-    self.txtOfAttachment.text = @"附件：未上传附件";
+    
+    self.txtOfPhenomenon = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    [self.txtOfPhenomenon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(10);
+        make.right.offset(-10);
+        make.top.equalTo(self.txtOfAttachment.mas_bottom).offset(10);
+        make.height.mas_greaterThanOrEqualTo(21);
+    }];
+    
+    self.txtOfStrategy = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
+    [self.txtOfStrategy mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(10);
+        make.right.offset(-10);
+        make.top.equalTo(self.txtOfPhenomenon.mas_bottom).offset(10);
+        make.height.mas_greaterThanOrEqualTo(21);
+    }];
+}
+
+- (void)resetSubviewsWithData:(WholeCheckDetailItemDetailModel *)data {
+    self.data = data;
+    
+    self.txtOfInstitute.text = [NSString stringWithFormat:@"机构：%@", AVOIDNULL(data.Mechanism)];
+    
+    self.txtOfEquipment.text = [NSString stringWithFormat:@"部件：%@", AVOIDNULL(data.Part)];
+    
+    self.txtOfStandard.text = [NSString stringWithFormat:@"标准：%@\n%@", AVOIDNULL(data.Standard), AVOIDNULL(data.Method)];
+    
+    self.txtOfTool.text = [NSString stringWithFormat:@"工具：%@", AVOIDNULL(data.ToolName.trim)];
+    
+    self.txtOfAttachment.text = [NSString stringWithFormat:@"附件：%@", @"未上传附件"];
+    
+    self.txtOfPhenomenon.text = [NSString stringWithFormat:@"现象：%@", AVOIDNULL(data.Phenomenon)];
+    
+    self.txtOfStrategy.text = [NSString stringWithFormat:@"策略：%@", AVOIDNULL(data.Phenomenon)];
+}
+
+- (void)showPhenomenonAndStrategy:(BOOL)shouldShow {
+    if (shouldShow) {
+        self.txtOfPhenomenon.hidden = NO;
+        self.txtOfStrategy.hidden = NO;
+        [self.txtOfAttachment mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(10);
+            make.right.offset(-10);
+            make.top.equalTo(self.txtOfTool.mas_bottom).offset(10);
+            make.height.mas_greaterThanOrEqualTo(21);
+        }];
+        
+        [self.txtOfStrategy mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(10);
+            make.right.offset(-10);
+            make.top.equalTo(self.txtOfPhenomenon.mas_bottom).offset(10);
+            make.height.mas_greaterThanOrEqualTo(21);
+            make.bottom.offset(-10);
+        }];
+    } else {
+        self.txtOfPhenomenon.hidden = YES;
+        self.txtOfStrategy.hidden = YES;
+        [self.txtOfAttachment mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(10);
+            make.right.offset(-10);
+            make.top.equalTo(self.txtOfTool.mas_bottom).offset(10);
+            make.height.mas_greaterThanOrEqualTo(21);
+            make.bottom.offset(-10);
+        }];
+        
+//        [self.txtOfStrategy mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.left.offset(10);
+//            make.right.offset(-10);
+//            make.top.equalTo(self.txtOfPhenomenon.mas_bottom).offset(10);
+//            make.height.mas_greaterThanOrEqualTo(21);
+//        }];
+    }
 }
 
 @end

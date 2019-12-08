@@ -27,4 +27,8 @@
     self.txtOfTitle.text = @"项目：电机";
 }
 
+- (void)resetSubviewsWithTitle:(NSString *)title {
+    self.txtOfTitle.text = title;
+}
+
 @end

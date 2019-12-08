@@ -14,8 +14,11 @@
 #import "ProblemWholeCheckSubmitAttachmentCell.h"
 
 #import "WholeCheckDetailItemModel.h"
+#import "WholeCheckDetailItemDetailModel.h"
 
 @interface ProblemWholeCheckSubmitVC ()
+
+@property (nonatomic, strong) WholeCheckDetailItemDetailModel *detailData;
 
 @end
 
@@ -65,10 +68,11 @@
     [SVProgressHUD show];
     
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL parameters:@{@"cmaProjectNo":self.data.CMAProjectNo} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL parameters:@{@"cmaProjectNo":self.data.CMAProjectNo} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL: %@", responseJson);
-    } failure:^(NSError * _Nonnull error) {
-        NSLog(@"WHOLE_CHECK_GET_DETAIL_ITEM_DETIAL error: %@", error);
+        [SVProgressHUD dismiss];
+        weakSelf.detailData = [WholeCheckDetailItemDetailModel mj_objectWithKeyValues:responseJson];
+        [weakSelf.tableView reloadData];
     }];
 }
 
@@ -130,9 +134,14 @@
         if (indexPath.row == 0) {
             ProblemWholeCheckSubmitTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitTitleCell.cellIdentifier forIndexPath:indexPath];
             
+            [cell resetSubviewsWithTitle:[NSString stringWithFormat:@"项目：%@", AVOIDNULL(self.detailData.Project)]];
+            
             return cell;
         } else {
             ProblemWholeCheckSubmitInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProblemWholeCheckSubmitInfoCell.cellIdentifier forIndexPath:indexPath];
+            
+            [cell resetSubviewsWithData:self.detailData];
+            [cell showPhenomenonAndStrategy:(self.state != 0)];
             
             return cell;
         }

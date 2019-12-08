@@ -77,6 +77,8 @@
 		4E5D9A282387E2E600B42D2A /* LoginTimeoutHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D9A272387E2E600B42D2A /* LoginTimeoutHintCell.m */; };
 		4E74FC362399900A001B8FE8 /* SeasoningManagementDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E74FC352399900A001B8FE8 /* SeasoningManagementDeviceModel.m */; };
 		4E74FC39239990F0001B8FE8 /* SeasoningManagementDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */; };
+		4E7D685C239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D685B239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m */; };
+		4E7D685F239C7D790055A92C /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D685E239C7D790055A92C /* NSString+Util.m */; };
 		4E9100A423829E6800DD195A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9100A323829E6800DD195A /* AppDelegate.m */; };
 		4E9100AF23829E6900DD195A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100AE23829E6900DD195A /* Assets.xcassets */; };
 		4E9100B223829E6900DD195A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E9100B023829E6900DD195A /* LaunchScreen.storyboard */; };
@@ -273,6 +275,10 @@
 		4E74FC352399900A001B8FE8 /* SeasoningManagementDeviceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementDeviceModel.m; sourceTree = "<group>"; };
 		4E74FC37239990F0001B8FE8 /* SeasoningManagementDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeasoningManagementDetailModel.h; sourceTree = "<group>"; };
 		4E74FC38239990F0001B8FE8 /* SeasoningManagementDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeasoningManagementDetailModel.m; sourceTree = "<group>"; };
+		4E7D685A239C79CD0055A92C /* WholeCheckDetailItemDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WholeCheckDetailItemDetailModel.h; sourceTree = "<group>"; };
+		4E7D685B239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WholeCheckDetailItemDetailModel.m; sourceTree = "<group>"; };
+		4E7D685D239C7D790055A92C /* NSString+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Util.h"; sourceTree = "<group>"; };
+		4E7D685E239C7D790055A92C /* NSString+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Util.m"; sourceTree = "<group>"; };
 		4E91009F23829E6800DD195A /* EES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E9100A223829E6800DD195A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4E9100A323829E6800DD195A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -423,6 +429,8 @@
 				4EF2E9652398969D00B64AEC /* WholeCheckItemModel.m */,
 				4E043A02239949920094F9D2 /* WholeCheckDetailItemModel.h */,
 				4E043A03239949920094F9D2 /* WholeCheckDetailItemModel.m */,
+				4E7D685A239C79CD0055A92C /* WholeCheckDetailItemDetailModel.h */,
+				4E7D685B239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,6 +511,8 @@
 				4EB808D323974B73009A3B91 /* UIView+Candy.m */,
 				4E98A7FA239A642B007BE469 /* NSString+HandleNull.h */,
 				4E98A7FB239A642B007BE469 /* NSString+HandleNull.m */,
+				4E7D685D239C7D790055A92C /* NSString+Util.h */,
+				4E7D685E239C7D790055A92C /* NSString+Util.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1331,6 +1341,7 @@
 				4E5A360C2385FD4C00ECB3B6 /* ProblemPeriodicalMaintenanceItemCell.m in Sources */,
 				4E5A362C2386A02700ECB3B6 /* ProblemGroupCheckListVC.m in Sources */,
 				4E9100A423829E6800DD195A /* AppDelegate.m in Sources */,
+				4E7D685F239C7D790055A92C /* NSString+Util.m in Sources */,
 				4E552FC923874A7100FC198B /* SeasoningManagementSecondCell.m in Sources */,
 				4ECB5A0A239760BC00E60400 /* MaintenanceConfirmationItemModel.m in Sources */,
 				4E98A7F9239A4FB1007BE469 /* SeasoningManagementJixingModel.m in Sources */,
@@ -1372,6 +1383,7 @@
 				4EB808C223972F6C009A3B91 /* MaintenanceItemModel.m in Sources */,
 				4E0B05E8239876A10027BDBB /* ProblemGroupCheckDetailUncheckedItemCell.m in Sources */,
 				4EDDAD7C23976ABF00E42762 /* PeriodicalMaintenanceItemModel.m in Sources */,
+				4E7D685C239C79CD0055A92C /* WholeCheckDetailItemDetailModel.m in Sources */,
 				4E5A36062385F71B00ECB3B6 /* ProblemMaintenanceConfirmationItemCell.m in Sources */,
 				4E0B05EE23987C840027BDBB /* GroupCheckDetailEditUncheckedTitleCell.m in Sources */,
 				4E552F9F238713F900FC198B /* ProblemWholeCheckItemVC.m in Sources */,
