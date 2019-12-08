@@ -217,6 +217,9 @@
     [mDict setValue:[data base64EncodedStringWithOptions:0] forKey:@"Picture"];
     [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_ACTION_UPLOAD_FILE parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"WHOLE_CHECK_ACTION_UPLOAD_FILE: %@", responseJson);
+        if (code == 1) {
+            [SVProgressHUD showInfoWithStatus:@"文件上传成功"];
+        }
     }];
 }
 

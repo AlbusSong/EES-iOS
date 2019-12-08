@@ -74,6 +74,10 @@
         [arrayResult addObject:obj];
     }
     
+    NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
+    [mDict setValue:arrayResult forKey:@"arrayResult"];
+    [mDict setValue:@"true" forKey:@"isPrest"];
+    NSLog(@"GROUP_CHECK_ACTION_SUBMIT mDict: %@", mDict);
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_SUBMIT parameters:@{@"arrayResult":arrayResult, @"isPrest":@"true"} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         if (code == 1) {
