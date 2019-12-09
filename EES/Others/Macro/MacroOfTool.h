@@ -62,6 +62,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 // NSString check
 #define AVOIDNULL(string) [NSString avoidNull:string]
+#define ISAVAILABLESTRING(string) [NSString isAvailableString:string]
 
 
 // Color

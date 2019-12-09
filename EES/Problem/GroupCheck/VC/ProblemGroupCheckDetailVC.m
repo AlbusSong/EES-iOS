@@ -68,15 +68,23 @@
     
     NSMutableArray *arrayResult = [NSMutableArray array];
     for (GroupCheckDetailItemModel *model in self.arrOfData) {
+        if (ISAVAILABLESTRING(model.Actual) == NO) {
+            continue;
+        }
         NSString *cmsProjectNo = model.CMSProjectNo;
         NSString *actual = model.Actual;
         NSDictionary *obj = @{@"CMSProjectNo":cmsProjectNo, @"Actual":actual};
         [arrayResult addObject:obj];
     }
     
+    if (arrayResult.count == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请至少修改一项数据"];
+        return;
+    }
+    
     NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
     [mDict setValue:arrayResult forKey:@"arrayResult"];
-    [mDict setValue:@"true" forKey:@"isPrest"];
+    [mDict setValue:((arrayResult.count == self.arrOfData.count) ? @"true" : @"false") forKey:@"isPrest"];
     [mDict setValue:self.data.CMSPlanNo forKey:@"cmsPlanNo"];
     [mDict setValue:self.data.CMSWorkOrderNo forKey:@"cmsWorkOrderNo"];
     NSLog(@"GROUP_CHECK_ACTION_SUBMIT mDict: %@", mDict);

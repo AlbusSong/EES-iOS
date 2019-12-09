@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Util)
 
++ (BOOL)isAvailableString:(NSString *)string;
+
 - (instancetype)trim;
 
 @end

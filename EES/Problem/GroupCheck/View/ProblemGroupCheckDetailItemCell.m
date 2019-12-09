@@ -143,7 +143,11 @@
     } else if ([data.JudgeType isEqualToString:@"人为判断"]) {
         self.tfdOfInput.hidden = YES;
         self.smcOfDecision.hidden = NO;
-        self.smcOfDecision.selectedSegmentIndex = ([data.Actual isEqualToString:@"1"] ? 0 : 1);
+        if (data.Actual.length == 0) {
+            self.smcOfDecision.selectedSegmentIndex = -1;
+        } else {
+            self.smcOfDecision.selectedSegmentIndex = ([data.Actual isEqualToString:@"1"] ? 0 : 1);
+        }
     }
 }
 
