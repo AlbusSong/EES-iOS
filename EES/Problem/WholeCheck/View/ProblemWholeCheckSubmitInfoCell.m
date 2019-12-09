@@ -90,7 +90,7 @@
         make.height.mas_greaterThanOrEqualTo(21);
     }];
     
-    self.txtOfAttachment = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(MAIN_COLOR) parentView:self.contentView];
+    self.txtOfAttachment = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfAttachment mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.offset(-10);

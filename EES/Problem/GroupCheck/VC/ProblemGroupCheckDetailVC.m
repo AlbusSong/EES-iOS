@@ -70,13 +70,15 @@
     for (GroupCheckDetailItemModel *model in self.arrOfData) {
         NSString *cmsProjectNo = model.CMSProjectNo;
         NSString *actual = model.Actual;
-        NSDictionary *obj = @{@"CmsProjectNo":cmsProjectNo, @"Actual":actual};
+        NSDictionary *obj = @{@"CMSProjectNo":cmsProjectNo, @"Actual":actual};
         [arrayResult addObject:obj];
     }
     
     NSMutableDictionary *mDict = [NSMutableDictionary dictionary];
     [mDict setValue:arrayResult forKey:@"arrayResult"];
     [mDict setValue:@"true" forKey:@"isPrest"];
+    [mDict setValue:self.data.CMSPlanNo forKey:@"cmsPlanNo"];
+    [mDict setValue:self.data.CMSWorkOrderNo forKey:@"cmsWorkOrderNo"];
     NSLog(@"GROUP_CHECK_ACTION_SUBMIT mDict: %@", mDict);
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_SUBMIT parameters:@{@"arrayResult":arrayResult, @"isPrest":@"true"} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
