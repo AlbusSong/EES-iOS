@@ -37,7 +37,7 @@
 @property (nonatomic, copy) NSArray *arrOfProblemLevel;
 @property (nonatomic, strong) NewReportProblemLevelModel *selectedProblemLevel;
 
-@property (nonatomic, copy) NSArray *arrOfProblemDesc;
+@property (nonatomic, strong) NSMutableArray *arrOfProblemDesc;
 @property (nonatomic, strong) NewReportProblemDescModel *selectedProblemDesc;
 
 
@@ -188,6 +188,10 @@
         NSLog(@"GET_PROBLEM_DESC_LIST: %@", responseJson);
         NSArray *extend = responseJson[@"Extend"];
         weakSelf.arrOfProblemDesc = [NewReportProblemDescModel mj_objectArrayWithKeyValuesArray:extend];
+        NewReportProblemDescModel *modelOfOther = [[NewReportProblemDescModel alloc] init];
+        modelOfOther.BMTypeName = @"其他";
+        modelOfOther.BMTypeCode = @"Other";
+        [weakSelf.arrOfProblemDesc addObject:modelOfOther];
     }];
 }
 
@@ -309,6 +313,7 @@
                 weakSelf.selectedProblemLevel = [weakSelf.arrOfProblemLevel objectAtIndex:index];
             } else if (weakSelf.selectedIndex == 5) {
                 weakSelf.selectedProblemDesc = [weakSelf.arrOfProblemDesc objectAtIndex:index];
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:6 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
             }
         };
         [self presentViewController:vcOfAnswerSelection animated:NO completion:nil];
@@ -353,6 +358,11 @@
         
         cell.delegate = self;
         
+        [cell setEnable:NO];
+        if (self.selectedProblemDesc &&
+            [self.arrOfProblemDesc indexOfObject:self.selectedProblemDesc] == (self.arrOfProblemDesc.count - 1)) {
+            [cell setEnable:YES];
+        }
         [cell resetTitle:@"故障现象"];
         
         return cell;

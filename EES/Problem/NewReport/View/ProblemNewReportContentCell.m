@@ -60,6 +60,10 @@
     }
 }
 
+- (void)setEnable:(BOOL)shouldEnable {
+    self.txvOfContent.editable = shouldEnable;
+}
+
 #pragma mark UITextViewDelegate
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
