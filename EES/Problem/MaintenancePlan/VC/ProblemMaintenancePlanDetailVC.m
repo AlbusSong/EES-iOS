@@ -99,9 +99,15 @@
     [SVProgressHUD show];
     
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ACTION_START parameters:@{@"id":self.detailData.WorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ACTION_START parameters:@{@"id":self.detailData.ID} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD showInfoWithStatus:@"操作成功"];
         NSLog(@"MAINTENANCE_PLAN_GET_ACTION_START: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+                
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         [weakSelf back];
         if (weakSelf.backBlock) {
             weakSelf.backBlock();
@@ -113,9 +119,14 @@
     [SVProgressHUD show];
     
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ACTION_END parameters:@{@"id":self.detailData.WorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_PLAN_GET_ACTION_END parameters:@{@"id":self.detailData.ID} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"MAINTENANCE_PLAN_GET_ACTION_END: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+                
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         [weakSelf back];
         if (weakSelf.backBlock) {
             weakSelf.backBlock();

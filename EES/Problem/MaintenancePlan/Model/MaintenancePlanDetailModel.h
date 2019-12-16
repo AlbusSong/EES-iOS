@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *LineName;
 
+@property (nonatomic, copy) NSString *ID;
+
 @property (nonatomic, copy) NSString *RoleName;
 
 @property (nonatomic, copy) NSString *WorkOrderNo;

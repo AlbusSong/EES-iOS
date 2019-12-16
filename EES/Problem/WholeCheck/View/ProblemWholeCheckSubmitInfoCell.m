@@ -130,7 +130,7 @@
     
     self.txtOfPhenomenon.text = [NSString stringWithFormat:@"现象：%@", AVOIDNULL(data.Phenomenon)];
     
-    self.txtOfStrategy.text = [NSString stringWithFormat:@"策略：%@", AVOIDNULL(data.Phenomenon)];
+    self.txtOfStrategy.text = [NSString stringWithFormat:@"策略：%@", AVOIDNULL(data.Countermeasure)];
 }
 
 - (void)resetAttachmentInfo:(NSString *)attachmentInfo {

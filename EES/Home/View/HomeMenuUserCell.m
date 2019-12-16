@@ -41,7 +41,7 @@
         make.top.equalTo(self.imgvOfPortrait.mas_top).offset(5);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfUsername.text = @"zq";
+    self.txtOfUsername.text = AVOIDNULL(MeInfo.sharedInstance.username);
     
     self.txtOfNickname = [UILabel quickLabelWithFont:[UIFont boldSystemFontOfSize:15] textColor:HexColor(MAIN_COLOR) parentView:self.contentView];
     [self.txtOfNickname mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,7 +49,7 @@
         make.bottom.equalTo(self.imgvOfPortrait.mas_bottom).offset(-5);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfNickname.text = @"张强";
+    self.txtOfNickname.text = AVOIDNULL(MeInfo.sharedInstance.password);
 }
 
 @end

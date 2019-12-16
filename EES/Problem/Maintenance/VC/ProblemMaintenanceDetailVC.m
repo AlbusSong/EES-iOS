@@ -135,8 +135,14 @@
     
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_ACTION_START parameters:@{@"workOrderNo":self.data.BMWorkOrder} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"开始成功"];
         NSLog(@"MAINTENANCE_ACTION_START: %@", responseJson);
+        
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"开始成功"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf getDataFromServer];
         });

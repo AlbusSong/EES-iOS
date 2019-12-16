@@ -107,7 +107,7 @@
     NSLog(@"CMSWorkOrder/Deal mDict: %@", mDict);
     [SVProgressHUD show];
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT parameters:@{} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT parameters:mDict success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"GROUP_CHECK_ACTION_DETAIL_ITEM_UNCHECKED_SUBMIT: %@", responseJson);
         if (code == 0) {
             [SVProgressHUD showInfoWithStatus:message];

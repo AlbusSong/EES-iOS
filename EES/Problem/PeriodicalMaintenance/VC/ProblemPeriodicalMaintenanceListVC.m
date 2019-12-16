@@ -18,7 +18,7 @@
 
 @property (nonatomic, copy) NSString *searchContent;
 
-@property (nonatomic) NSInteger currentPage;
+//@property (nonatomic) NSInteger currentPage;
 
 @end
 

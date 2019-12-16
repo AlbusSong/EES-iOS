@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *ActUseCount;
 
-@property (nonatomic, copy) NSString *UsePartType;
+@property (nonatomic, copy) NSString *UsePartType1;
 
 @property (nonatomic, copy) NSString *UsePart;
 

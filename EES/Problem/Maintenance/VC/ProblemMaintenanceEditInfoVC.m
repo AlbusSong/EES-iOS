@@ -100,6 +100,11 @@
         return;
     }
     
+    if (self.content.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请填写备注"];
+        return;
+    }
+    
     WS(weakSelf)
     [GlobalTool popAlertWithTitle:@"确定操作?" message:nil yesStr:@"确定" yesActionBlock:^{
         [weakSelf realActionOfSubmission];

@@ -112,7 +112,7 @@
     
     self.txtOfInfo5.text = [NSString stringWithFormat:@"使用次数：%@", [NSString avoidNull:data.ActUseCount]];
     
-    self.txtOfInfo6.text = [NSString stringWithFormat:@"适用类型：%@", [NSString avoidNull:data.UsePartType]];
+    self.txtOfInfo6.text = [NSString stringWithFormat:@"适用类型：%@", [NSString avoidNull:data.UsePartType1]];
     
     self.txtOfInfo7.text = [NSString stringWithFormat:@"适用机型：%@", [NSString avoidNull:data.UsePart]];
 }

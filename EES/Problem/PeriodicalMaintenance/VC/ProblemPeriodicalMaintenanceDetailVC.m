@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) PeriodicalMaintenanceDetailModel *detailData;
 
+@property (nonatomic, copy) NSString *attachment;
+
 @end
 
 @implementation ProblemPeriodicalMaintenanceDetailVC
@@ -83,6 +85,7 @@
     
     [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_GET_ATTACHMENT parameters:@{@"planNo":self.data.PMPlanNO} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"PERIODICAL_MAINTENANCE_GET_ATTACHMENT: %@", responseJson);
+        weakSelf.attachment = responseJson[@"Extend"];
     }];
 }
 
@@ -107,8 +110,13 @@
     
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_ACTION_START parameters:@{@"workOrderNo":self.detailData.PMWorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         NSLog(@"PERIODICAL_MAINTENANCE_ACTION_START: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         [weakSelf back];
         if (weakSelf.backBlock) {
             weakSelf.backBlock();
@@ -121,8 +129,13 @@
     
     WS(weakSelf)
     [[EESHttpDigger sharedInstance] postWithUri:PERIODICAL_MAINTENANCE_ACTION_END parameters:@{@"workOrderNo":self.detailData.PMWorkOrderNo} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         NSLog(@"PERIODICAL_MAINTENANCE_ACTION_END: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return ;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
         [weakSelf back];
         if (weakSelf.backBlock) {
             weakSelf.backBlock();

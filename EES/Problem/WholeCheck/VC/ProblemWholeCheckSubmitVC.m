@@ -93,7 +93,7 @@
             return;
         }
         
-        if (self.phenomenon.length == 0) {
+        if (self.strategy.length == 0) {
             [SVProgressHUD showInfoWithStatus:@"请填写策略"];
             return;
         }
