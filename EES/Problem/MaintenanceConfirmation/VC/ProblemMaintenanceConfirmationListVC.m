@@ -136,16 +136,16 @@
 }
 
 - (void)rejectActionWithReason:(NSString *)reason {
-    if (reason.length == 0) {
-        [SVProgressHUD showInfoWithStatus:@"请输入拒绝原因"];
-        return;
-    }
+//    if (reason.length == 0) {
+//        [SVProgressHUD showInfoWithStatus:@"请输入拒绝原因"];
+//        return;
+//    }
     
     [SVProgressHUD show];
     
     MaintenanceConfirmationItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
     WS(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_REJECT parameters:@{@"no":selectedModel.BMWorkOrder, @"reason":reason} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_REJECT parameters:@{@"no":selectedModel.BMWorkOrder, @"reason":AVOIDNULL(reason)} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"MAINTENANCE_CONFIRMATION_ACTION_APPROVE: %@", responseJson);
         if (code == 0) {
             [SVProgressHUD showInfoWithStatus:message];
