@@ -100,17 +100,17 @@
 }
 
 - (void)resetSubviewsWithData:(MaintenancePlanItemModel *)data {
-    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", data.EquipCode, data.EquipName];
+    self.txtOfTitle.text = [NSString stringWithFormat:@"%@|%@", AVOIDNULL(data.EquipCode), AVOIDNULL(data.EquipName)];
     
-    self.txtOfGongdan.text = [NSString stringWithFormat:@"工单：%@", data.WorkOrderNo];
+    self.txtOfGongdan.text = [NSString stringWithFormat:@"工单：%@", AVOIDNULL(data.WorkOrderNo)];
     
-    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
+    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", AVOIDNULL(data.LineName)];
     
-    self.txtOfGongdanjihuari.text = [NSString stringWithFormat:@"工单计划日：%@", data.PlanDate1];
+    self.txtOfGongdanjihuari.text = [NSString stringWithFormat:@"工单计划日：%@", AVOIDNULL(data.PlanDate1)];
     
-    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.WorkOrderState];
+    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", AVOIDNULL(data.WorkOrderState)];
     
-    self.txtOfWeixiuxiangmu.text = [NSString stringWithFormat:@"维修项目：%@", data.SMItem];
+    self.txtOfWeixiuxiangmu.text = [NSString stringWithFormat:@"维修项目：%@", AVOIDNULL(data.SMItem)];
 }
 
 @end

@@ -78,15 +78,15 @@
 }
 
 - (void)resetSubviewsWithData:(MaintenancePlanDetailModel *)data {
-    self.txtOfInfo1.text = [NSString stringWithFormat:@"产线名称：%@", data.LineName];
+    self.txtOfInfo1.text = [NSString stringWithFormat:@"产线名称：%@", AVOIDNULL(data.LineName)];
     
-    self.txtOfInfo2.text = [NSString stringWithFormat:@"计划日期：%@", data.PlanDate1];
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"计划日期：%@", AVOIDNULL(data.PlanDate1)];
     
-    self.txtOfInfo3.text = [NSString stringWithFormat:@"当前状态：%@", data.WorkOrderState];
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"当前状态：%@", AVOIDNULL(data.WorkOrderState)];
     
-    self.txtOfInfo4.text = [NSString stringWithFormat:@"维修项目：：%@", data.SMItem];
+    self.txtOfInfo4.text = [NSString stringWithFormat:@"维修项目：：%@", AVOIDNULL(data.SMItem)];
     
-    self.txtOfInfo5.text = [NSString stringWithFormat:@"实际日期：%@", data.PlanDate1];
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"实际日期：%@", AVOIDNULL(data.PlanDate1)];
 }
 
 @end
