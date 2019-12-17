@@ -127,23 +127,23 @@
 }
 
 - (void)resetSubviewsWithData:(PeriodicalMaintenanceDetailModel *)data {
-    self.txtOfInfo1.text = [NSString stringWithFormat:@"产线名称：%@", data.LineName];
+    self.txtOfInfo1.text = [NSString stringWithFormat:@"产线名称：%@", AVOIDNULL(data.LineName)];
     
-    self.txtOfInfo2.text = [NSString stringWithFormat:@"计划日期：%@", data.WorkOrderPlanDate1];
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"计划日期：%@", AVOIDNULL(data.WorkOrderPlanDate1)];
     
-    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.WorkOrderState1];
+    self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", AVOIDNULL(data.WorkOrderState1)];
     
-    self.txtOfInfo3.text = [NSString stringWithFormat:@"保养类型：%@", data.PMTypeName];
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"保养类型：%@", AVOIDNULL(data.PMTypeName)];
     
-    self.txtOfInfo4.text = [NSString stringWithFormat:@"保养项目：%@", data.Item];
+    self.txtOfInfo4.text = [NSString stringWithFormat:@"保养项目：%@", AVOIDNULL(data.Item)];
     
-    self.txtOfInfo5.text = [NSString stringWithFormat:@"保养方法：%@", data.Method];
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"保养方法：%@", AVOIDNULL(data.Method)];
     
-    self.txtOfInfo6.text = [NSString stringWithFormat:@"保养内容：%@", data.Detail];
+    self.txtOfInfo6.text = [NSString stringWithFormat:@"保养内容：%@", AVOIDNULL(data.Detail)];
     
-    self.txtOfInfo7.text = [NSString stringWithFormat:@"保养标准：%@", data.Stardard];
+    self.txtOfInfo7.text = [NSString stringWithFormat:@"保养标准：%@", AVOIDNULL(data.Stardard)];
     
-    self.txtOfInfo8.text = [NSString stringWithFormat:@"实际日期：%@", data.VendorMaintanceDay];
+    self.txtOfInfo8.text = [NSString stringWithFormat:@"实际日期：%@", AVOIDNULL(data.WorkOrderStartDate1)];
 }
 
 @end

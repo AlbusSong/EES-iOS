@@ -92,6 +92,8 @@
 }
 
 - (void)getDataFromServer {
+    self.currentPage = 10;
+    [self.arrOfData removeAllObjects];
     [self getDataFromServerShouldShowHUD:YES];
 }
 
@@ -102,9 +104,7 @@
 }
 
 - (void)tryToSearch {
-    if (self.searchContent.length == 0) {
-        return;
-    }
+    [self getDataFromServer];
     
     [self.view endEditing:YES];
 }
