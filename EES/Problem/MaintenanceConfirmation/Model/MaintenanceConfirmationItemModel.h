@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 报工时间
 @property (nonatomic, copy) NSString *WorkOrderEndTime;
 
+@property (nonatomic, copy) NSString *BMWorkOrder;
+
 @property (nonatomic, copy) NSString *BMRequestNO;
 
 @property (nonatomic, copy) NSString *ItemDesc;

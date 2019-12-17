@@ -57,7 +57,7 @@
     self.txtOfTime = [UILabel quickLabelWithFont:[UIFont systemFontOfSize:15] textColor:HexColor(@"999999") parentView:self.contentView];
     [self.txtOfTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.imgvOfSelection.mas_left).offset(-5);
-        make.top.offset(10);
+        make.top.offset(15);
         make.height.mas_equalTo(21);
     }];
     
@@ -147,7 +147,7 @@
     
     self.txtOfBaogongshijian.text = [NSString stringWithFormat:@"报工时间：%@", data.WorkOrderEndTime];
     
-    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"单号：%@", data.BMRequestNO];
+    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"单号：%@", data.BMWorkOrder];
     
     self.txtOfStrategy.text = [NSString stringWithFormat:@"对策：%@", data.PrestRemark];
 }

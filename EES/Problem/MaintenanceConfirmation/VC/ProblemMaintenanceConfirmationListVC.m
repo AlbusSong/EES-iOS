@@ -97,9 +97,18 @@
     [SVProgressHUD show];
     
     MaintenanceConfirmationItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
-    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_APPROVE parameters:@{@"no":selectedModel.BMRequestNO} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_APPROVE parameters:@{@"no":selectedModel.BMWorkOrder} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"MAINTENANCE_CONFIRMATION_ACTION_APPROVE: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        [weakSelf.arrOfData removeObjectAtIndex:weakSelf.selectedIndex];
+        weakSelf.selectedIndex = -1;
+        [weakSelf.tableView reloadData];
     }];
 }
 
@@ -135,9 +144,18 @@
     [SVProgressHUD show];
     
     MaintenanceConfirmationItemModel *selectedModel = [self.arrOfData objectAtIndex:self.selectedIndex];
-    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_REJECT parameters:@{@"no":selectedModel.BMRequestNO, @"reason":reason} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
-        [SVProgressHUD showInfoWithStatus:@"驳回成功"];
-        NSLog(@"MAINTENANCE_CONFIRMATION_ACTION_REJECT: %@", responseJson);
+    WS(weakSelf)
+    [[EESHttpDigger sharedInstance] postWithUri:MAINTENANCE_CONFIRMATION_ACTION_REJECT parameters:@{@"no":selectedModel.BMWorkOrder, @"reason":reason} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+        NSLog(@"MAINTENANCE_CONFIRMATION_ACTION_APPROVE: %@", responseJson);
+        if (code == 0) {
+            [SVProgressHUD showInfoWithStatus:message];
+            return;
+        }
+        
+        [SVProgressHUD showInfoWithStatus:@"操作成功"];
+        [weakSelf.arrOfData removeObjectAtIndex:weakSelf.selectedIndex];
+        weakSelf.selectedIndex = -1;
+        [weakSelf.tableView reloadData];
     }];
 }
 
