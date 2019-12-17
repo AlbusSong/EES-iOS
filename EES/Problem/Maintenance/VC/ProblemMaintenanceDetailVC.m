@@ -106,6 +106,11 @@
             [weakSelf tryToStartMaintenance];
         }];
         return;
+    } else {
+        if ([self.detailData.BMEBoardStateDesc isEqualToString:@"待维修"]) {
+            [SVProgressHUD showInfoWithStatus:@"工单尚未开始"];
+            return;
+        }
     }
     
     ProblemMaintenanceEditInfoVC *vc = [[ProblemMaintenanceEditInfoVC alloc] init];
