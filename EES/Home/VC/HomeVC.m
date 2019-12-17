@@ -97,7 +97,7 @@
     
     [[EESHttpDigger sharedInstance] postWithUri:LOGIN parameters:@{@"UserName":[MeInfo sharedInstance].username, @"Password":[MeInfo sharedInstance].password} success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         NSLog(@"LOGIN responseJson: %@", responseJson);
-        
+        MeInfo.sharedInstance.nickname = responseJson[@"Category"];
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"LOGIN error: %@", error);
     }];

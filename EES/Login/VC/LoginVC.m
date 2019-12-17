@@ -185,6 +185,7 @@
         [MeInfo sharedInstance].isLogined = YES;
         [MeInfo sharedInstance].username = weakSelf.username;
         [MeInfo sharedInstance].password = weakSelf.password;
+        [MeInfo sharedInstance].nickname = responseJson[@"Category"];
         
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginStatusChanged" object:nil];
         [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];

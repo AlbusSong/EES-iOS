@@ -49,7 +49,7 @@
         make.bottom.equalTo(self.imgvOfPortrait.mas_bottom).offset(-5);
         make.height.mas_equalTo(21);
     }];
-    self.txtOfNickname.text = AVOIDNULL(MeInfo.sharedInstance.password);
+    self.txtOfNickname.text = AVOIDNULL(MeInfo.sharedInstance.nickname);
 }
 
 @end

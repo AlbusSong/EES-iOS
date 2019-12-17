@@ -35,7 +35,9 @@ static MeInfo *instance = nil;
     
     self.isLogined = [userDefaults boolForKey:@"isLogined"];
     self.username = [userDefaults objectForKey:@"username"];
+    self.nickname = [userDefaults objectForKey:@"nickname"];
     self.password = [userDefaults objectForKey:@"password"];
+    
     self.shouldRememberMe = [userDefaults boolForKey:@"shouldRememberMe"];
     self.cookie = [userDefaults objectForKey:@"cookie"];
 }
@@ -53,6 +55,13 @@ static MeInfo *instance = nil;
     _username = username;
     
     [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setNickname:(NSString *)nickname {
+    _nickname = nickname;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nickname forKey:@"nickname"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
