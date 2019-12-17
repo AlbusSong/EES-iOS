@@ -13,6 +13,12 @@ static UILabel *txtForSizeFitting = nil;
 
 @implementation GlobalTool
 
++ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = format;
+    return [dateFormatter dateFromString:dateString];
+}
+
 #pragma mark 计算文本大小
 
 + (CGSize)sizeFitsWithSize:(CGSize)size text:(NSString *)text fontSize:(CGFloat)fontSize {

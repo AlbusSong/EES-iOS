@@ -46,6 +46,9 @@
     
     self.view.backgroundColor = HexColor(@"f0eff5");
     
+    // Set timezone
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+    
     [self initSubviews];
     
     [self getDataFromServer];

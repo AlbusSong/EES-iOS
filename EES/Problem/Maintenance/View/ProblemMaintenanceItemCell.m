@@ -102,9 +102,9 @@
     
     self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
     
-    self.txtOfDuration.text = [NSString stringWithFormat:@"耗时：%@", data.ResponseTimeLength];
+    self.txtOfDuration.text = [NSString stringWithFormat:@"耗时：%@分钟", data.ResponseTimeLength];
     
-    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"工单：%@", data.BMRequestNO];
+    self.txtOfOrderNumber.text = [NSString stringWithFormat:@"工单：%@", data.BMWorkOrder];
     
     self.txtOfStatus.text = [NSString stringWithFormat:@"状态：%@", data.BMWorkOrderStateName];
 }

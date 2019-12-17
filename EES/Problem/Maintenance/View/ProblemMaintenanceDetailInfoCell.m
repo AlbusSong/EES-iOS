@@ -133,21 +133,21 @@
 }
 
 - (void)resetSubviewsWithData:(MaintenanceDetailModel *)data {
-    self.txtOfInfo1.text = [NSString stringWithFormat:@"工单编号：%@", data.BMRequestNO];
+    self.txtOfInfo1.text = [NSString stringWithFormat:@"工单编号：%@", AVOIDNULL(data.BMWorkOrder)];
     
-    self.txtOfInfo2.text = [NSString stringWithFormat:@"工单状态：%@", data.BMEBoardStateDesc];
+    self.txtOfInfo2.text = [NSString stringWithFormat:@"工单状态：%@", AVOIDNULL(data.BMEBoardStateDesc)];
     
-    self.txtOfInfo3.text = [NSString stringWithFormat:@"开始时间：%@", data.WorkOrderStarTime];
+    self.txtOfInfo3.text = [NSString stringWithFormat:@"开始时间：%@", AVOIDNULL(data.WorkOrderStarTime)];
     
-    self.txtOfInfo4.text = [NSString stringWithFormat:@"故障等级：%@", data.LevelDesc];
+    self.txtOfInfo4.text = [NSString stringWithFormat:@"故障等级：%@", AVOIDNULL(data.LevelDesc)];
     
-    self.txtOfInfo5.text = [NSString stringWithFormat:@"维修角色：%@", data.RoleName];
+    self.txtOfInfo5.text = [NSString stringWithFormat:@"维修角色：%@", AVOIDNULL(data.RoleName)];
     
-    self.txtOfInfo6.text = [NSString stringWithFormat:@"委外状态：%@", data.VendorRquestState];
+    self.txtOfInfo6.text = [NSString stringWithFormat:@"委外状态：%@", AVOIDNULL(data.VendorRquestState)];
     
-    self.txtOfInfo7.text = [NSString stringWithFormat:@"是否驳回：%@", data.QCRefuse];
+    self.txtOfInfo7.text = [NSString stringWithFormat:@"是否驳回：%@", AVOIDNULL(data.QCRefuse)];
     
-    self.txtOfInfo8.text = [NSString stringWithFormat:@"驳回原因：%@", data.QCRejectReason];
+    self.txtOfInfo8.text = [NSString stringWithFormat:@"驳回原因：%@", AVOIDNULL(data.QCRejectReason)];
 }
 
 @end

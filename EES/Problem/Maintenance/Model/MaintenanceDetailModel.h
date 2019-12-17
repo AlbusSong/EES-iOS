@@ -42,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *WorkOrderStarTime;
 
+@property (nonatomic, copy) NSString *FaultStartTime;
+
 @property (nonatomic, copy) NSString *BMEBoardStateDesc;
 
 @property (nonatomic, copy) NSString *LevelDesc;

@@ -93,15 +93,15 @@
 }
 
 - (void)resetSubviewsWithData:(MaintenanceDetailModel *)data {
-    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
+    self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", AVOIDNULL(data.LineName)];
     
-    self.txtOfType.text = [NSString stringWithFormat:@"类型：%@", data.BMTypeName];
+    self.txtOfType.text = [NSString stringWithFormat:@"类型：%@", AVOIDNULL(data.BMTypeName)];
     
-    self.txtOfBaoxiu.text = [NSString stringWithFormat:@"报修：%@",data.ReuqestTimeFormat];
+    self.txtOfBaoxiu.text = [NSString stringWithFormat:@"报修：%@", AVOIDNULL(data.ReuqestTimeFormat)];
     
-    self.txtOfBaoxiuren.text = [NSString stringWithFormat:@"报修人：%@", data.RoleName];
+    self.txtOfBaoxiuren.text = [NSString stringWithFormat:@"报修人：%@", AVOIDNULL(data.RequestOperatorDesc)];
     
-    self.txtOfXianxiang.text = [NSString stringWithFormat:@"现象：%@", data.ItemDesc];
+    self.txtOfXianxiang.text = [NSString stringWithFormat:@"现象：%@", AVOIDNULL(data.ItemDesc)];
 }
 
 @end

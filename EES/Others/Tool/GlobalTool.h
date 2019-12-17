@@ -14,6 +14,8 @@ typedef void (^AlertActionBlock) (void);
 
 @interface GlobalTool : NSObject
 
++ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format;
+
 + (CGSize)sizeFitsWithSize:(CGSize)size text:(NSString *)text fontSize:(CGFloat)fontSize;
 + (CGSize)sizeFitsWithSize:(CGSize)size text:(NSString *)text font:(UIFont *)font;
 + (CGSize)sizeFitsWithSize:(CGSize)size attributeText:(NSAttributedString *)attributeText;

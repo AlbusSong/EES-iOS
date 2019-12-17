@@ -54,14 +54,15 @@
         self.title = @"故障维修报工";
     }
     
-    [self.arrOfInfo addObject:[NSString stringWithFormat:@"设备名称：%@|%@", self.detailData.EquipCode, self.detailData.EquipName]];
-    [self.arrOfInfo addObject:[NSString stringWithFormat:@"故障时间：%@", self.detailData.ReuqestTimeFormat]];
-    [self.arrOfInfo addObject:[NSString stringWithFormat:@"维修时间：%@", self.detailData.WorkOrderStarTime]];
-    [self.arrOfInfo addObject:[NSString stringWithFormat:@"持续时间：%@", self.detailData.ResponseTimeLength]];
+    [self.arrOfInfo addObject:[NSString stringWithFormat:@"设备名称：%@|%@", AVOIDNULL(self.detailData.EquipCode), AVOIDNULL(self.detailData.EquipName)]];
+    [self.arrOfInfo addObject:[NSString stringWithFormat:@"故障时间：%@", AVOIDNULL(self.detailData.FaultStartTime)]];
+    [self.arrOfInfo addObject:[NSString stringWithFormat:@"维修时间：%@", AVOIDNULL(self.detailData.WorkOrderStarTime)]];
+    NSInteger secondsDuration = [[NSDate date] timeIntervalSince1970] - [GlobalTool dateFromString:self.detailData.FaultStartTime format:@"yyyy-MM-dd'T'HH:mm:ss.SSS"].timeIntervalSince1970;
+    [self.arrOfInfo addObject:[NSString stringWithFormat:@"持续时间：%li分钟", (NSInteger)(ceilf(secondsDuration/60.0))]];
     if (self.editInfoType == MaintenanceEditInfoType_ChangeLevel) {
-        [self.arrOfInfo addObject:[NSString stringWithFormat:@"当前等级：%@", self.detailData.LevelDesc]];
+        [self.arrOfInfo addObject:[NSString stringWithFormat:@"当前等级：%@", AVOIDNULL(self.detailData.LevelDesc)]];
     } else if (self.editInfoType == MaintenanceEditInfoType_ChangeRole) {
-        [self.arrOfInfo addObject:[NSString stringWithFormat:@"当前角色：%@", self.detailData.RoleName]];
+        [self.arrOfInfo addObject:[NSString stringWithFormat:@"当前角色：%@", AVOIDNULL(self.detailData.RoleName)]];
     }
     
     
@@ -85,7 +86,14 @@
     }];
     
     [self getDataFromServer];
+    
+    
+//    NSDate *date = [self dateFromString:self.detailData.FaultStartTime format:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
+//    NSInteger timeDelta = [[NSDate date] timeIntervalSince1970] - date.timeIntervalSince1970;
+//    NSLog(@"dateFromString: %@, %i", date, timeDelta);
 }
+
+
 
 #pragma mark gestures
 
