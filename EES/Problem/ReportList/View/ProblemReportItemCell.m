@@ -139,7 +139,7 @@
     
     self.txtOfChanxian.text = [NSString stringWithFormat:@"产线：%@", data.LineName];
     
-    self.txtOfBaoxiu.text = [NSString stringWithFormat:@"报修：%@", data.ApprovalState];
+    self.txtOfBaoxiu.text = [NSString stringWithFormat:@"报修：%@", data.RequestOperator];
     
     self.txtOfRole.text = [NSString stringWithFormat:@"角色：%@", data.RoleName];
     

@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *ApprovalState;
 
+@property (nonatomic, copy) NSString *RequestOperator;
+
 @end
 
 NS_ASSUME_NONNULL_END

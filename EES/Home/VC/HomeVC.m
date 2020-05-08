@@ -20,7 +20,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"智无形云MES";
+        WS(weakSelf)
+        self.title = @"智无形云EES";
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_navigationbar_action_menu"] style:UIBarButtonItemStyleDone target:self action:@selector(gotoMenu)];
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"S" style:UIBarButtonItemStyleDone target:self action:@selector(gotoSearch)];

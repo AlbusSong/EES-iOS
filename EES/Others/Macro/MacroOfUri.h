@@ -9,7 +9,7 @@
 #ifndef MacroOfUri_h
 #define MacroOfUri_h
 
-#define BASE_URL @"http://oscarzq.51vip.biz:51593/"
+#define BASE_URL @"https://3nz1401256.picp.vip/"
 //#define BASE_URL @"https://58.210.106.178:4433/"
 
 

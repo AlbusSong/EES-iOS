@@ -70,7 +70,7 @@
     }
     
     WeakSelf(weakSelf)
-    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @"", @"size":@(self.currentPage)} shouldCache:YES success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
+    [[EESHttpDigger sharedInstance] postWithUri:WHOLE_CHECK_GET_LIST parameters:@{@"equipName":self.searchContent ? self.searchContent : @"", @"size":@(self.currentPage)} shouldCache:NO success:^(int code, NSString * _Nonnull message, id  _Nonnull responseJson) {
         [SVProgressHUD dismiss];
         NSLog(@"WHOLE_CHECK_GET_LIST: %@", responseJson);
         NSArray *arr = [WholeCheckItemModel mj_objectArrayWithKeyValuesArray:responseJson[@"Extend"]];
@@ -132,6 +132,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    self.tableView.mj_footer.hidden = (self.arrOfData.count == 0);
     return self.arrOfData.count;
 }
 

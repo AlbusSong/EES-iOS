@@ -732,10 +732,6 @@
 				4EE14980239988AA006DDF06 /* Model */,
 				4E552FC323874A4800FC198B /* View */,
 				4EE1497F23998887006DDF06 /* VC */,
-				4E552FC02387493400FC198B /* SeasoningManagementVC.h */,
-				4E552FC12387493400FC198B /* SeasoningManagementVC.m */,
-				4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */,
-				4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */,
 			);
 			path = SeasoningManagement;
 			sourceTree = "<group>";
@@ -1128,6 +1124,10 @@
 		4EE1497F23998887006DDF06 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				4E552FC02387493400FC198B /* SeasoningManagementVC.h */,
+				4E552FC12387493400FC198B /* SeasoningManagementVC.m */,
+				4E552FCA23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.h */,
+				4E552FCB23874FEC00FC198B /* SeasoningManagementScanBarcodeVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1533,14 +1533,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y3HHHZ63R;
+				DEVELOPMENT_TEAM = 8YXMXFL3B7;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EES/SupportingFiles/EES.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/EES/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.mes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.ees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1552,14 +1552,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y3HHHZ63R;
+				DEVELOPMENT_TEAM = 8YXMXFL3B7;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EES/SupportingFiles/EES.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/EES/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.mes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zivos.ees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
